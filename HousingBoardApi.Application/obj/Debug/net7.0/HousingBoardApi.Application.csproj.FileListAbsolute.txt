@@ -1,0 +1,11 @@
+C:\Users\jonas\source\repos\BoligAdministration\HousingBoardApi.Application\bin\Debug\net7.0\HousingBoardApi.Application.deps.json
+C:\Users\jonas\source\repos\BoligAdministration\HousingBoardApi.Application\bin\Debug\net7.0\HousingBoardApi.Application.dll
+C:\Users\jonas\source\repos\BoligAdministration\HousingBoardApi.Application\bin\Debug\net7.0\HousingBoardApi.Application.pdb
+C:\Users\jonas\source\repos\BoligAdministration\HousingBoardApi.Application\obj\Debug\net7.0\HousingBoardApi.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jonas\source\repos\BoligAdministration\HousingBoardApi.Application\obj\Debug\net7.0\HousingBoardApi.Application.AssemblyInfoInputs.cache
+C:\Users\jonas\source\repos\BoligAdministration\HousingBoardApi.Application\obj\Debug\net7.0\HousingBoardApi.Application.AssemblyInfo.cs
+C:\Users\jonas\source\repos\BoligAdministration\HousingBoardApi.Application\obj\Debug\net7.0\HousingBoardApi.Application.csproj.CoreCompileInputs.cache
+C:\Users\jonas\source\repos\BoligAdministration\HousingBoardApi.Application\obj\Debug\net7.0\HousingBoardApi.Application.dll
+C:\Users\jonas\source\repos\BoligAdministration\HousingBoardApi.Application\obj\Debug\net7.0\refint\HousingBoardApi.Application.dll
+C:\Users\jonas\source\repos\BoligAdministration\HousingBoardApi.Application\obj\Debug\net7.0\HousingBoardApi.Application.pdb
+C:\Users\jonas\source\repos\BoligAdministration\HousingBoardApi.Application\obj\Debug\net7.0\ref\HousingBoardApi.Application.dll
