@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jonas\\source\\repos\\BoligAdministration\\BookingSystemApi.Infrastructure\\BookingSystemApi.Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\jonas\\Documents\\BoligAdministration\\BookingSystemApi.Infrastructure\\BookingSystemApi.Infrastructure.csproj",
       "projectName": "BookingSystemApi.Infrastructure",
-      "projectPath": "C:\\Users\\jonas\\source\\repos\\BoligAdministration\\BookingSystemApi.Infrastructure\\BookingSystemApi.Infrastructure.csproj",
+      "projectPath": "C:\\Users\\jonas\\Documents\\BoligAdministration\\BookingSystemApi.Infrastructure\\BookingSystemApi.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\jonas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jonas\\source\\repos\\BoligAdministration\\BookingSystemApi.Infrastructure\\obj\\",
+      "outputPath": "C:\\Users\\jonas\\Documents\\BoligAdministration\\BookingSystemApi.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

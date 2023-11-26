@@ -1,6 +1,6 @@
 ﻿namespace HousingBoardApi.Domain.Entities;
 
-public class MeetingEntity
+public class MeetingEntity : BaseEntity
 {
     public MeetingEntity()
     {

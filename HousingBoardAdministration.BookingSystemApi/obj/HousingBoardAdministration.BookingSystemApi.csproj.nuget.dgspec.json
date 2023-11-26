@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jonas\\source\\repos\\BoligAdministration\\HousingBoardAdministration.BookingSystemApi\\HousingBoardAdministration.BookingSystemApi.csproj": {}
+    "C:\\Users\\jonas\\Documents\\BoligAdministration\\HousingBoardAdministration.BookingSystemApi\\HousingBoardAdministration.BookingSystemApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jonas\\source\\repos\\BoligAdministration\\HousingBoardAdministration.BookingSystemApi\\HousingBoardAdministration.BookingSystemApi.csproj": {
+    "C:\\Users\\jonas\\Documents\\BoligAdministration\\HousingBoardAdministration.BookingSystemApi\\HousingBoardAdministration.BookingSystemApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jonas\\source\\repos\\BoligAdministration\\HousingBoardAdministration.BookingSystemApi\\HousingBoardAdministration.BookingSystemApi.csproj",
+        "projectUniqueName": "C:\\Users\\jonas\\Documents\\BoligAdministration\\HousingBoardAdministration.BookingSystemApi\\HousingBoardAdministration.BookingSystemApi.csproj",
         "projectName": "HousingBoardAdministration.BookingSystemApi",
-        "projectPath": "C:\\Users\\jonas\\source\\repos\\BoligAdministration\\HousingBoardAdministration.BookingSystemApi\\HousingBoardAdministration.BookingSystemApi.csproj",
+        "projectPath": "C:\\Users\\jonas\\Documents\\BoligAdministration\\HousingBoardAdministration.BookingSystemApi\\HousingBoardAdministration.BookingSystemApi.csproj",
         "packagesPath": "C:\\Users\\jonas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jonas\\source\\repos\\BoligAdministration\\HousingBoardAdministration.BookingSystemApi\\obj\\",
+        "outputPath": "C:\\Users\\jonas\\Documents\\BoligAdministration\\HousingBoardAdministration.BookingSystemApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

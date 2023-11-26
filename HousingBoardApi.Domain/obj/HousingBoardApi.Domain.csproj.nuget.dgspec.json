@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jonas\\source\\repos\\BoligAdministration\\HousingBoardApi.Domain\\HousingBoardApi.Domain.csproj": {}
+    "C:\\Users\\jonas\\Documents\\BoligAdministration\\HousingBoardApi.Domain\\HousingBoardApi.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jonas\\source\\repos\\BoligAdministration\\HousingBoardApi.Domain\\HousingBoardApi.Domain.csproj": {
+    "C:\\Users\\jonas\\Documents\\BoligAdministration\\HousingBoardApi.Domain\\HousingBoardApi.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jonas\\source\\repos\\BoligAdministration\\HousingBoardApi.Domain\\HousingBoardApi.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\jonas\\Documents\\BoligAdministration\\HousingBoardApi.Domain\\HousingBoardApi.Domain.csproj",
         "projectName": "HousingBoardApi.Domain",
-        "projectPath": "C:\\Users\\jonas\\source\\repos\\BoligAdministration\\HousingBoardApi.Domain\\HousingBoardApi.Domain.csproj",
+        "projectPath": "C:\\Users\\jonas\\Documents\\BoligAdministration\\HousingBoardApi.Domain\\HousingBoardApi.Domain.csproj",
         "packagesPath": "C:\\Users\\jonas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jonas\\source\\repos\\BoligAdministration\\HousingBoardApi.Domain\\obj\\",
+        "outputPath": "C:\\Users\\jonas\\Documents\\BoligAdministration\\HousingBoardApi.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

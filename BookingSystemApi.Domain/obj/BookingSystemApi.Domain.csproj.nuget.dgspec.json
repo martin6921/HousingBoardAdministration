@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jonas\\source\\repos\\BoligAdministration\\BookingSystemApi.Domain\\BookingSystemApi.Domain.csproj": {}
+    "C:\\Users\\jonas\\Documents\\BoligAdministration\\BookingSystemApi.Domain\\BookingSystemApi.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jonas\\source\\repos\\BoligAdministration\\BookingSystemApi.Domain\\BookingSystemApi.Domain.csproj": {
+    "C:\\Users\\jonas\\Documents\\BoligAdministration\\BookingSystemApi.Domain\\BookingSystemApi.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jonas\\source\\repos\\BoligAdministration\\BookingSystemApi.Domain\\BookingSystemApi.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\jonas\\Documents\\BoligAdministration\\BookingSystemApi.Domain\\BookingSystemApi.Domain.csproj",
         "projectName": "BookingSystemApi.Domain",
-        "projectPath": "C:\\Users\\jonas\\source\\repos\\BoligAdministration\\BookingSystemApi.Domain\\BookingSystemApi.Domain.csproj",
+        "projectPath": "C:\\Users\\jonas\\Documents\\BoligAdministration\\BookingSystemApi.Domain\\BookingSystemApi.Domain.csproj",
         "packagesPath": "C:\\Users\\jonas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jonas\\source\\repos\\BoligAdministration\\BookingSystemApi.Domain\\obj\\",
+        "outputPath": "C:\\Users\\jonas\\Documents\\BoligAdministration\\BookingSystemApi.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

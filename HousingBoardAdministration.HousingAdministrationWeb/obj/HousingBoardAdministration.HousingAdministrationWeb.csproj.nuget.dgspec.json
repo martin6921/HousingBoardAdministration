@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jonas\\source\\repos\\BoligAdministration\\HousingBoardAdministration.HousingAdministrationWeb\\HousingBoardAdministration.HousingAdministrationWeb.csproj": {}
+    "C:\\Users\\jonas\\Documents\\BoligAdministration\\HousingBoardAdministration.HousingAdministrationWeb\\HousingBoardAdministration.HousingAdministrationWeb.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jonas\\source\\repos\\BoligAdministration\\HousingBoardAdministration.HousingAdministrationWeb\\HousingBoardAdministration.HousingAdministrationWeb.csproj": {
+    "C:\\Users\\jonas\\Documents\\BoligAdministration\\HousingBoardAdministration.HousingAdministrationWeb\\HousingBoardAdministration.HousingAdministrationWeb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jonas\\source\\repos\\BoligAdministration\\HousingBoardAdministration.HousingAdministrationWeb\\HousingBoardAdministration.HousingAdministrationWeb.csproj",
+        "projectUniqueName": "C:\\Users\\jonas\\Documents\\BoligAdministration\\HousingBoardAdministration.HousingAdministrationWeb\\HousingBoardAdministration.HousingAdministrationWeb.csproj",
         "projectName": "HousingBoardAdministration.HousingAdministrationWeb",
-        "projectPath": "C:\\Users\\jonas\\source\\repos\\BoligAdministration\\HousingBoardAdministration.HousingAdministrationWeb\\HousingBoardAdministration.HousingAdministrationWeb.csproj",
+        "projectPath": "C:\\Users\\jonas\\Documents\\BoligAdministration\\HousingBoardAdministration.HousingAdministrationWeb\\HousingBoardAdministration.HousingAdministrationWeb.csproj",
         "packagesPath": "C:\\Users\\jonas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jonas\\source\\repos\\BoligAdministration\\HousingBoardAdministration.HousingAdministrationWeb\\obj\\",
+        "outputPath": "C:\\Users\\jonas\\Documents\\BoligAdministration\\HousingBoardAdministration.HousingAdministrationWeb\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
