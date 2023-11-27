@@ -1,0 +1,51 @@
+﻿@page
+@model HousingBoardAdministration.HousingAdministrationWeb.Pages.Documents.IndexModel
+@{
+}
+
+<h1>hi</h1>
+
+<form method="post" enctype="multipart/form-data">
+    <input type="file" asp-for="Upload" />
+    <input type="submit" />
+</form>
+
+
+@*<div id="target_div"></div>
+<textarea id="text_Target" style=" min-width:500px; max-width:100%;min-height:200px;height:100%;width:100%;"></textarea>
+
+<script>
+    var input = document.createElement('input');
+    input.type = 'file';
+    document.getElementById('target_div').appendChild(input);
+
+    input.onchange = e => {
+
+       var file = e.target.files[0];
+
+       var reader = new FileReader();
+       reader.readAsArrayBuffer(file)
+       
+       reader.onload = readerEvent => {
+
+          //var textContent = readerEvent.target.result; // text content
+          //var byteArrayContent = response.Content.ReadAsByteArrayAsync();
+            //var arrayBuffer = readerEvent.target.result;
+            //var bytes = new Uint8Array(arrayBuffer).toString();
+
+                var arrayBuffer = this.result,
+                    array = new Uint8Array(arrayBuffer),
+                    binaryString = String.fromCharCode.apply(null, array);
+
+
+
+                document.getElementById('text_Target').innerHTML = binaryString + "end";
+       }
+       
+
+    }
+
+    input.click();
+</script>*@
+
+<h2>hhælp</h2>
