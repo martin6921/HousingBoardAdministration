@@ -469,23 +469,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jonas\\.nuget\\packages\\": {},
+    "C:\\Users\\erikr\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jonas\\Documents\\BoligAdministration\\HousingBoardAdministration.BookingSystemApi\\HousingBoardAdministration.BookingSystemApi.csproj",
+      "projectUniqueName": "C:\\Users\\erikr\\Source\\Repos\\HousingBoardAdministration\\HousingBoardAdministration.BookingSystemApi\\HousingBoardAdministration.BookingSystemApi.csproj",
       "projectName": "HousingBoardAdministration.BookingSystemApi",
-      "projectPath": "C:\\Users\\jonas\\Documents\\BoligAdministration\\HousingBoardAdministration.BookingSystemApi\\HousingBoardAdministration.BookingSystemApi.csproj",
-      "packagesPath": "C:\\Users\\jonas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jonas\\Documents\\BoligAdministration\\HousingBoardAdministration.BookingSystemApi\\obj\\",
+      "projectPath": "C:\\Users\\erikr\\Source\\Repos\\HousingBoardAdministration\\HousingBoardAdministration.BookingSystemApi\\HousingBoardAdministration.BookingSystemApi.csproj",
+      "packagesPath": "C:\\Users\\erikr\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\erikr\\Source\\Repos\\HousingBoardAdministration\\HousingBoardAdministration.BookingSystemApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\jonas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\erikr\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -541,7 +541,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

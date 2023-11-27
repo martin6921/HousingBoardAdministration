@@ -13,7 +13,7 @@ public class BookingEntity : BaseEntity
         StartDate = startDate;
         EndDate = endDate;
     }
-
+    public ResidentEntity BookingOwner { get; set; }
     public List<ResourceEntity> Resources { get; set; }
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
