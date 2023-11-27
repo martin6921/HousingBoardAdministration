@@ -1222,6 +1222,33 @@
             "rid": "win"
           }
         }
+      },
+      "WebAppUserDbContext/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.11"
+        },
+        "compile": {
+          "bin/placeholder/WebAppUserDbContext.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/WebAppUserDbContext.dll": {}
+        }
+      },
+      "WebAppUserDbContextMigrations/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.11",
+          "WebAppUserDbContext": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/WebAppUserDbContextMigrations.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/WebAppUserDbContextMigrations.dll": {}
+        }
       }
     }
   },
@@ -3318,6 +3345,16 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "WebAppUserDbContext/1.0.0": {
+      "type": "project",
+      "path": "../WebAppUserDbContext/WebAppUserDbContext.csproj",
+      "msbuildProject": "../WebAppUserDbContext/WebAppUserDbContext.csproj"
+    },
+    "WebAppUserDbContextMigrations/1.0.0": {
+      "type": "project",
+      "path": "../WebAppUserDbContextMigrations/WebAppUserDbContextMigrations.csproj",
+      "msbuildProject": "../WebAppUserDbContextMigrations/WebAppUserDbContextMigrations.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -3326,27 +3363,29 @@
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 7.0.11",
       "Microsoft.AspNetCore.Identity.UI >= 7.0.11",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.11",
-      "Microsoft.EntityFrameworkCore.Tools >= 7.0.11"
+      "Microsoft.EntityFrameworkCore.Tools >= 7.0.11",
+      "WebAppUserDbContext >= 1.0.0",
+      "WebAppUserDbContextMigrations >= 1.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\erikr\\.nuget\\packages\\": {},
+    "C:\\Users\\jonas\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\erikr\\Source\\Repos\\HousingBoardAdministration\\HousingBoardAdministration.HousingAdministrationWeb\\HousingBoardAdministration.HousingAdministrationWeb.csproj",
+      "projectUniqueName": "C:\\Users\\jonas\\Documents\\BoligAdministration\\HousingBoardAdministration.HousingAdministrationWeb\\HousingBoardAdministration.HousingAdministrationWeb.csproj",
       "projectName": "HousingBoardAdministration.HousingAdministrationWeb",
-      "projectPath": "C:\\Users\\erikr\\Source\\Repos\\HousingBoardAdministration\\HousingBoardAdministration.HousingAdministrationWeb\\HousingBoardAdministration.HousingAdministrationWeb.csproj",
-      "packagesPath": "C:\\Users\\erikr\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\erikr\\Source\\Repos\\HousingBoardAdministration\\HousingBoardAdministration.HousingAdministrationWeb\\obj\\",
+      "projectPath": "C:\\Users\\jonas\\Documents\\BoligAdministration\\HousingBoardAdministration.HousingAdministrationWeb\\HousingBoardAdministration.HousingAdministrationWeb.csproj",
+      "packagesPath": "C:\\Users\\jonas\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\jonas\\Documents\\BoligAdministration\\HousingBoardAdministration.HousingAdministrationWeb\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\erikr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\jonas\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3355,13 +3394,19 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\jonas\\Documents\\BoligAdministration\\WebAppUserDbContextMigrations\\WebAppUserDbContextMigrations.csproj": {
+              "projectPath": "C:\\Users\\jonas\\Documents\\BoligAdministration\\WebAppUserDbContextMigrations\\WebAppUserDbContextMigrations.csproj"
+            },
+            "C:\\Users\\jonas\\Documents\\BoligAdministration\\WebAppUserDbContext\\WebAppUserDbContext.csproj": {
+              "projectPath": "C:\\Users\\jonas\\Documents\\BoligAdministration\\WebAppUserDbContext\\WebAppUserDbContext.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -3414,7 +3459,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

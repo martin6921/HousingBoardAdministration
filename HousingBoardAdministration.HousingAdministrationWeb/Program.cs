@@ -1,17 +1,30 @@
-using HousingBoardAdministration.HousingAdministrationWeb.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(connectionString));
-builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+// Add-Migration init -Context WebAppUserDbContext.WebAppUserDbContext -Project WebAppUserDbContextMigrations
+// Update-Database -Context WebAppUserDbContext.WebAppUserDbContext
+var connectionString = builder.Configuration.GetConnectionString("WebAppUserDbContextConnection");
+builder.Services.AddDbContext<WebAppUserDbContext.WebAppUserDbContext>(options =>
+    options.UseSqlServer(connectionString,
+        x => x.MigrationsAssembly("WebAppUserDbContextMigrations")));
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<ApplicationDbContext>();
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = false;
+    options.Lockout.AllowedForNewUsers = true;
+    options.Password.RequiredLength = 3;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireDigit = false;
+    options.Password.RequireLowercase = false;
+    options.Password.RequireUppercase = false;
+})
+    .AddRoles<IdentityRole>()
+    .AddEntityFrameworkStores<WebAppUserDbContext.WebAppUserDbContext>();
+builder.Services.AddScoped<RoleManager<IdentityRole>>();
 builder.Services.AddRazorPages();
 
 var app = builder.Build();

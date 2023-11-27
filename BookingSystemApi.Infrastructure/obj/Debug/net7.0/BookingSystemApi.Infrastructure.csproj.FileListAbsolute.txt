@@ -9,3 +9,14 @@ C:\Users\jonas\source\repos\BoligAdministration\BookingSystemApi.Infrastructure\
 C:\Users\jonas\source\repos\BoligAdministration\BookingSystemApi.Infrastructure\obj\Debug\net7.0\refint\BookingSystemApi.Infrastructure.dll
 C:\Users\jonas\source\repos\BoligAdministration\BookingSystemApi.Infrastructure\obj\Debug\net7.0\BookingSystemApi.Infrastructure.pdb
 C:\Users\jonas\source\repos\BoligAdministration\BookingSystemApi.Infrastructure\obj\Debug\net7.0\ref\BookingSystemApi.Infrastructure.dll
+C:\Users\jonas\Documents\BoligAdministration\BookingSystemApi.Infrastructure\bin\Debug\net7.0\BookingSystemApi.Infrastructure.deps.json
+C:\Users\jonas\Documents\BoligAdministration\BookingSystemApi.Infrastructure\bin\Debug\net7.0\BookingSystemApi.Infrastructure.dll
+C:\Users\jonas\Documents\BoligAdministration\BookingSystemApi.Infrastructure\bin\Debug\net7.0\BookingSystemApi.Infrastructure.pdb
+C:\Users\jonas\Documents\BoligAdministration\BookingSystemApi.Infrastructure\obj\Debug\net7.0\BookingSystemApi.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jonas\Documents\BoligAdministration\BookingSystemApi.Infrastructure\obj\Debug\net7.0\BookingSystemApi.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\jonas\Documents\BoligAdministration\BookingSystemApi.Infrastructure\obj\Debug\net7.0\BookingSystemApi.Infrastructure.AssemblyInfo.cs
+C:\Users\jonas\Documents\BoligAdministration\BookingSystemApi.Infrastructure\obj\Debug\net7.0\BookingSystemApi.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\jonas\Documents\BoligAdministration\BookingSystemApi.Infrastructure\obj\Debug\net7.0\BookingSystemApi.Infrastructure.dll
+C:\Users\jonas\Documents\BoligAdministration\BookingSystemApi.Infrastructure\obj\Debug\net7.0\refint\BookingSystemApi.Infrastructure.dll
+C:\Users\jonas\Documents\BoligAdministration\BookingSystemApi.Infrastructure\obj\Debug\net7.0\BookingSystemApi.Infrastructure.pdb
+C:\Users\jonas\Documents\BoligAdministration\BookingSystemApi.Infrastructure\obj\Debug\net7.0\ref\BookingSystemApi.Infrastructure.dll

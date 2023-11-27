@@ -15,4 +15,13 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.11" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\WebAppUserDbContextMigrations\WebAppUserDbContextMigrations.csproj" />
+    <ProjectReference Include="..\WebAppUserDbContext\WebAppUserDbContext.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\" />
+  </ItemGroup>
+
 </Project>

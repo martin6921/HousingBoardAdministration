@@ -10,3 +10,15 @@ C:\Users\jonas\source\repos\BoligAdministration\BookingSystemApi.Domain\obj\Debu
 C:\Users\jonas\source\repos\BoligAdministration\BookingSystemApi.Domain\obj\Debug\net7.0\BookingSystemApi.Domain.pdb
 C:\Users\jonas\source\repos\BoligAdministration\BookingSystemApi.Domain\obj\Debug\net7.0\ref\BookingSystemApi.Domain.dll
 C:\Users\jonas\source\repos\BoligAdministration\BookingSystemApi.Domain\obj\Debug\net7.0\BookingSystemApi.Domain.csproj.AssemblyReference.cache
+C:\Users\jonas\Documents\BoligAdministration\BookingSystemApi.Domain\bin\Debug\net7.0\BookingSystemApi.Domain.deps.json
+C:\Users\jonas\Documents\BoligAdministration\BookingSystemApi.Domain\bin\Debug\net7.0\BookingSystemApi.Domain.dll
+C:\Users\jonas\Documents\BoligAdministration\BookingSystemApi.Domain\bin\Debug\net7.0\BookingSystemApi.Domain.pdb
+C:\Users\jonas\Documents\BoligAdministration\BookingSystemApi.Domain\obj\Debug\net7.0\BookingSystemApi.Domain.csproj.AssemblyReference.cache
+C:\Users\jonas\Documents\BoligAdministration\BookingSystemApi.Domain\obj\Debug\net7.0\BookingSystemApi.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jonas\Documents\BoligAdministration\BookingSystemApi.Domain\obj\Debug\net7.0\BookingSystemApi.Domain.AssemblyInfoInputs.cache
+C:\Users\jonas\Documents\BoligAdministration\BookingSystemApi.Domain\obj\Debug\net7.0\BookingSystemApi.Domain.AssemblyInfo.cs
+C:\Users\jonas\Documents\BoligAdministration\BookingSystemApi.Domain\obj\Debug\net7.0\BookingSystemApi.Domain.csproj.CoreCompileInputs.cache
+C:\Users\jonas\Documents\BoligAdministration\BookingSystemApi.Domain\obj\Debug\net7.0\BookingSystemApi.Domain.dll
+C:\Users\jonas\Documents\BoligAdministration\BookingSystemApi.Domain\obj\Debug\net7.0\refint\BookingSystemApi.Domain.dll
+C:\Users\jonas\Documents\BoligAdministration\BookingSystemApi.Domain\obj\Debug\net7.0\BookingSystemApi.Domain.pdb
+C:\Users\jonas\Documents\BoligAdministration\BookingSystemApi.Domain\obj\Debug\net7.0\ref\BookingSystemApi.Domain.dll

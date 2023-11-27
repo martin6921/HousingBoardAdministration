@@ -9,3 +9,14 @@ C:\Users\jonas\source\repos\BoligAdministration\BookingSystemApi.Application\obj
 C:\Users\jonas\source\repos\BoligAdministration\BookingSystemApi.Application\obj\Debug\net7.0\refint\BookingSystemApi.Application.dll
 C:\Users\jonas\source\repos\BoligAdministration\BookingSystemApi.Application\obj\Debug\net7.0\BookingSystemApi.Application.pdb
 C:\Users\jonas\source\repos\BoligAdministration\BookingSystemApi.Application\obj\Debug\net7.0\ref\BookingSystemApi.Application.dll
+C:\Users\jonas\Documents\BoligAdministration\BookingSystemApi.Application\bin\Debug\net7.0\BookingSystemApi.Application.deps.json
+C:\Users\jonas\Documents\BoligAdministration\BookingSystemApi.Application\bin\Debug\net7.0\BookingSystemApi.Application.dll
+C:\Users\jonas\Documents\BoligAdministration\BookingSystemApi.Application\bin\Debug\net7.0\BookingSystemApi.Application.pdb
+C:\Users\jonas\Documents\BoligAdministration\BookingSystemApi.Application\obj\Debug\net7.0\BookingSystemApi.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jonas\Documents\BoligAdministration\BookingSystemApi.Application\obj\Debug\net7.0\BookingSystemApi.Application.AssemblyInfoInputs.cache
+C:\Users\jonas\Documents\BoligAdministration\BookingSystemApi.Application\obj\Debug\net7.0\BookingSystemApi.Application.AssemblyInfo.cs
+C:\Users\jonas\Documents\BoligAdministration\BookingSystemApi.Application\obj\Debug\net7.0\BookingSystemApi.Application.csproj.CoreCompileInputs.cache
+C:\Users\jonas\Documents\BoligAdministration\BookingSystemApi.Application\obj\Debug\net7.0\BookingSystemApi.Application.dll
+C:\Users\jonas\Documents\BoligAdministration\BookingSystemApi.Application\obj\Debug\net7.0\refint\BookingSystemApi.Application.dll
+C:\Users\jonas\Documents\BoligAdministration\BookingSystemApi.Application\obj\Debug\net7.0\BookingSystemApi.Application.pdb
+C:\Users\jonas\Documents\BoligAdministration\BookingSystemApi.Application\obj\Debug\net7.0\ref\BookingSystemApi.Application.dll
