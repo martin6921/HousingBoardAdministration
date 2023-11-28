@@ -33,9 +33,20 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookingSystemApi.Test", "Bo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HousingBoardApi.Test", "HousingBoardAdministrationApi.Test\HousingBoardApi.Test.csproj", "{C5C250AD-9516-4664-869D-5BBA79BF3586}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAppUserDbContext", "WebAppUserDbContext\WebAppUserDbContext.csproj", "{D44F2642-8FA3-4E64-8F28-9FD5DB56A9E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAppUserDbContext", "WebAppUserDbContext\WebAppUserDbContext.csproj", "{D44F2642-8FA3-4E64-8F28-9FD5DB56A9E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAppUserDbContextMigrations", "WebAppUserDbContextMigrations\WebAppUserDbContextMigrations.csproj", "{0106BCD1-0C72-42E6-BE61-FD8C15ECAB6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAppUserDbContextMigrations", "WebAppUserDbContextMigrations\WebAppUserDbContextMigrations.csproj", "{0106BCD1-0C72-42E6-BE61-FD8C15ECAB6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingSystemApi.SqlServerContext", "BookingSystemApi.SqlServerContext\BookingSystemApi.SqlServerContext.csproj", "{192819EB-B50B-457B-9859-AA1E5B9C448E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingSystemApi.SqlServerContextMigrations", "BookingSystemApi.SqlServerContextMigrations\BookingSystemApi.SqlServerContextMigrations.csproj", "{7AB66514-478F-4C35-ACD4-A0F160C5909B}"
+<<<<<<< HEAD
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HousingBoardApi.SqlServerContext", "HousingBoardApi.SqlServerContext\HousingBoardApi.SqlServerContext.csproj", "{8A8B9F5A-4E45-46BF-A117-6BDEC841436B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HousingBoardApi.SqlServerContextMigrations", "HousingBoardApi.SqlServerContextMigrations\HousingBoardApi.SqlServerContextMigrations.csproj", "{B96E4833-DCBF-489D-91AE-42779428B540}"
+=======
+>>>>>>> e80f4b5781bc1bb733f30afef495dc9711239598
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -95,6 +106,25 @@ Global
 		{0106BCD1-0C72-42E6-BE61-FD8C15ECAB6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0106BCD1-0C72-42E6-BE61-FD8C15ECAB6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0106BCD1-0C72-42E6-BE61-FD8C15ECAB6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{192819EB-B50B-457B-9859-AA1E5B9C448E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{192819EB-B50B-457B-9859-AA1E5B9C448E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{192819EB-B50B-457B-9859-AA1E5B9C448E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{192819EB-B50B-457B-9859-AA1E5B9C448E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AB66514-478F-4C35-ACD4-A0F160C5909B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AB66514-478F-4C35-ACD4-A0F160C5909B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AB66514-478F-4C35-ACD4-A0F160C5909B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AB66514-478F-4C35-ACD4-A0F160C5909B}.Release|Any CPU.Build.0 = Release|Any CPU
+<<<<<<< HEAD
+		{8A8B9F5A-4E45-46BF-A117-6BDEC841436B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A8B9F5A-4E45-46BF-A117-6BDEC841436B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A8B9F5A-4E45-46BF-A117-6BDEC841436B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A8B9F5A-4E45-46BF-A117-6BDEC841436B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B96E4833-DCBF-489D-91AE-42779428B540}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B96E4833-DCBF-489D-91AE-42779428B540}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B96E4833-DCBF-489D-91AE-42779428B540}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B96E4833-DCBF-489D-91AE-42779428B540}.Release|Any CPU.Build.0 = Release|Any CPU
+=======
+>>>>>>> e80f4b5781bc1bb733f30afef495dc9711239598
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -116,6 +146,13 @@ Global
 		{C5C250AD-9516-4664-869D-5BBA79BF3586} = {A11EB461-2D38-415A-B6EB-D70690BF6DFC}
 		{D44F2642-8FA3-4E64-8F28-9FD5DB56A9E5} = {50F7111A-6764-4653-B245-E29101ABA6FD}
 		{0106BCD1-0C72-42E6-BE61-FD8C15ECAB6E} = {50F7111A-6764-4653-B245-E29101ABA6FD}
+		{192819EB-B50B-457B-9859-AA1E5B9C448E} = {EC258D27-4543-4E14-8DEF-9960ABCD3746}
+		{7AB66514-478F-4C35-ACD4-A0F160C5909B} = {EC258D27-4543-4E14-8DEF-9960ABCD3746}
+<<<<<<< HEAD
+		{8A8B9F5A-4E45-46BF-A117-6BDEC841436B} = {A11EB461-2D38-415A-B6EB-D70690BF6DFC}
+		{B96E4833-DCBF-489D-91AE-42779428B540} = {A11EB461-2D38-415A-B6EB-D70690BF6DFC}
+=======
+>>>>>>> e80f4b5781bc1bb733f30afef495dc9711239598
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9676BE17-6848-4EE0-87DA-6FB5650DBEAC}

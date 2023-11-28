@@ -1,5 +1,5 @@
-﻿using BookingSystemApi.Application.IRepositories;
-using BookingSystemApi.Application.Resource.Create;
+﻿using BookingSystemApi.Application.Commands.Resource.Create;
+using BookingSystemApi.Application.IRepositories;
 
 namespace BookingSystemApi.Infrastructure.Repositories;
 
