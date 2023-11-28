@@ -15,10 +15,13 @@
     </PackageReference>
   </ItemGroup>
 <<<<<<< HEAD
+<<<<<<< HEAD
   
   <ItemGroup>
     <ProjectReference Include="..\HousingBoardApi.SqlServerContext\HousingBoardApi.SqlServerContext.csproj" />
   </ItemGroup>
+=======
+>>>>>>> e80f4b5781bc1bb733f30afef495dc9711239598
 =======
 >>>>>>> e80f4b5781bc1bb733f30afef495dc9711239598
 

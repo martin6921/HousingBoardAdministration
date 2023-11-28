@@ -17,7 +17,11 @@
 
   <ItemGroup>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <ProjectReference Include="..\HousingBoardApi.Domain\HousingBoardApi.Domain.csproj" />
+=======
+    <Folder Include="Configuration\" />
+>>>>>>> e80f4b5781bc1bb733f30afef495dc9711239598
 =======
     <Folder Include="Configuration\" />
 >>>>>>> e80f4b5781bc1bb733f30afef495dc9711239598
