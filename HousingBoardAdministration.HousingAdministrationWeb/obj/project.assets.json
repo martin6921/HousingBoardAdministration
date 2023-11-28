@@ -3369,23 +3369,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jonas\\.nuget\\packages\\": {},
+    "C:\\Users\\marti\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jonas\\Documents\\BoligAdministration\\HousingBoardAdministration.HousingAdministrationWeb\\HousingBoardAdministration.HousingAdministrationWeb.csproj",
+      "projectUniqueName": "C:\\Users\\marti\\source\\repos\\HousingBoardAdministration\\HousingBoardAdministration.HousingAdministrationWeb\\HousingBoardAdministration.HousingAdministrationWeb.csproj",
       "projectName": "HousingBoardAdministration.HousingAdministrationWeb",
-      "projectPath": "C:\\Users\\jonas\\Documents\\BoligAdministration\\HousingBoardAdministration.HousingAdministrationWeb\\HousingBoardAdministration.HousingAdministrationWeb.csproj",
-      "packagesPath": "C:\\Users\\jonas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jonas\\Documents\\BoligAdministration\\HousingBoardAdministration.HousingAdministrationWeb\\obj\\",
+      "projectPath": "C:\\Users\\marti\\source\\repos\\HousingBoardAdministration\\HousingBoardAdministration.HousingAdministrationWeb\\HousingBoardAdministration.HousingAdministrationWeb.csproj",
+      "packagesPath": "C:\\Users\\marti\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\marti\\source\\repos\\HousingBoardAdministration\\HousingBoardAdministration.HousingAdministrationWeb\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\jonas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\marti\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3394,17 +3394,18 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\jonas\\Documents\\BoligAdministration\\WebAppUserDbContextMigrations\\WebAppUserDbContextMigrations.csproj": {
-              "projectPath": "C:\\Users\\jonas\\Documents\\BoligAdministration\\WebAppUserDbContextMigrations\\WebAppUserDbContextMigrations.csproj"
+            "C:\\Users\\marti\\source\\repos\\HousingBoardAdministration\\WebAppUserDbContextMigrations\\WebAppUserDbContextMigrations.csproj": {
+              "projectPath": "C:\\Users\\marti\\source\\repos\\HousingBoardAdministration\\WebAppUserDbContextMigrations\\WebAppUserDbContextMigrations.csproj"
             },
-            "C:\\Users\\jonas\\Documents\\BoligAdministration\\WebAppUserDbContext\\WebAppUserDbContext.csproj": {
-              "projectPath": "C:\\Users\\jonas\\Documents\\BoligAdministration\\WebAppUserDbContext\\WebAppUserDbContext.csproj"
+            "C:\\Users\\marti\\source\\repos\\HousingBoardAdministration\\WebAppUserDbContext\\WebAppUserDbContext.csproj": {
+              "projectPath": "C:\\Users\\marti\\source\\repos\\HousingBoardAdministration\\WebAppUserDbContext\\WebAppUserDbContext.csproj"
             }
           }
         }
@@ -3459,7 +3460,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

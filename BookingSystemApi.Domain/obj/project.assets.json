@@ -57,23 +57,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jonas\\.nuget\\packages\\": {},
+    "C:\\Users\\marti\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jonas\\Documents\\BoligAdministration\\BookingSystemApi.Domain\\BookingSystemApi.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\marti\\source\\repos\\HousingBoardAdministration\\BookingSystemApi.Domain\\BookingSystemApi.Domain.csproj",
       "projectName": "BookingSystemApi.Domain",
-      "projectPath": "C:\\Users\\jonas\\Documents\\BoligAdministration\\BookingSystemApi.Domain\\BookingSystemApi.Domain.csproj",
-      "packagesPath": "C:\\Users\\jonas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jonas\\Documents\\BoligAdministration\\BookingSystemApi.Domain\\obj\\",
+      "projectPath": "C:\\Users\\marti\\source\\repos\\HousingBoardAdministration\\BookingSystemApi.Domain\\BookingSystemApi.Domain.csproj",
+      "packagesPath": "C:\\Users\\marti\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\marti\\source\\repos\\HousingBoardAdministration\\BookingSystemApi.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\jonas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\marti\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -82,6 +82,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -121,7 +122,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }
