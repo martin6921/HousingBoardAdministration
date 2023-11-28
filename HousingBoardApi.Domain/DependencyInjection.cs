@@ -4,7 +4,7 @@ namespace HousingBoardApi.Domain;
 
 public static class DependencyInjection
 {
-    public static IServiceCollection AddApplicationServices(this IServiceCollection services)
+    public static IServiceCollection AddDomainServices(this IServiceCollection services)
     {
 
 

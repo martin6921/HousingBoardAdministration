@@ -9,3 +9,15 @@ C:\Users\jonas\source\repos\BoligAdministration\BookingSystemApi.Application\obj
 C:\Users\jonas\source\repos\BoligAdministration\BookingSystemApi.Application\obj\Debug\net7.0\refint\BookingSystemApi.Application.dll
 C:\Users\jonas\source\repos\BoligAdministration\BookingSystemApi.Application\obj\Debug\net7.0\BookingSystemApi.Application.pdb
 C:\Users\jonas\source\repos\BoligAdministration\BookingSystemApi.Application\obj\Debug\net7.0\ref\BookingSystemApi.Application.dll
+C:\Users\erikr\OneDrive\Skrivebord\3SemesterEksamen\sourcetree\BookingSystemApi.Application\bin\Debug\net7.0\BookingSystemApi.Application.deps.json
+C:\Users\erikr\OneDrive\Skrivebord\3SemesterEksamen\sourcetree\BookingSystemApi.Application\bin\Debug\net7.0\BookingSystemApi.Application.dll
+C:\Users\erikr\OneDrive\Skrivebord\3SemesterEksamen\sourcetree\BookingSystemApi.Application\bin\Debug\net7.0\BookingSystemApi.Application.pdb
+C:\Users\erikr\OneDrive\Skrivebord\3SemesterEksamen\sourcetree\BookingSystemApi.Application\obj\Debug\net7.0\BookingSystemApi.Application.csproj.AssemblyReference.cache
+C:\Users\erikr\OneDrive\Skrivebord\3SemesterEksamen\sourcetree\BookingSystemApi.Application\obj\Debug\net7.0\BookingSystemApi.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\erikr\OneDrive\Skrivebord\3SemesterEksamen\sourcetree\BookingSystemApi.Application\obj\Debug\net7.0\BookingSystemApi.Application.AssemblyInfoInputs.cache
+C:\Users\erikr\OneDrive\Skrivebord\3SemesterEksamen\sourcetree\BookingSystemApi.Application\obj\Debug\net7.0\BookingSystemApi.Application.AssemblyInfo.cs
+C:\Users\erikr\OneDrive\Skrivebord\3SemesterEksamen\sourcetree\BookingSystemApi.Application\obj\Debug\net7.0\BookingSystemApi.Application.csproj.CoreCompileInputs.cache
+C:\Users\erikr\OneDrive\Skrivebord\3SemesterEksamen\sourcetree\BookingSystemApi.Application\obj\Debug\net7.0\BookingSystemApi.Application.dll
+C:\Users\erikr\OneDrive\Skrivebord\3SemesterEksamen\sourcetree\BookingSystemApi.Application\obj\Debug\net7.0\refint\BookingSystemApi.Application.dll
+C:\Users\erikr\OneDrive\Skrivebord\3SemesterEksamen\sourcetree\BookingSystemApi.Application\obj\Debug\net7.0\BookingSystemApi.Application.pdb
+C:\Users\erikr\OneDrive\Skrivebord\3SemesterEksamen\sourcetree\BookingSystemApi.Application\obj\Debug\net7.0\ref\BookingSystemApi.Application.dll

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\erikr\\Source\\Repos\\HousingBoardAdministration\\HousingBoardAdministration.HousingBoardApi\\HousingBoardAdministration.HousingBoardApi.csproj": {}
+    "C:\\Users\\erikr\\OneDrive\\Skrivebord\\3SemesterEksamen\\sourcetree\\HousingBoardAdministration.HousingBoardApi\\HousingBoardAdministration.HousingBoardApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\erikr\\Source\\Repos\\HousingBoardAdministration\\HousingBoardAdministration.HousingBoardApi\\HousingBoardAdministration.HousingBoardApi.csproj": {
+    "C:\\Users\\erikr\\OneDrive\\Skrivebord\\3SemesterEksamen\\sourcetree\\HousingBoardAdministration.HousingBoardApi\\HousingBoardAdministration.HousingBoardApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\erikr\\Source\\Repos\\HousingBoardAdministration\\HousingBoardAdministration.HousingBoardApi\\HousingBoardAdministration.HousingBoardApi.csproj",
+        "projectUniqueName": "C:\\Users\\erikr\\OneDrive\\Skrivebord\\3SemesterEksamen\\sourcetree\\HousingBoardAdministration.HousingBoardApi\\HousingBoardAdministration.HousingBoardApi.csproj",
         "projectName": "HousingBoardAdministration.HousingBoardApi",
-        "projectPath": "C:\\Users\\erikr\\Source\\Repos\\HousingBoardAdministration\\HousingBoardAdministration.HousingBoardApi\\HousingBoardAdministration.HousingBoardApi.csproj",
+        "projectPath": "C:\\Users\\erikr\\OneDrive\\Skrivebord\\3SemesterEksamen\\sourcetree\\HousingBoardAdministration.HousingBoardApi\\HousingBoardAdministration.HousingBoardApi.csproj",
         "packagesPath": "C:\\Users\\erikr\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\erikr\\Source\\Repos\\HousingBoardAdministration\\HousingBoardAdministration.HousingBoardApi\\obj\\",
+        "outputPath": "C:\\Users\\erikr\\OneDrive\\Skrivebord\\3SemesterEksamen\\sourcetree\\HousingBoardAdministration.HousingBoardApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -73,7 +73,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

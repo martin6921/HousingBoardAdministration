@@ -9,3 +9,14 @@ C:\Users\jonas\source\repos\BoligAdministration\HousingBoardApi.Application\obj\
 C:\Users\jonas\source\repos\BoligAdministration\HousingBoardApi.Application\obj\Debug\net7.0\refint\HousingBoardApi.Application.dll
 C:\Users\jonas\source\repos\BoligAdministration\HousingBoardApi.Application\obj\Debug\net7.0\HousingBoardApi.Application.pdb
 C:\Users\jonas\source\repos\BoligAdministration\HousingBoardApi.Application\obj\Debug\net7.0\ref\HousingBoardApi.Application.dll
+C:\Users\erikr\OneDrive\Skrivebord\3SemesterEksamen\sourcetree\HousingBoardApi.Application\bin\Debug\net7.0\HousingBoardApi.Application.deps.json
+C:\Users\erikr\OneDrive\Skrivebord\3SemesterEksamen\sourcetree\HousingBoardApi.Application\bin\Debug\net7.0\HousingBoardApi.Application.dll
+C:\Users\erikr\OneDrive\Skrivebord\3SemesterEksamen\sourcetree\HousingBoardApi.Application\bin\Debug\net7.0\HousingBoardApi.Application.pdb
+C:\Users\erikr\OneDrive\Skrivebord\3SemesterEksamen\sourcetree\HousingBoardApi.Application\obj\Debug\net7.0\HousingBoardApi.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\erikr\OneDrive\Skrivebord\3SemesterEksamen\sourcetree\HousingBoardApi.Application\obj\Debug\net7.0\HousingBoardApi.Application.AssemblyInfoInputs.cache
+C:\Users\erikr\OneDrive\Skrivebord\3SemesterEksamen\sourcetree\HousingBoardApi.Application\obj\Debug\net7.0\HousingBoardApi.Application.AssemblyInfo.cs
+C:\Users\erikr\OneDrive\Skrivebord\3SemesterEksamen\sourcetree\HousingBoardApi.Application\obj\Debug\net7.0\HousingBoardApi.Application.csproj.CoreCompileInputs.cache
+C:\Users\erikr\OneDrive\Skrivebord\3SemesterEksamen\sourcetree\HousingBoardApi.Application\obj\Debug\net7.0\HousingBoardApi.Application.dll
+C:\Users\erikr\OneDrive\Skrivebord\3SemesterEksamen\sourcetree\HousingBoardApi.Application\obj\Debug\net7.0\refint\HousingBoardApi.Application.dll
+C:\Users\erikr\OneDrive\Skrivebord\3SemesterEksamen\sourcetree\HousingBoardApi.Application\obj\Debug\net7.0\HousingBoardApi.Application.pdb
+C:\Users\erikr\OneDrive\Skrivebord\3SemesterEksamen\sourcetree\HousingBoardApi.Application\obj\Debug\net7.0\ref\HousingBoardApi.Application.dll

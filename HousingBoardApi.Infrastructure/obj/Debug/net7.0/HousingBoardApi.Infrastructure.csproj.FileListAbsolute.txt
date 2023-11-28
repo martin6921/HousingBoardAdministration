@@ -9,3 +9,14 @@ C:\Users\jonas\source\repos\BoligAdministration\HousingBoardApi.Infrastructure\o
 C:\Users\jonas\source\repos\BoligAdministration\HousingBoardApi.Infrastructure\obj\Debug\net7.0\refint\HousingBoardApi.Infrastructure.dll
 C:\Users\jonas\source\repos\BoligAdministration\HousingBoardApi.Infrastructure\obj\Debug\net7.0\HousingBoardApi.Infrastructure.pdb
 C:\Users\jonas\source\repos\BoligAdministration\HousingBoardApi.Infrastructure\obj\Debug\net7.0\ref\HousingBoardApi.Infrastructure.dll
+C:\Users\erikr\OneDrive\Skrivebord\3SemesterEksamen\sourcetree\HousingBoardApi.Infrastructure\bin\Debug\net7.0\HousingBoardApi.Infrastructure.deps.json
+C:\Users\erikr\OneDrive\Skrivebord\3SemesterEksamen\sourcetree\HousingBoardApi.Infrastructure\bin\Debug\net7.0\HousingBoardApi.Infrastructure.dll
+C:\Users\erikr\OneDrive\Skrivebord\3SemesterEksamen\sourcetree\HousingBoardApi.Infrastructure\bin\Debug\net7.0\HousingBoardApi.Infrastructure.pdb
+C:\Users\erikr\OneDrive\Skrivebord\3SemesterEksamen\sourcetree\HousingBoardApi.Infrastructure\obj\Debug\net7.0\HousingBoardApi.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\erikr\OneDrive\Skrivebord\3SemesterEksamen\sourcetree\HousingBoardApi.Infrastructure\obj\Debug\net7.0\HousingBoardApi.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\erikr\OneDrive\Skrivebord\3SemesterEksamen\sourcetree\HousingBoardApi.Infrastructure\obj\Debug\net7.0\HousingBoardApi.Infrastructure.AssemblyInfo.cs
+C:\Users\erikr\OneDrive\Skrivebord\3SemesterEksamen\sourcetree\HousingBoardApi.Infrastructure\obj\Debug\net7.0\HousingBoardApi.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\erikr\OneDrive\Skrivebord\3SemesterEksamen\sourcetree\HousingBoardApi.Infrastructure\obj\Debug\net7.0\HousingBoardApi.Infrastructure.dll
+C:\Users\erikr\OneDrive\Skrivebord\3SemesterEksamen\sourcetree\HousingBoardApi.Infrastructure\obj\Debug\net7.0\refint\HousingBoardApi.Infrastructure.dll
+C:\Users\erikr\OneDrive\Skrivebord\3SemesterEksamen\sourcetree\HousingBoardApi.Infrastructure\obj\Debug\net7.0\HousingBoardApi.Infrastructure.pdb
+C:\Users\erikr\OneDrive\Skrivebord\3SemesterEksamen\sourcetree\HousingBoardApi.Infrastructure\obj\Debug\net7.0\ref\HousingBoardApi.Infrastructure.dll
