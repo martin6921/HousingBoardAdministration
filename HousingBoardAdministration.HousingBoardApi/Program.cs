@@ -1,3 +1,6 @@
+using HousingBoardApi.SqlServerContext;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +9,12 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// Add-Migration init -Context HousingBoardApi.SqlServerContext.HousingBoardDbContext -Project HousingBoardApi.SqlServerContextMigrations
+// Update-Database -Context HousingBoardApi.SqlServerContext.HousingBoardDbContext
+builder.Services.AddDbContext<HousingBoardDbContext>(
+    options => options.UseSqlServer(builder.Configuration.GetConnectionString("HousingBoardDbContextConnection"),
+    x => x.MigrationsAssembly("HousingBoardApi.SqlServerContextMigrations")));
 
 var app = builder.Build();
 

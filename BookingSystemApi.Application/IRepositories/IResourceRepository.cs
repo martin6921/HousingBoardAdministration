@@ -1,4 +1,4 @@
-﻿using BookingSystemApi.Application.Resource.Create;
+﻿using BookingSystemApi.Application.Commands.Resource.Create;
 
 namespace BookingSystemApi.Application.IRepositories;
 

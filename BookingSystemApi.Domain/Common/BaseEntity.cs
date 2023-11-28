@@ -3,6 +3,10 @@
 namespace BookingSystemApi.Domain.Common;
 public abstract class BaseEntity
 {
+    public BaseEntity()
+    {
+
+    }
     public Guid Id { get; set; }
 
     [Timestamp]

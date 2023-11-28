@@ -1,6 +1,6 @@
 ﻿using BookingSystemApi.Application.IRepositories;
 
-namespace BookingSystemApi.Application.Resource.Create;
+namespace BookingSystemApi.Application.Commands.Resource.Create;
 
 public class CreateResourceCommandHandler : IRequestHandler<CreateResourceCommand>
 {
