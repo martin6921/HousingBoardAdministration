@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace BookingSystemApi.Domain;
+namespace BookingSystemApi.Application;
 
 public static class DependencyInjection
 {
