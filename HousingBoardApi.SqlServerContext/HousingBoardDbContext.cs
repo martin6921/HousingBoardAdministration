@@ -1,11 +1,6 @@
 ﻿using HousingBoardApi.Domain.Entities;
 using HousingBoardApi.SqlServerContext.Configuration;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HousingBoardApi.SqlServerContext;
 
@@ -23,7 +18,10 @@ public class HousingBoardDbContext : DbContext
     public DbSet<MeetingTypeEntity> MeetingTypeEntities { get; set; }
     public DbSet<RoleEntity> RoleEntities { get; set; }
 
-
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.AddInterceptors(new SoftDeleteInterceptor());
+    }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

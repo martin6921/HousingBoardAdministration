@@ -4,6 +4,7 @@ using HousingBoardApi.SqlServerContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HousingBoardApi.SqlServerContextMigrations.Migrations
 {
     [DbContext(typeof(HousingBoardDbContext))]
-    partial class HousingBoardDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231129163033_AddedSoftDeletion")]
+    partial class AddedSoftDeletion
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,6 +35,10 @@ namespace HousingBoardApi.SqlServerContextMigrations.Migrations
                         .HasColumnType("datetimeoffset");
 
                     b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FullName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

@@ -13,6 +13,8 @@ public class MeetingTypeConfiguration : IEntityTypeConfiguration<MeetingEntity>
         //ResourceEntity bliver mappet til tabellen Resource med skemeaet resource
         builder.ToTable("Meeting");
 
+        builder.HasQueryFilter(x => x.IsDeleted == false);
+
         //erklære primærnøglen
         builder.HasKey(x => x.Id);
     }
