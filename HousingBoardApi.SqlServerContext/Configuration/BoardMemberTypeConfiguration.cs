@@ -15,5 +15,6 @@ public class BoardMemberTypeConfiguration : IEntityTypeConfiguration<BoardMember
 
         //erklære primærnøglen
         builder.HasKey(x => x.Id);
+        //builder.HasOne(b => b.Role).WithOne(r=>r.BoardMember).HasForeignKey<BoardMemberRoleEntity>(r=>r.BoardMember.Id);
     }
 }
