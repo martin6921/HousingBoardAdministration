@@ -75,6 +75,7 @@ public class MeetingRepository : IMeetingRepository
 
     void IMeetingRepository.Add(CreateMeetingCommand request)
     {
+
         var meetingType = _db.MeetingTypeEntities.FirstOrDefault(x => x.Id == request.MeetingTypeId);
         var boardmember = _db.BoardMemberEntities.FirstOrDefault(x => x.Id == request.MeetingOwnerId);
 

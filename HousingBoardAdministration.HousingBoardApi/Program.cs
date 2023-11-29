@@ -15,6 +15,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddInfrastructureServices();
 builder.Services.AddApplicationServices();
 
+
 // Add-Migration init -Context HousingBoardApi.SqlServerContext.HousingBoardDbContext -Project HousingBoardApi.SqlServerContextMigrations
 // Update-Database -Context HousingBoardApi.SqlServerContext.HousingBoardDbContext
 builder.Services.AddDbContext<HousingBoardDbContext>(
