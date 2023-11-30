@@ -1,3 +1,6 @@
+using BookingSystemApi.SqlServerContext;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +9,13 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+
+// Add-Migration init -Context BookingSystemApi.SqlServerContext.BookingSystemDbContext -Project BookingSystemApi.SqlServerContextMigrations
+// Update-Database -Context BookingSystemApi.SqlServerContext.BookingSystemDbContext
+builder.Services.AddDbContext<BookingSystemDbContext>(
+    options => options.UseSqlServer(builder.Configuration.GetConnectionString("BookingSystemDbContextConnection"),
+    x => x.MigrationsAssembly("BookingSystemApi.SqlServerContextMigrations")));
 
 var app = builder.Build();
 

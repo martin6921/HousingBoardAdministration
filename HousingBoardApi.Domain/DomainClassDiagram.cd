@@ -27,8 +27,8 @@
       <FileName>Entities\MeetingEntity.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="MeetingOwner" />
       <Property Name="MeetingType" />
+      <Property Name="MeetingOwner" />
     </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="Documents" />
@@ -51,15 +51,15 @@
       <FileName>Entities\DocumentEntity.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="DocumentOwner" />
       <Property Name="DocumentType" />
       <Property Name="Meeting" />
+      <Property Name="DocumentOwner" />
     </ShowAsAssociation>
   </Class>
   <Class Name="HousingBoardApi.Domain.Entities.BoardMemberRoleEntity">
     <Position X="2" Y="5.25" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAQAAAAAAAEAAABAAgAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <HashCode>AAAAAAIAQAAAAAAAEAAABAAgAAAAAAAAAAAAAEAAAAQ=</HashCode>
       <FileName>Entities\BoardMemberRoleEntity.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -69,7 +69,7 @@
   <Class Name="HousingBoardApi.Domain.Entities.BoardMemberEntity">
     <Position X="5.25" Y="2.75" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAQAEAAAAAAAIAAEAAAAAAAAAAAAAAAAQAAAAAAAAg=</HashCode>
+      <HashCode>AAAQAEAAAAAAAIAAEAAAAAAAAAAAAAACAQAAIAAAAAg=</HashCode>
       <FileName>Entities\BoardMemberEntity.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -79,9 +79,10 @@
   <Class Name="HousingBoardApi.Domain.Common.BaseEntity">
     <Position X="10.25" Y="0.5" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAAAAAABAAAAAAAAgAAAAAAAQAAAAA=</HashCode>
       <FileName>Common\BaseEntity.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
