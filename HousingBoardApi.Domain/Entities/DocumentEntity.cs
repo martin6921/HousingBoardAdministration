@@ -27,4 +27,10 @@ public class DocumentEntity : BaseEntity
     [Required]
     public BoardMemberEntity DocumentOwner { get; set; }
 
+    public void Edit (string title, byte[] documentFile, byte[] rowVersion)
+    {
+        this.Title = title;
+        this.DocumentFile = documentFile;
+        this.RowVersion = rowVersion;
+    }
 }
