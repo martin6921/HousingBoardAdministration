@@ -25,9 +25,13 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.11" />
+    <PackageReference Include="RestEase" Version="1.6.4" />
+    <PackageReference Include="RestEase.HttpClientFactory" Version="1.6.4" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\HousingBoardApi.Application\HousingBoardApi.Application.csproj" />
+    <ProjectReference Include="..\HousingBoardApi.Domain\HousingBoardApi.Domain.csproj" />
     <ProjectReference Include="..\WebAppUserDbContextMigrations\WebAppUserDbContextMigrations.csproj" />
     <ProjectReference Include="..\WebAppUserDbContext\WebAppUserDbContext.csproj" />
   </ItemGroup>
