@@ -1,12 +1,6 @@
 ﻿using HousingBoardApi.Application.Commands.Document.Create;
 using HousingBoardApi.Application.Commands.Document.Delete;
 using HousingBoardApi.Application.Queries.Document.Dto;
-using HousingBoardApi.Application.Queries.Meeting.Implementation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HousingBoardApi.Infrastructure.Repositories;
 
@@ -21,9 +15,13 @@ public class DocumentRepository : IDocumentRepository
 
     void IDocumentRepository.Add(CreateDocumentCommand request)
     {
-        DocumentTypeEntity documentType = _dbContext.DocumentTypeEntities.FirstOrDefault(x => x.Id == request.DocumentTypeId);
-        MeetingEntity meeting = _dbContext.MeetingEntities.FirstOrDefault(x => x.Id == request.MeetingId); 
-        BoardMemberEntity documentOwner = _dbContext.BoardMemberEntities.FirstOrDefault(x => x.Id == request.DocumentOwnerId); 
+        DocumentTypeEntity documentType = new DocumentTypeEntity { Id = request.DocumentTypeId };
+        MeetingEntity meeting = new MeetingEntity { Id = request.MeetingId };
+        BoardMemberEntity documentOwner = new BoardMemberEntity { Id = request.DocumentOwnerId };
+
+        _dbContext.Attach(documentType);
+        _dbContext.Attach(meeting);
+        _dbContext.Attach(documentOwner); 
 
         DocumentEntity newDocument = new DocumentEntity
         {
@@ -42,26 +40,71 @@ public class DocumentRepository : IDocumentRepository
 
     void IDocumentRepository.Delete(DeleteDocumentCommand request)
     {
-        throw new NotImplementedException();
+        _dbContext.Remove(_dbContext.DocumentEntities.AsNoTracking().FirstOrDefault(x => x.Id == request.Id));
+        _dbContext.SaveChanges();
     }
 
     DocumentGetQueryResultDto IDocumentRepository.Get(Guid id)
     {
-        throw new NotImplementedException();
+        //var model = _db.MeetingEntities.AsNoTracking().IgnoreQueryFilters().FirstOrDefault(x => x.Id == id);
+        var model = _dbContext.DocumentEntities
+            .Include(type => type.DocumentType)
+            .Include(meeting => meeting.Meeting)
+            .Include(owner => owner.DocumentOwner)
+
+            .AsNoTracking().FirstOrDefault(x => x.Id == id);
+
+
+        if (model == null) throw new Exception("No document found");
+
+        return new DocumentGetQueryResultDto
+        {
+            Id = model.Id,
+            Title = model.Title,
+            DocumentTypeId = model.DocumentType.Id,
+            DocumentFile = model.DocumentFile,
+            MeetingId = model.Meeting.Id,
+            DocumentOwnerId = model.DocumentOwner.Id,
+            UploadDate = model.UploadDate,
+            RowVersion = model.RowVersion
+        };
     }
 
     IEnumerable<DocumentGetAllQueryResultDto> IDocumentRepository.GetAll()
     {
-        throw new NotImplementedException();
+        foreach (DocumentEntity document in _dbContext.DocumentEntities
+            .Include(type => type.DocumentType)
+            .Include(meeting => meeting.Meeting)
+            .Include (owner => owner.DocumentOwner)
+            
+            .AsNoTracking()
+            .ToList())
+        {
+            document.UploadDate = DateTime.Now;
+            yield return new DocumentGetAllQueryResultDto
+            {
+                Id = document.Id,
+                Title = document.Title,
+                DocumentTypeId = document.DocumentType.Id,
+                DocumentFile = document.DocumentFile,
+                MeetingId = document.Meeting.Id,
+                DocumentOwnerId = document.DocumentOwner.Id,
+                UploadDate = document.UploadDate,
+                RowVersion = document.RowVersion,
+            };
+        }
     }
 
     DocumentEntity IDocumentRepository.Load(Guid id)
     {
-        throw new NotImplementedException();
+        DocumentEntity model = _dbContext.DocumentEntities.FirstOrDefault(x => x.Id == id);
+
+        return model == null ? throw new Exception("No document found") : model;
     }
 
     void IDocumentRepository.Edit(DocumentEntity model)
     {
-        throw new NotImplementedException();
+        _dbContext.Update(model);
+        _dbContext.SaveChanges();
     }
 }

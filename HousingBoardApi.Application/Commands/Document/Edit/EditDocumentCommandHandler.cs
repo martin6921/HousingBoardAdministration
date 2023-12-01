@@ -22,7 +22,7 @@ namespace HousingBoardApi.Application.Commands.Document.Edit
         DocumentEntity document = _DocumentRepository.Load(request.Id);
 
         //edit
-        document.Edit(request.Title, request.DocumentFile, request.RowVersion);
+        document.Edit(request.Title, request.RowVersion);
 
         //Save
         _DocumentRepository.Edit(document);

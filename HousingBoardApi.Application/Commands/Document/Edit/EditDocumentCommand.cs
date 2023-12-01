@@ -11,9 +11,6 @@ namespace HousingBoardApi.Application.Commands.Document.Edit
     {
         public Guid Id { get; set; }
         public string Title { get; set; }
-        public Guid DocumentTypeId { get; set; }
-        public required byte[] DocumentFile { get; set; }
-        [Timestamp]
         public byte[] RowVersion { get; set; }
     }
 }

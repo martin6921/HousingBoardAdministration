@@ -1,0 +1,41 @@
+﻿@page
+@model HousingBoardAdministration.HousingAdministrationWeb.Pages.Documents.CreateModel
+@{
+}
+@* 
+<form method="post" enctype="multipart/form-data">
+    <input type="file" asp-for="Upload" />
+    <input type="submit" />
+</form> *@
+
+<div class="row">
+    <div class="col-md-6">
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label asp-for="Upload"></label>
+                <input type="file" asp-for="Upload" />
+            </div>
+            <div class="form-group">
+                <label asp-for="DocumentModel.Title"></label>
+                <input asp-for="DocumentModel.Title" class="form-control" />
+                <span asp-validation-for="DocumentModel.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DocumentModel.DocumentTypeId"></label>
+                <input asp-for="DocumentModel.DocumentTypeId" class="form-control" />
+                <span asp-validation-for="DocumentModel.DocumentTypeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DocumentModel.MeetingId"></label>
+                <input asp-for="DocumentModel.MeetingId" class="form-control" />
+                <span asp-validation-for="DocumentModel.MeetingId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DocumentModel.DocumentOwnerId"></label>
+                <input asp-for="DocumentModel.DocumentOwnerId" class="form-control" />
+                <span asp-validation-for="DocumentModel.DocumentOwnerId" class="text-danger"></span>
+            </div>
+            <button type="submit">Add documentos</button>
+        </form>
+    </div>
+</div>
