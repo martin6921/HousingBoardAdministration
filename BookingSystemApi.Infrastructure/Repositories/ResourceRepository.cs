@@ -10,6 +10,11 @@ public class ResourceRepository : IResourceRepository
         throw new NotImplementedException();
     }
 
+    public void Edit()
+    {
+        throw new NotImplementedException();
+    }
+
     public void Get()
     {
         throw new NotImplementedException();
