@@ -1,15 +1,9 @@
 ﻿using HousingBoardApi.Application.Commands.Document.Create;
 using HousingBoardApi.Application.Commands.Document.Delete;
 using HousingBoardApi.Application.Commands.Document.Edit;
-using HousingBoardApi.Application.Commands.Meeting.Create;
-using HousingBoardApi.Application.Commands.Meeting.Delete;
-using HousingBoardApi.Application.Commands.Meeting.Edit;
 using HousingBoardApi.Application.Queries.Document.Dto;
-using HousingBoardApi.Application.Queries.Document.Implementation;
 using HousingBoardApi.Application.Queries.Document.Interface;
-using HousingBoardApi.Application.Queries.Meeting.Dto;
-using HousingBoardApi.Application.Queries.Meeting.Implementation;
-using HousingBoardApi.Application.Queries.Meeting.Interface;
+
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -41,7 +35,6 @@ public class DocumentController : ControllerBase
     public ActionResult<IEnumerable<DocumentGetAllQueryResultDto>> GetAll()
     {
         var result = _documentGetAllQuery.GetAll();
-
         return result.ToList();
     }
 

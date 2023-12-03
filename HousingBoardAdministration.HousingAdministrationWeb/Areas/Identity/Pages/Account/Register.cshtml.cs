@@ -10,12 +10,14 @@ using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading;
 using System.Threading.Tasks;
+using HousingBoardAdministration.HousingAdministrationWeb.Areas.Identity.Pages.Account.ListViewModels;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 
@@ -30,12 +32,15 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Areas.Identity.Pag
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
 
+        private readonly IBffClient _bffClient;
+
         public RegisterModel(
             UserManager<IdentityUser> userManager,
             IUserStore<IdentityUser> userStore,
             SignInManager<IdentityUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            IBffClient bffClient)
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -43,7 +48,9 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Areas.Identity.Pag
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _bffClient = bffClient;
         }
+
 
         /// <summary>
         ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
@@ -97,14 +104,45 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Areas.Identity.Pag
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+
+            public string FirstName { get; set; }
+            public string LastName { get; set; }
+            public string ResidentAddress { get; set; }
+            [BindProperty]
+            public Guid SelectedRoleId { get; set; }
+
+
+
         }
 
+        [BindProperty]
+        public List<RoleViewModel> ListOfAllRoles { get; set; } = new();
+        public SelectList RoleSelectList { get; set; } 
 
         public async Task OnGetAsync(string returnUrl = null)
         {
+            ListOfAllRoles = await _bffClient.GetAllRolesAsync();
+
+            RoleSelectList = new SelectList(ListOfAllRoles, "Id", "RoleName");
+
             ReturnUrl = returnUrl;
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+
         }
+
+        //Handles creation of BoardMember User using HousingBoardBack API
+        public async Task CreateBoardMember(InputModel inputModel)
+        {
+            await _bffClient.CreateBoardMemberAsync(new CreateBoardMemberDto { 
+            
+                UserName = inputModel.Email,
+                FirstName = inputModel.FirstName,
+                LastName = inputModel.LastName,
+                ResidentAddress = inputModel.ResidentAddress
+
+            });
+        }
+
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
@@ -120,6 +158,9 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Areas.Identity.Pag
 
                 if (result.Succeeded)
                 {
+                    //execute CreateBoardMember method
+                    await CreateBoardMember(Input);
+
                     _logger.LogInformation("User created a new account with password.");
 
                     var userId = await _userManager.GetUserIdAsync(user);

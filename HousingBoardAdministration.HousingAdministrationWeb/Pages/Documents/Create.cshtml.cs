@@ -37,7 +37,7 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.Documents
 
             //byte[] newByte = Convert.FromBase64String(base64text);
 
-            await _bffClient.CreateResourceAsync(DocumentModel);
+            await _bffClient.CreateDocumentAsync(DocumentModel);
 
            // System.IO.File.WriteAllBytes("C:\\Users\\Martin\\Desktop\\dbabay\\hjælp.pdf", newByte);
         }

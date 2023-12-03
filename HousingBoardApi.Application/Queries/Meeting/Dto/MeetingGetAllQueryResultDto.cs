@@ -17,6 +17,9 @@ namespace HousingBoardApi.Application.Queries.Meeting.Dto
         public string Title { get; set; }
         public string Description { get; set; }
 
+        public MeetingTypeEntity MeetingType { get; set; }
+
+
         public DateTime MeetingTime { get; set; }
         public string AddressLocation { get; set; }
     }

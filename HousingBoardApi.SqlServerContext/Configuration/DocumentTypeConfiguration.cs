@@ -13,7 +13,7 @@ public class DocumentTypeConfiguration : IEntityTypeConfiguration<DocumentEntity
         //ResourceEntity bliver mappet til tabellen Resource med skemeaet resource
         builder.ToTable("Document");
 
-        builder.HasOne(d => d.Meeting)
+        builder.HasOne(d => d.DocumentOwner)
         .WithMany(m => m.Documents)
         .OnDelete(DeleteBehavior.Restrict);
 

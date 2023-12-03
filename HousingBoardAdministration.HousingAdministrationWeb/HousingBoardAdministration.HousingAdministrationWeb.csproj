@@ -30,8 +30,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HousingBoardApi.Application\HousingBoardApi.Application.csproj" />
-    <ProjectReference Include="..\HousingBoardApi.Domain\HousingBoardApi.Domain.csproj" />
     <ProjectReference Include="..\WebAppUserDbContextMigrations\WebAppUserDbContextMigrations.csproj" />
     <ProjectReference Include="..\WebAppUserDbContext\WebAppUserDbContext.csproj" />
   </ItemGroup>

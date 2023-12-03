@@ -16,7 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Commands\BoardMemberRole\Delete\" />
     <Folder Include="Commands\BoardMemberRole\Edit\" />
     <Folder Include="Queries\BoardMemberRole\Dto\" />
     <Folder Include="Queries\BoardMemberRole\Implementation\" />

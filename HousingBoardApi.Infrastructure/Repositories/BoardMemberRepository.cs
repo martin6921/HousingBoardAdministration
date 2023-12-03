@@ -19,17 +19,16 @@ namespace HousingBoardApi.Infrastructure.Repositories
 
         void IBoardMemberRepository.Create(CreateBoardMemberCommand request)
         {
-            var role = _context.RoleEntities.FirstOrDefault(x => x.Id == request.RoleTypeId);
             var model = new BoardMemberEntity
             {
                 UserName = request.UserName,
                 FirstName = request.FirstName,
                 LastName = request.LastName,
                 ResidentAddress = request.ResidentAddress,
-                IsDeleted = false,
-                Role = role
+                IsDeleted = false
             };
 
+            _context.BoardMemberEntities.Add(model);
             _context.SaveChanges();
         }
 

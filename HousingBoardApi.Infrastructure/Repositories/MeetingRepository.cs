@@ -33,7 +33,7 @@ public class MeetingRepository : IMeetingRepository
     public MeetingGetQueryResultDto Get(Guid id)
     {
         //var model = _db.MeetingEntities.AsNoTracking().IgnoreQueryFilters().FirstOrDefault(x => x.Id == id);
-        var model = _db.MeetingEntities.AsNoTracking().FirstOrDefault(x => x.Id == id);
+        var model = _db.MeetingEntities.AsNoTracking().Include(x => x.MeetingType).Include(z => z.Documents).ThenInclude(s=>s.DocumentType).FirstOrDefault(x => x.Id == id);
 
 
         if (model == null) throw new Exception("Ingen meeting fundet i databasen");
@@ -46,14 +46,18 @@ public class MeetingRepository : IMeetingRepository
             Title = model.Title,
             Description = model.Description,
             MeetingTime = model.MeetingTime,
-            AddressLocation = model.AddressLocation
+            AddressLocation = model.AddressLocation,
+            MeetingType = model.MeetingType,
+            Documents = model.Documents
+
         };
     }
 
     public IEnumerable<MeetingGetAllQueryResultDto> GetAll()
     {
-        foreach (var model in _db.MeetingEntities.AsNoTracking().ToList())
+        foreach (var model in _db.MeetingEntities.AsNoTracking().Include(x => x.MeetingType).ToList())
         {
+
             yield return new MeetingGetAllQueryResultDto
             {
                 Id = model.Id,
@@ -62,7 +66,8 @@ public class MeetingRepository : IMeetingRepository
                 Title = model.Title,
                 Description = model.Description,
                 MeetingTime = model.MeetingTime,
-                AddressLocation = model.AddressLocation
+                AddressLocation = model.AddressLocation,
+                MeetingType = model.MeetingType
             };
         }
     }

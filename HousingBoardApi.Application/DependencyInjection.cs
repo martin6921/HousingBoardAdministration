@@ -2,6 +2,10 @@
 using HousingBoardApi.Application.Queries.Document.Interface;
 using HousingBoardApi.Application.Queries.Meeting.Implementation;
 using HousingBoardApi.Application.Queries.Meeting.Interface;
+using HousingBoardApi.Application.Queries.MeetingType.Implementation;
+using HousingBoardApi.Application.Queries.MeetingType.Interface;
+using HousingBoardApi.Application.Queries.Role.Implementation;
+using HousingBoardApi.Application.Queries.Role.Interface;
 using HousingBoardApi.Application.Transaction.Behaviors;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
@@ -19,8 +23,12 @@ public static class DependencyInjection
 
         services.AddScoped<IMeetingGetQuery, MeetingGetQuery>();
         services.AddScoped<IMeetingGetAllQuery, MeetingGetAllQuery>();
+        services.AddScoped<IMeetingTypeGetQuery, MeetingTypeGetQuery>();
+        services.AddScoped<IMeetingTypeGetAllQuery, MeetingTypeGetAllQuery>();
         services.AddScoped<IDocumentGetQuery, DocumentGetQuery>();
         services.AddScoped<IDocumentGetAllQuery, DocumentGetAllQuery>();
+        services.AddScoped<IRoleGetAllQuery, RoleGetAllQuery>();
+        services.AddScoped<IRoleGetQuery, RoleGetQuery>();
 
         return services;
     }
