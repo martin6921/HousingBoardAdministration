@@ -33,7 +33,6 @@ public class DocumentRepository : IDocumentRepository
             DocumentOwner = documentOwner
         };
 
-
         _dbContext.Add(newDocument);
         _dbContext.SaveChanges();
     }
@@ -49,7 +48,7 @@ public class DocumentRepository : IDocumentRepository
         //var model = _db.MeetingEntities.AsNoTracking().IgnoreQueryFilters().FirstOrDefault(x => x.Id == id);
         var model = _dbContext.DocumentEntities
             .Include(type => type.DocumentType)
-            .Include(meeting => meeting.Meeting)
+            //.Include(meeting => meeting.Meeting)
             .Include(owner => owner.DocumentOwner)
 
             .AsNoTracking().FirstOrDefault(x => x.Id == id);
@@ -63,7 +62,7 @@ public class DocumentRepository : IDocumentRepository
             Title = model.Title,
             DocumentTypeId = model.DocumentType.Id,
             DocumentFile = model.DocumentFile,
-            MeetingId = model.Meeting.Id,
+            //MeetingId = model.Meeting.Id,
             DocumentOwnerId = model.DocumentOwner.Id,
             UploadDate = model.UploadDate,
             RowVersion = model.RowVersion
@@ -74,7 +73,7 @@ public class DocumentRepository : IDocumentRepository
     {
         foreach (DocumentEntity document in _dbContext.DocumentEntities
             .Include(type => type.DocumentType)
-            .Include(meeting => meeting.Meeting)
+            //.Include(meeting => meeting.Meeting)
             .Include (owner => owner.DocumentOwner)
             
             .AsNoTracking()
@@ -87,7 +86,7 @@ public class DocumentRepository : IDocumentRepository
                 Title = document.Title,
                 DocumentTypeId = document.DocumentType.Id,
                 DocumentFile = document.DocumentFile,
-                MeetingId = document.Meeting.Id,
+                //MeetingId = document.Meeting.Id,
                 DocumentOwnerId = document.DocumentOwner.Id,
                 UploadDate = document.UploadDate,
                 RowVersion = document.RowVersion,

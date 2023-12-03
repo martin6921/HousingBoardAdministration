@@ -14,8 +14,8 @@ namespace HousingBoardApi.Application.Queries.Document.Dto
         public Guid DocumentTypeId { get; set; }
         public required byte[] DocumentFile { get; set; }
         public DateTime UploadDate { get; set; }
-        [Required]
-        public Guid MeetingId { get; set; }
+        //[Required]
+        //public Guid MeetingId { get; set; }
         [Required]
         public Guid DocumentOwnerId { get; set; }
         [Timestamp]

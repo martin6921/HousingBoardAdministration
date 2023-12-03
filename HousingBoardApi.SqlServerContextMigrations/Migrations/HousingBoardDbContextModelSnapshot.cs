@@ -323,7 +323,7 @@ namespace HousingBoardApi.SqlServerContextMigrations.Migrations
                     b.HasOne("HousingBoardApi.Domain.Entities.BoardMemberEntity", "MeetingOwner")
                         .WithMany("Meetings")
                         .HasForeignKey("MeetingOwnerId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("HousingBoardApi.Domain.Entities.MeetingTypeEntity", "MeetingType")

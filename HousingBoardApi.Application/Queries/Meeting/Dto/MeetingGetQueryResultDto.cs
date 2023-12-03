@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HousingBoardApi.Application.Queries.Document.Dto;
+using HousingBoardApi.Application.Queries.Document.Implementation;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -17,7 +19,7 @@ namespace HousingBoardApi.Application.Queries.Meeting.Dto
         public string Title { get; set; }
         public string Description { get; set; }
         public MeetingTypeEntity MeetingType { get; set; }
-        public ICollection<DocumentEntity>? Documents { get; set; }
+        public ICollection<DocumentGetQueryResultDto>? Documents { get; set; }
         public DateTime MeetingTime { get; set; }
         public string AddressLocation { get; set; }
     }

@@ -1,6 +1,6 @@
 ﻿using HousingBoardAdministration.HousingAdministrationWeb.Areas.Identity.Pages.Account.ListViewModels;
-using HousingBoardAdministration.HousingAdministrationWeb.Pages.Documents;
 using HousingBoardAdministration.HousingAdministrationWeb.Pages.Meeting;
+using HousingBoardAdministration.HousingAdministrationWeb.Pages.Meeting.Document;
 using RestEase;
 
 namespace HousingBoardAdministration.HousingAdministrationWeb
@@ -10,7 +10,7 @@ namespace HousingBoardAdministration.HousingAdministrationWeb
 
         //attribute body
         [Post("/document")]
-        Task CreateDocumentAsync([Body] DocumentCreateViewModel documentCreateViewModel);
+        Task CreateDocumentAsync([Body]DocumentCreateViewModel documentCreateViewModel);
 
         [Get("/role")]
         Task<List<RoleViewModel>> GetAllRolesAsync();

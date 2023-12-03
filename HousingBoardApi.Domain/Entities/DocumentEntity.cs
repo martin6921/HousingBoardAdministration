@@ -8,13 +8,13 @@ public class DocumentEntity : BaseEntity
     {
     }
 
-    public DocumentEntity(string title, DocumentTypeEntity documentType, byte[] documentFile, DateTime uploadDate, MeetingEntity meeting, BoardMemberEntity documentOwner)
+    public DocumentEntity(string title, DocumentTypeEntity documentType, byte[] documentFile, DateTime uploadDate, BoardMemberEntity documentOwner)
     {
         Title = title;
         DocumentType = documentType;
         DocumentFile = documentFile;
         UploadDate = uploadDate;
-        Meeting = meeting;
+        //Meeting = meeting;
         DocumentOwner = documentOwner;
     }
 

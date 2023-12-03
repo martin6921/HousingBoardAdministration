@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HousingBoardApi.SqlServerContextMigrations.Migrations
 {
     [DbContext(typeof(HousingBoardDbContext))]
-    [Migration("20231129163033_AddedSoftDeletion")]
-    partial class AddedSoftDeletion
+    [Migration("20231203200437_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,10 +35,6 @@ namespace HousingBoardApi.SqlServerContextMigrations.Migrations
                         .HasColumnType("datetimeoffset");
 
                     b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FullName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -288,7 +284,7 @@ namespace HousingBoardApi.SqlServerContextMigrations.Migrations
                         .IsRequired();
 
                     b.HasOne("HousingBoardApi.Domain.Entities.RoleEntity", "Role")
-                        .WithMany("BoardMemberRoles")
+                        .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -307,7 +303,7 @@ namespace HousingBoardApi.SqlServerContextMigrations.Migrations
                         .IsRequired();
 
                     b.HasOne("HousingBoardApi.Domain.Entities.DocumentTypeEntity", "DocumentType")
-                        .WithMany("Documents")
+                        .WithMany()
                         .HasForeignKey("DocumentTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -330,11 +326,11 @@ namespace HousingBoardApi.SqlServerContextMigrations.Migrations
                     b.HasOne("HousingBoardApi.Domain.Entities.BoardMemberEntity", "MeetingOwner")
                         .WithMany("Meetings")
                         .HasForeignKey("MeetingOwnerId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("HousingBoardApi.Domain.Entities.MeetingTypeEntity", "MeetingType")
-                        .WithMany("Meetings")
+                        .WithMany()
                         .HasForeignKey("MeetingTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -354,24 +350,9 @@ namespace HousingBoardApi.SqlServerContextMigrations.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("HousingBoardApi.Domain.Entities.DocumentTypeEntity", b =>
-                {
-                    b.Navigation("Documents");
-                });
-
             modelBuilder.Entity("HousingBoardApi.Domain.Entities.MeetingEntity", b =>
                 {
                     b.Navigation("Documents");
-                });
-
-            modelBuilder.Entity("HousingBoardApi.Domain.Entities.MeetingTypeEntity", b =>
-                {
-                    b.Navigation("Meetings");
-                });
-
-            modelBuilder.Entity("HousingBoardApi.Domain.Entities.RoleEntity", b =>
-                {
-                    b.Navigation("BoardMemberRoles");
                 });
 #pragma warning restore 612, 618
         }

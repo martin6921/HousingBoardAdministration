@@ -1,5 +1,6 @@
 ﻿using HousingBoardApi.Application.Commands.Meeting.Create;
 using HousingBoardApi.Application.Commands.Meeting.Delete;
+using HousingBoardApi.Application.Queries.Document.Dto;
 using HousingBoardApi.Application.Queries.Meeting.Dto;
 using Microsoft.EntityFrameworkCore.Query.Internal;
 using System.ComponentModel.DataAnnotations;
@@ -35,7 +36,27 @@ public class MeetingRepository : IMeetingRepository
         //var model = _db.MeetingEntities.AsNoTracking().IgnoreQueryFilters().FirstOrDefault(x => x.Id == id);
         var model = _db.MeetingEntities.AsNoTracking().Include(x => x.MeetingType).Include(z => z.Documents).ThenInclude(s=>s.DocumentType).FirstOrDefault(x => x.Id == id);
 
+        List<DocumentGetQueryResultDto> documents = new List<DocumentGetQueryResultDto>();
 
+        foreach(var documentModel in model.Documents)
+        {
+            documents.Add(new DocumentGetQueryResultDto
+            {
+
+                DocumentFile = documentModel.DocumentFile,
+                Id = documentModel.Id,
+                Title = documentModel.Title,
+                UploadDate = documentModel.UploadDate,
+                RowVersion = documentModel.RowVersion,
+                DocumentTypeId = documentModel.DocumentType.Id,
+                DocumentOwnerId = documentModel.DocumentOwner.Id
+
+
+            }) ;
+        }
+
+
+        
         if (model == null) throw new Exception("Ingen meeting fundet i databasen");
 
         return new MeetingGetQueryResultDto
@@ -48,7 +69,7 @@ public class MeetingRepository : IMeetingRepository
             MeetingTime = model.MeetingTime,
             AddressLocation = model.AddressLocation,
             MeetingType = model.MeetingType,
-            Documents = model.Documents
+            Documents = documents
 
         };
     }

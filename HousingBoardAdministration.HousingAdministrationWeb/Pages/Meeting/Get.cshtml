@@ -63,12 +63,6 @@
                     } *@
                 </tbody>
             </table>
-            <div class="form-group">
-                <label asp-for="Upload"></label>
-                <input type="file" asp-for="Upload" />
-            </div>
-            <button type="submit" class="btn btn-default">Upload dokument</button>
-
             <a asp-page="./Document/create" asp-route-id="@Model.MeetingModel.Id">Upload dokument</a>
         </form>
     </div>

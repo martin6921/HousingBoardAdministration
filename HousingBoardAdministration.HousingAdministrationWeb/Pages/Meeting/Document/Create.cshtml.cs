@@ -1,4 +1,3 @@
-using HousingBoardAdministration.HousingAdministrationWeb.Pages.Documents;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -19,7 +18,7 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.Meeting.Docu
         [BindProperty]
         public IFormFile Upload { get; set; }
 
-        public static Guid MeetingId { get; set; } = new();
+        public static Guid MeetingId { get; set; }
 
         public Task OnGet(Guid id)
         {
