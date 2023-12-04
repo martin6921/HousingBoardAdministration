@@ -1,4 +1,7 @@
-﻿namespace BookingSystemApi.Domain.Entities;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+
+namespace BookingSystemApi.Domain.Entities;
 
 public class ResidentEntity : BaseEntity
 {
@@ -11,7 +14,16 @@ public class ResidentEntity : BaseEntity
         LastName = lastname;
         ResidentAddress = residentaddress;
     }
+   
 
+    public void Edit(string firstName, string lastName, string userName, string residentAddress)
+    {
+        this.UserName = userName;
+        this.FirstName = firstName;
+        this.LastName = lastName;
+        this.ResidentAddress = residentAddress;
+        
+    }
 
     public string UserName { get; set; }
     public string FirstName { get; set; }
