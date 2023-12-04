@@ -11,9 +11,9 @@ namespace BookingSystemApi.Application.Queris.Booking.Implementation
 {
     public class BookingGetQuery : IBookingGetQuery
     {
-        private readonly IBookingGetQuery _bookingRepository;
+        private readonly IBookingRepository _bookingRepository;
 
-        public BookingGetQuery(IBookingGetQuery meetingRepository)
+        public BookingGetQuery(IBookingRepository meetingRepository)
         {
             _bookingRepository = meetingRepository;
         }

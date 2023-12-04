@@ -8,9 +8,9 @@ namespace BookingSystemApi.Application.Queris.Booking.Implementation
     public class BookingGetAllQuery : IBookingGetAllQuery
     {
 
-        private readonly IBookingGetAllQuery _bookingRepository;
+        private readonly IBookingRepository _bookingRepository;
 
-        public BookingGetAllQuery(IBookingGetAllQuery bookingRepository)
+        public BookingGetAllQuery(IBookingRepository bookingRepository)
         {
             _bookingRepository = bookingRepository;
         }

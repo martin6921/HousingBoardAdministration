@@ -24,4 +24,12 @@ public class ResourceEntity : BaseEntity
     public string Specification { get; set; }
     [Column(TypeName = "decimal(18,2)")]
     public decimal Price { get; set; }
+
+    public void Edit(string description, string specification, decimal price, byte[] RowVersion)
+    {
+        this.Description = description;
+        this.Specification = specification;
+        this.Price = price;
+        this.RowVersion = RowVersion;
+    }
 }

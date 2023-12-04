@@ -1,3 +1,5 @@
+using BookingSystemApi.Application;
+using BookingSystemApi.Infrastructure;
 using BookingSystemApi.SqlServerContext;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,6 +11,11 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddInfrastructureServices();
+builder.Services.AddApplicationServices();
+
+
 
 // Add-Migration BookingMigration -Context BookingSystemApi.SqlServerContext.BookingSystemDbContext -Project BookingSystemApi.SqlServerContextMigrations
 // Add-Migration init -Context BookingSystemApi.SqlServerContext.BookingSystemDbContext -Project BookingSystemApi.SqlServerContextMigrations

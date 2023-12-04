@@ -48,21 +48,6 @@ public class BookingRepository : IBookingRepository
         };
     }
 
-    public IEnumerable<BookingGetAllQueryResultDto> Getall()
-    {
-        foreach (var model in _db.BookingEntities.AsNoTracking().ToList())
-        {
-            yield return new BookingGetAllQueryResultDto
-            {
-                Id = model.Id,
-                RowVersion = model.RowVersion,
-                IsDeleted = model.IsDeleted,
-                StartDate = model.StartDate,
-                EndDate = model.EndDate
-            };
-        }
-    }
-
      BookingEntity IBookingRepository.Load(Guid id)
     {
         var model = _db.BookingEntities.FirstOrDefault(x => x.Id == id);
@@ -85,5 +70,20 @@ public class BookingRepository : IBookingRepository
 
         _db.Add(model);
         _db.SaveChanges();
+    }
+
+    IEnumerable<BookingGetAllQueryResultDto> IBookingRepository.GetAll()
+    {
+        foreach (var model in _db.BookingEntities.AsNoTracking().ToList())
+        {
+            yield return new BookingGetAllQueryResultDto
+            {
+                Id = model.Id,
+                RowVersion = model.RowVersion,
+                IsDeleted = model.IsDeleted,
+                StartDate = model.StartDate,
+                EndDate = model.EndDate
+            };
+        }
     }
 }

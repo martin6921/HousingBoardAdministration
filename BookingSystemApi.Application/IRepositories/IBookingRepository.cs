@@ -11,9 +11,10 @@ namespace BookingSystemApi.Application.IRepositories
         BookingEntity Load(Guid id);
         void Create(CreateBookingCommand request);
         BookingGetQueryResultDto Get(Guid id);
-        IEnumerable<BookingGetAllQueryResultDto> Getall();
+      
         void Delete(DeleteBookingCommand request);
         void Edit(BookingEntity request);
+        IEnumerable<BookingGetAllQueryResultDto> GetAll();
     }
 }
 
