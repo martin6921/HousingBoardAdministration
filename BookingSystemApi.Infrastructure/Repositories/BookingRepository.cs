@@ -56,15 +56,23 @@ public class BookingRepository : IBookingRepository
 
     void IBookingRepository.Create(CreateBookingCommand request)
     {
-        var booking = _db.BookingEntities.FirstOrDefault(x => x.Id == request.Id);
-        var resource = _db.ResourceEntities.FirstOrDefault(x => x.Id == request.Id);
+        //var resident = _db.ResidentEntities.FirstOrDefault(x => x.Id == request.Id);
+        //var resource = _db.ResourceEntities.FirstOrDefault(x => x.Id == request.Id);
 
-        var model = new BookingEntity
+        ResidentEntity resident = new ResidentEntity { Id = request.BookingOnwer };
+        List<ResourceEntity> resourceList = request.ResourceIdsList.Select(id => new ResourceEntity { Id = id }).ToList();
+
+        _db.Attach(resident);
+        _db.Attach(resourceList);
+
+        BookingEntity model = new BookingEntity
         {
             Id = request.Id,
             IsDeleted = false,
             StartDate = request.StartDate,
-            EndDate = request.EndDate
+            EndDate = request.EndDate,
+            BookingOwner = resident,
+            Resources = resourceList
 
         };
 
