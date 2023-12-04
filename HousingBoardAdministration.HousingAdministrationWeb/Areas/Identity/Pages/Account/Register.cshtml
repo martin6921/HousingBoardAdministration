@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Register";
 }
+<link href="~/css/style.css" rel="stylesheet">
 
 <h1>@ViewData["Title"]</h1>
 
@@ -23,7 +24,8 @@
                 <span asp-validation-for="Input.LastName" class="text-danger"></span>
             </div>
             <div class="form-floating mb-3">
-                <input asp-for="Input.ResidentAddress" class="form-control" aria-required="true" placeholder="Adresse" />
+                <input type="text" id="address" class="form-control" aria-required="true" placeholder="Adresse" autocomplete="off" role="presentation"   />
+               <p>Valgt adresse: <input asp-for="Input.ResidentAddress" readonly type="text" id="chosenAddress" class="form-control" aria-required="true" placeholder="Adresse" /> </p>
                 <label asp-for="Input.ResidentAddress">Adresse</label>
                 <span asp-validation-for="Input.ResidentAddress" class="text-danger"></span>
             </div>
@@ -80,6 +82,11 @@
         </section>
     </div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js"></script>
+<script src='~/lib/dawa-autocomplete2.min.js'></script>
+<script src=~/js/script.js></script>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
