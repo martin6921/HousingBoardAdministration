@@ -42,7 +42,6 @@ public class BookingRepository : IBookingRepository
         {
             Id = model.Id,
             RowVersion = model.RowVersion,
-            IsDeleted = model.IsDeleted,
             StartDate = model.StartDate,
             EndDate = model.EndDate
         };
@@ -63,11 +62,13 @@ public class BookingRepository : IBookingRepository
         List<ResourceEntity> resourceList = request.ResourceIdsList.Select(id => new ResourceEntity { Id = id }).ToList();
 
         _db.Attach(resident);
-        _db.Attach(resourceList);
-
+        foreach (ResourceEntity resource in resourceList ) 
+        {
+            _db.Attach(resource);
+        }
         BookingEntity model = new BookingEntity
         {
-            Id = request.Id,
+            
             IsDeleted = false,
             StartDate = request.StartDate,
             EndDate = request.EndDate,
@@ -88,7 +89,6 @@ public class BookingRepository : IBookingRepository
             {
                 Id = model.Id,
                 RowVersion = model.RowVersion,
-                IsDeleted = model.IsDeleted,
                 StartDate = model.StartDate,
                 EndDate = model.EndDate
             };

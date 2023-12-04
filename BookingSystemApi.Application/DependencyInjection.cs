@@ -20,6 +20,7 @@ public static class DependencyInjection
         services.AddScoped<IBookingGetAllQuery, BookingGetAllQuery>();
         services.AddScoped<IBookingGetQuery, BookingGetQuery>();
         
+        
         //services.AddScoped<IResourceGetAllQuery, ResourceGetAllQuery>();
         //services.AddScoped<IResourceGetQuery, ResourceGetQuery>();
 
