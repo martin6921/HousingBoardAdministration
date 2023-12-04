@@ -59,7 +59,7 @@ public class BookingRepository : IBookingRepository
         //var resident = _db.ResidentEntities.FirstOrDefault(x => x.Id == request.Id);
         //var resource = _db.ResourceEntities.FirstOrDefault(x => x.Id == request.Id);
 
-        ResidentEntity resident = new ResidentEntity { Id = request.BookingOnwer };
+        ResidentEntity resident = new ResidentEntity { Id = request.BookingOwnerId };
         List<ResourceEntity> resourceList = request.ResourceIdsList.Select(id => new ResourceEntity { Id = id }).ToList();
 
         _db.Attach(resident);
