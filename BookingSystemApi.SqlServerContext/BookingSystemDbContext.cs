@@ -15,7 +15,7 @@ public class BookingSystemDbContext : DbContext
 
     public DbSet<ResourceEntity> ResourceEntities { get; set; }
     public DbSet<BookingEntity> BookingEntities { get; set; }
-    public DbSet<BookingEntity> ResidentEntities { get; set; }
+    public DbSet<ResidentEntity> ResidentEntities { get; set; }
 
 
 

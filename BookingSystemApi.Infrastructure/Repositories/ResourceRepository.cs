@@ -1,7 +1,9 @@
-﻿using BookingSystemApi.Application.Commands.Resource.Create;
+﻿using Azure.Core;
+using BookingSystemApi.Application.Commands.Resource.Create;
 using BookingSystemApi.Application.Commands.Resource.Delete;
 using BookingSystemApi.Application.IRepositories;
-using BookingSystemApi.Application.Queris.Resource.Dto;
+using BookingSystemApi.Application.Queris.Resource.GetAllResourcesQuery;
+using BookingSystemApi.Application.Queris.Resource.GetResourcesQuery;
 using BookingSystemApi.Domain.Entities;
 using BookingSystemApi.SqlServerContext;
 using Microsoft.EntityFrameworkCore;
@@ -47,29 +49,59 @@ public class ResourceRepository : IResourceRepository
         _context.SaveChanges();
     }
 
-    ResourceGetQueryResultDto IResourceRepository.Get(Guid id)
+    //ResourceGetQueryResultDto IResourceRepository.Get(Guid id)
+    //{
+    //    var model = _context.ResourceEntities.AsNoTracking().FirstOrDefault(x => x.Id == id);
+    //    if (model == null) throw new Exception("ingen resouce fundet");
+    //    return new ResourceGetQueryResultDto
+    //    {
+    //        Id = model.Id,
+    //        Description = model.Description,
+    //        Specification = model.Specification,
+    //        Price = model.Price
+    //    };
+    //}
+
+    //IEnumerable<ResourceGetAllQueryResultDto> IResourceRepository.GetAll()
+    //{
+    //    foreach(var model in _context.ResourceEntities.AsNoTracking().ToList())
+    //    {
+    //        yield return new ResourceGetAllQueryResultDto
+    //        {
+    //            Id = model.Id,
+    //            Description = model.Description,
+    //            Specification = model.Specification,
+    //            Price = model.Price
+    //        };
+    //    }
+    //}
+
+    GetResourcesQueryResult IResourceRepository.Get(GetResourcesQuery request)
     {
-        var model = _context.ResourceEntities.AsNoTracking().FirstOrDefault(x => x.Id == id);
-        if (model == null) throw new Exception("ingen resouce fundet");
-        return new ResourceGetQueryResultDto
+       var model = _context.ResourceEntities.AsNoTracking().FirstOrDefault(x => x.Id == request.Id);
+        if (model == null) throw new Exception("Ingen resourcer fundet");
+        return new GetResourcesQueryResult
         {
             Id = model.Id,
             Description = model.Description,
             Specification = model.Specification,
-            Price = model.Price
+            Price = model.Price,
+            RowVersion = model.RowVersion
         };
     }
 
-    IEnumerable<ResourceGetAllQueryResultDto> IResourceRepository.GetAll()
+    IEnumerable<GetAllResourcesQueryResult> IResourceRepository.GetAll(GetAllResourcesQuery request)
     {
-        foreach(var model in _context.ResourceEntities.AsNoTracking().ToList())
+        var resourceModels = _context.ResourceEntities.AsNoTracking();
+        foreach (var model in resourceModels)
         {
-            yield return new ResourceGetAllQueryResultDto
+            yield return new GetAllResourcesQueryResult
             {
                 Id = model.Id,
                 Description = model.Description,
                 Specification = model.Specification,
                 Price = model.Price
+
             };
         }
     }
