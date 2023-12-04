@@ -2,7 +2,7 @@
 
 namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.Meeting;
 
-public class MeetingTypeIndexViewModel
+public class MeetingIndexViewModel
 {
     public Guid Id { get; set; }
 

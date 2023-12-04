@@ -22,14 +22,25 @@ namespace HousingBoardAdministration.HousingAdministrationWeb
         Task CreateBoardMemberAsync([Body]CreateBoardMemberDto createBoardMemberDto);
 
         [Get("/meeting")]
-        Task<List<MeetingTypeIndexViewModel>> GetAllMeetingsAsync();
+        Task<List<MeetingIndexViewModel>> GetAllMeetingsAsync();
+
+        [Put("/meeting")]
+        Task EditMeetingAsync([Body]MeetingEditViewModel meetingEditViewModel);
+
+        [Get("/meetingtype")]
+        Task<List<MeetingTypeViewModel>> GetAllMeetingTypesAsync();
 
         [Get("/meeting/{id}")]
         Task<GetMeetingViewModel> GetMeetingAsync([Path]Guid id);
+        [Post("/meeting")]
+        Task CreateMeetingAsync([Body]MeetingCreateViewModel meetingCreateViewModel);
 
         [Get("/documenttype")]
         Task<List<DocumentTypeViewModel>> GetAllDocumentTypesAsync();
 
-
+        [Delete("/Document")]
+        Task DeleteDocumentAsync([Body]DocumentDeleteViewModel documentModel);
+        [Delete("/Meeting")]
+        Task DeleteMeetingAsync([Body]MeetingDeleteViewModel meetingModel);
     }
 }

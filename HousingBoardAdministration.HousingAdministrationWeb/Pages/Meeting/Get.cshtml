@@ -50,7 +50,7 @@
                             <td>
                                 <a asp-page="./Document/Download" asp-route-id="@document.Id">Download</a> |
                                 <!-- <snippet_Edit> -->
-                                <a asp-page="./Delete" asp-route-id="@document.Id">Slet</a> |
+                                <a asp-page="./Document/Delete" asp-route-meetingId="@Model.MeetingModel.Id" asp-route-documentId="@document.Id">Slet</a> |
                                 <!-- </snippet_Edit> -->
     
                             </td>

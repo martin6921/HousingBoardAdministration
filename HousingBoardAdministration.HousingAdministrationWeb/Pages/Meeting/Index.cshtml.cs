@@ -15,7 +15,7 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.Meeting
 
 
         [BindProperty]
-        public List<MeetingTypeIndexViewModel> MeetingsViewModel { get; set; }
+        public List<MeetingIndexViewModel> MeetingsViewModel { get; set; }
         public async Task<ActionResult> OnGet()
         {
             MeetingsViewModel = await _bffClient.GetAllMeetingsAsync();
