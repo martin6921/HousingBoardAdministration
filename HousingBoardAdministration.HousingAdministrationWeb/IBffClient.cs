@@ -11,6 +11,8 @@ namespace HousingBoardAdministration.HousingAdministrationWeb
         //attribute body
         [Post("/document")]
         Task CreateDocumentAsync([Body]DocumentCreateViewModel documentCreateViewModel);
+        [Get("/document/{id}")]
+        Task<DocumentViewModel> GetDocumentAsync([Path] Guid id);
 
         [Get("/role")]
         Task<List<RoleViewModel>> GetAllRolesAsync();
@@ -24,6 +26,9 @@ namespace HousingBoardAdministration.HousingAdministrationWeb
 
         [Get("/meeting/{id}")]
         Task<GetMeetingViewModel> GetMeetingAsync([Path]Guid id);
+
+        [Get("/documenttype")]
+        Task<List<DocumentTypeViewModel>> GetAllDocumentTypesAsync();
 
 
     }

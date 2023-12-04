@@ -1,8 +1,8 @@
 ﻿using HousingBoardApi.Application.Commands.Document.Create;
 using HousingBoardApi.Application.Commands.Document.Delete;
 using HousingBoardApi.Application.Commands.Document.Edit;
-using HousingBoardApi.Application.Queries.Document.Dto;
-using HousingBoardApi.Application.Queries.Document.Interface;
+using HousingBoardApi.Application.Queries.Document.GetAllDocuments;
+using HousingBoardApi.Application.Queries.Document.GetDocument;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,29 +12,26 @@ namespace HousingBoardAdministration.HousingBoardApi.Controllers;
 [ApiController]
 public class DocumentController : ControllerBase
 {
-    private readonly IDocumentGetAllQuery _documentGetAllQuery;
-    private readonly IDocumentGetQuery _documentGetQuery;
+
     private readonly IMediator _mediator;
 
-    public DocumentController(IDocumentGetAllQuery documentGetAllQuery, IDocumentGetQuery documentGetQuery, IMediator mediator)
+    public DocumentController(IMediator mediator)
     {
-        _documentGetAllQuery = documentGetAllQuery;
-        _documentGetQuery = documentGetQuery;
         _mediator = mediator;
     }
 
     [HttpGet("{id}")]
-    public ActionResult<DocumentGetQueryResultDto> Get(Guid id)
+    public async Task<ActionResult<GetDocumentQueryResult>> Get(Guid id)
     {
-        var result = _documentGetQuery.Get(id);
+        var result = await _mediator.Send(new GetDocumentQuery { Id = id });
         return result;
     }
 
     [HttpGet]
-    public ActionResult<IEnumerable<DocumentGetAllQueryResultDto>> GetAll()
+    public async Task<ActionResult<List<GetAllDocumentsByMeetingIdQueryResult>>> GetAll([FromQuery]GetAllDocumentsByMeetingIdQuery request)
     {
-        var result = _documentGetAllQuery.GetAll();
-        return result.ToList();
+        var result = await _mediator.Send(request);
+        return result;
     }
 
     [HttpPost]

@@ -1,5 +1,4 @@
-﻿using HousingBoardApi.Application.Queries.Meeting.Dto;
-using HousingBoardApi.Application.Queries.Meeting.Interface;
+﻿
 using HousingBoardApi.Application.Queries.MeetingType.Dto;
 using HousingBoardApi.Application.Queries.MeetingType.Interface;
 using MediatR;
