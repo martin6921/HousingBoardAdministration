@@ -1,11 +1,12 @@
 ﻿
 using BookingSystemApi.Application.Commands.Booking.Create;
+using BookingSystemApi.Application.Commands.Booking.Update;
 using BookingSystemApi.Application.IRepositories;
 using System.Resources;
 
 namespace BookingSystemApi.Application.Commands.Booking.Edit;
 
-    public class EditBookingCommandHandler : IRequestHandler<CreateBookingCommand>
+    public class EditBookingCommandHandler : IRequestHandler<EditBookingCommand>
     {
         private readonly IBookingRepository _bookingRepository;
 
@@ -14,7 +15,7 @@ namespace BookingSystemApi.Application.Commands.Booking.Edit;
             _bookingRepository = resourceRepository;
         }
 
-        public Task Handle(CreateBookingCommand request, CancellationToken cancellationToken)
+        public Task Handle(EditBookingCommand request, CancellationToken cancellationToken)
         {
         var model = _bookingRepository.Load(request.Id);
 
