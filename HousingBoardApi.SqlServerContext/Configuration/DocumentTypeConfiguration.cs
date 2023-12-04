@@ -17,6 +17,7 @@ public class DocumentTypeConfiguration : IEntityTypeConfiguration<DocumentEntity
         .WithMany(m => m.Documents)
         .OnDelete(DeleteBehavior.Restrict);
 
+
         //erklære primærnøglen
         builder.HasKey(x => x.Id);
     }

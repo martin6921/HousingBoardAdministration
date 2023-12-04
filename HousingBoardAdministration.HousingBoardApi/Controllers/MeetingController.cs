@@ -1,10 +1,9 @@
 ﻿using HousingBoardApi.Application.Commands.Meeting.Create;
 using HousingBoardApi.Application.Commands.Meeting.Delete;
 using HousingBoardApi.Application.Commands.Meeting.Edit;
-using HousingBoardApi.Application.Queries.Meeting.Dto;
-using HousingBoardApi.Application.Queries.Meeting.Interface;
+using HousingBoardApi.Application.Queries.Meeting.GetAllMeetings;
+using HousingBoardApi.Application.Queries.Meeting.GetMeeting;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HousingBoardAdministration.HousingBoardApi.Controllers
@@ -14,15 +13,12 @@ namespace HousingBoardAdministration.HousingBoardApi.Controllers
     [ApiController]
     public class MeetingController : ControllerBase
     {
-        private readonly IMeetingGetAllQuery _meetingGetAllQuery;
-        private readonly IMeetingGetQuery _meetingGetQuery;
+
         private readonly IMediator _mediator;
 
-        public MeetingController(IMediator mediator, IMeetingGetQuery meetingGetQuery, IMeetingGetAllQuery meetingGetAllQuery)
+        public MeetingController(IMediator mediator)
         {
             _mediator = mediator;
-            _meetingGetQuery = meetingGetQuery;
-            _meetingGetAllQuery = meetingGetAllQuery;
         }
 
         [HttpDelete]
@@ -69,9 +65,9 @@ namespace HousingBoardAdministration.HousingBoardApi.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<MeetingGetAllQueryResultDto>> GetAll()
+        public async Task<ActionResult<IEnumerable<GetAllMeetingsQueryResult>>> GetAll()
         {
-            var result = _meetingGetAllQuery.GetAll();
+            var result = await _mediator.Send(new GetAllMeetingsQuery());
             //if (!result.Any())
             // return NotFound();
 
@@ -80,9 +76,9 @@ namespace HousingBoardAdministration.HousingBoardApi.Controllers
 
         // GET api/<ResourceController>/5
         [HttpGet("{id}")]
-        public ActionResult<MeetingGetQueryResultDto> Get(Guid id)
+        public async Task<ActionResult<GetMeetingQueryResult>> Get(Guid id)
         {
-            var result = _meetingGetQuery.Get(id);
+            var result = await _mediator.Send(new GetMeetingQuery { Id = id});
             return result;
         }
     }

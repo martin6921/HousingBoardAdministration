@@ -15,6 +15,10 @@ public class MeetingTypeConfiguration : IEntityTypeConfiguration<MeetingEntity>
 
         builder.HasQueryFilter(x => x.IsDeleted == false);
 
+        builder.HasOne(d => d.MeetingOwner)
+        .WithMany(m => m.Meetings)
+        .OnDelete(DeleteBehavior.Restrict);
+
         //erklære primærnøglen
         builder.HasKey(x => x.Id);
     }

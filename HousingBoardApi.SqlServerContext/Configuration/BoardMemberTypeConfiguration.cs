@@ -13,6 +13,7 @@ public class BoardMemberTypeConfiguration : IEntityTypeConfiguration<BoardMember
         //ResourceEntity bliver mappet til tabellen Resource med skemeaet resource
         builder.ToTable("BoardMember");
 
+
         //erklære primærnøglen
         builder.HasKey(x => x.Id);
         //builder.HasOne(b => b.Role).WithOne(r=>r.BoardMember).HasForeignKey<BoardMemberRoleEntity>(r=>r.BoardMember.Id);

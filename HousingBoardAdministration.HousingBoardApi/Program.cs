@@ -15,6 +15,11 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddInfrastructureServices();
 builder.Services.AddApplicationServices();
 
+//builder.Services.AddControllersWithViews()
+//    .AddNewtonsoftJson(options =>
+//    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+//);
+
 
 // Add-Migration init -Context HousingBoardApi.SqlServerContext.HousingBoardDbContext -Project HousingBoardApi.SqlServerContextMigrations
 // Update-Database -Context HousingBoardApi.SqlServerContext.HousingBoardDbContext

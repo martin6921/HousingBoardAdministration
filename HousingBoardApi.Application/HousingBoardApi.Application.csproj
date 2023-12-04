@@ -15,4 +15,14 @@
     <ProjectReference Include="..\HousingBoardApi.Domain\HousingBoardApi.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Commands\BoardMemberRole\Edit\" />
+    <Folder Include="Queries\BoardMemberRole\Dto\" />
+    <Folder Include="Queries\BoardMemberRole\Implementation\" />
+    <Folder Include="Queries\BoardMemberRole\Interface\" />
+    <Folder Include="Queries\BoardMember\Dto\" />
+    <Folder Include="Queries\BoardMember\Implementation\" />
+    <Folder Include="Queries\BoardMember\Interface\" />
+  </ItemGroup>
+
 </Project>

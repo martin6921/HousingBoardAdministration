@@ -1,0 +1,64 @@
+﻿@page
+@model HousingBoardAdministration.HousingAdministrationWeb.Pages.Meeting.GetModel
+@{
+}
+<h2>Visning af møde</h2>
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <input type="hidden" asp-for="MeetingModel.Id" class="form-control" />
+            <input type="hidden" asp-for="MeetingModel.RowVersion" class="form-control" />
+            <div class="form-group row">
+                <label for="MeetingModel.Title" class="col-sm-2 col-form-label">Titel:</label>
+                <div class="col-sm-10">
+                    <input type="text" readonly class="form-control-plaintext" value="@Model.MeetingModel.Title">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="MeetingModel.Description" class="col-sm-2 col-form-label">Beskrivelse:</label>
+                <div class="col-sm-10">
+                    <input type="text" readonly class="form-control-plaintext" value="@Model.MeetingModel.Description">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="MeetingModel.MeetingTime" class="col-sm-2 col-form-label">Tidspunkt:</label>
+                <div class="col-sm-10">
+                    <input type="text" readonly class="form-control-plaintext" value="@Model.MeetingModel.MeetingTime">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="MeetingModel.AddressLocation" class="col-sm-2 col-form-label">Adresse:</label>
+                <div class="col-sm-10">
+                    <input type="text" readonly class="form-control-plaintext" value="@Model.MeetingModel.AddressLocation">
+                </div>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Titel</th>
+                        <th>Type</th>
+                        <th>Upload dato</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var document in Model.MeetingModel.Documents)
+                    {
+                        <tr>
+                            <td>@document.Title</td>
+                            <td>@document.DocumentType.Type</td>
+                            <td>@document.UploadDate</td>
+                            <td>
+                                <a asp-page="./Document/Download" asp-route-id="@document.Id">Download</a> |
+                                <!-- <snippet_Edit> -->
+                                <a asp-page="./Delete" asp-route-id="@document.Id">Slet</a> |
+                                <!-- </snippet_Edit> -->
+    
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <a asp-page="./Document/create" asp-route-id="@Model.MeetingModel.Id">Upload dokument</a>
+        </form>
+    </div>
+</div>

@@ -1,6 +1,7 @@
 ﻿using HousingBoardApi.Application.Commands.Meeting.Create;
 using HousingBoardApi.Application.Commands.Meeting.Delete;
-using HousingBoardApi.Application.Queries.Meeting.Dto;
+using HousingBoardApi.Application.Queries.Meeting.GetAllMeetings;
+using HousingBoardApi.Application.Queries.Meeting.GetMeeting;
 using HousingBoardApi.Domain.Entities;
 
 
@@ -10,10 +11,10 @@ public interface IMeetingRepository
 {
     //void Add(ResourceCreateRequestDto resource);
     MeetingEntity Load(Guid id);
-    IEnumerable<MeetingGetAllQueryResultDto> GetAll();
+    IEnumerable<GetAllMeetingsQueryResult> GetAll(GetAllMeetingsQuery request);
     void Update(MeetingEntity model);
 
-    MeetingGetQueryResultDto Get(Guid id);
+    GetMeetingQueryResult Get(GetMeetingQuery request);
     void Delete(DeleteMeetingCommand request);
     void Add(CreateMeetingCommand request);
 }

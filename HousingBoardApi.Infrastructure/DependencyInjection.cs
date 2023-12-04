@@ -10,6 +10,13 @@ public static class DependencyInjection
     public static IServiceCollection AddInfrastructureServices(this IServiceCollection services)
     {
         services.AddScoped<IMeetingRepository, MeetingRepository>();
+        services.AddScoped<IMeetingTypeRepository, MeetingTypeRepository>();
+        services.AddScoped<IDocumentRepository, DocumentRepository>();
+        services.AddScoped<IDocumentTypeRepository, DocumentTypeRepository>();
+        services.AddScoped<IBoardMemberRepository, BoardMemberRepository>();
+        services.AddScoped<IBoardMemberRoleRepository, BoardMemberRoleRepository>();
+        services.AddScoped<IRoleRepository, RoleRepository>();
+
         services.AddScoped<IUnitOfWork, UnitOfWork>();
 
         return services;

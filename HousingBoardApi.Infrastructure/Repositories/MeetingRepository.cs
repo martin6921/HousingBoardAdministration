@@ -1,8 +1,12 @@
 ﻿using HousingBoardApi.Application.Commands.Meeting.Create;
 using HousingBoardApi.Application.Commands.Meeting.Delete;
-using HousingBoardApi.Application.Queries.Meeting.Dto;
-using Microsoft.EntityFrameworkCore.Query.Internal;
-using System.ComponentModel.DataAnnotations;
+using HousingBoardApi.Application.Queries.Document.GetAllDocuments;
+using HousingBoardApi.Application.Queries.Document.GetDocument;
+using HousingBoardApi.Application.Queries.Meeting;
+using HousingBoardApi.Application.Queries.Meeting.GetAllMeetings;
+using HousingBoardApi.Application.Queries.Meeting.GetMeeting;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace HousingBoardApi.Infrastructure.Repositories;
 
@@ -30,42 +34,6 @@ public class MeetingRepository : IMeetingRepository
         _db.SaveChanges();
     }
 
-    public MeetingGetQueryResultDto Get(Guid id)
-    {
-        //var model = _db.MeetingEntities.AsNoTracking().IgnoreQueryFilters().FirstOrDefault(x => x.Id == id);
-        var model = _db.MeetingEntities.AsNoTracking().FirstOrDefault(x => x.Id == id);
-
-
-        if (model == null) throw new Exception("Ingen meeting fundet i databasen");
-
-        return new MeetingGetQueryResultDto
-        {
-            Id = model.Id,
-            RowVersion = model.RowVersion,
-            IsDeleted = model.IsDeleted,
-            Title = model.Title,
-            Description = model.Description,
-            MeetingTime = model.MeetingTime,
-            AddressLocation = model.AddressLocation
-        };
-    }
-
-    public IEnumerable<MeetingGetAllQueryResultDto> GetAll()
-    {
-        foreach (var model in _db.MeetingEntities.AsNoTracking().ToList())
-        {
-            yield return new MeetingGetAllQueryResultDto
-            {
-                Id = model.Id,
-                RowVersion = model.RowVersion,
-                IsDeleted = model.IsDeleted,
-                Title = model.Title,
-                Description = model.Description,
-                MeetingTime = model.MeetingTime,
-                AddressLocation = model.AddressLocation
-            };
-        }
-    }
 
     void IMeetingRepository.Delete(DeleteMeetingCommand request)
     {
@@ -95,5 +63,61 @@ public class MeetingRepository : IMeetingRepository
 
         _db.Add(model);
         _db.SaveChanges();
+    }
+
+    GetMeetingQueryResult IMeetingRepository.Get(GetMeetingQuery request)
+    {
+        var model = _db.MeetingEntities
+            .Include(type => type.MeetingType)
+            .Include(document => document.Documents).ThenInclude(dtype => dtype.DocumentType)
+            .AsNoTracking().FirstOrDefault(x => x.Id == request.Id);
+
+
+        if (model == null) throw new Exception("No meeting found");
+
+        return new GetMeetingQueryResult
+        {
+            Id = model.Id,
+            Title = model.Title,
+            MeetingType = new MeetingTypeDto { Id = model.MeetingType.Id, Type = model.MeetingType.Type },
+            AddressLocation = model.AddressLocation,
+            CreatedMeetingDate = model.CreatedMeetingDate,
+            MeetingTime = model.MeetingTime,
+            Description = model.Description,
+            RowVersion = model.RowVersion,
+            Documents = model.Documents.Select(doc => new DocumentDto
+            {
+                Id = doc.Id,
+                Title = doc.Title,
+                DocumentType = new DocumentTypeDto
+                {
+                    Id = doc.DocumentType.Id,
+                    Type = doc.DocumentType.Type
+                },
+            }).ToList()
+
+        };
+    }
+
+    IEnumerable<GetAllMeetingsQueryResult> IMeetingRepository.GetAll(GetAllMeetingsQuery request)
+    {
+        var meetingModels = _db.MeetingEntities
+            .Include(type => type.MeetingType)
+            .AsNoTracking();
+
+
+        foreach (var model in meetingModels)
+        {
+            yield return new GetAllMeetingsQueryResult
+            {
+                Id = model.Id,
+                Title = model.Title,
+                MeetingType = new MeetingTypeDto { Id = model.MeetingType.Id, Type = model.MeetingType.Type },
+                AddressLocation = model.AddressLocation,
+                CreatedMeetingDate = model.CreatedMeetingDate,
+                MeetingTime = model.MeetingTime,
+                Description = model.Description
+            };
+        }
     }
 }

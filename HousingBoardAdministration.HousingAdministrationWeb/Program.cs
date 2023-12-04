@@ -1,5 +1,7 @@
+using HousingBoardAdministration.HousingAdministrationWeb;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using RestEase.HttpClientFactory;
 using WebAppUserDbContext;
 
 
@@ -27,6 +29,7 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>
     .AddEntityFrameworkStores<WebAppUserDbContext.WebAppUserDbContext>();
 builder.Services.AddScoped<RoleManager<IdentityRole>>();
 builder.Services.AddRazorPages();
+builder.Services.AddRestEaseClient<IBffClient>("https://localhost:7194/api/");
 
 var app = builder.Build();
 

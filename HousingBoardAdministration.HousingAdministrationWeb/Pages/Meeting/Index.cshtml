@@ -1,0 +1,39 @@
+﻿@page
+@model HousingBoardAdministration.HousingAdministrationWeb.Pages.Meeting.IndexModel
+@{
+}
+<form method="post">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Titel</th>
+                <th>Beskrivelse</th>
+                <th>Møde type</th>
+                <th>Tidspunkt</th>
+                <th>Lokation</th>
+            </tr>
+        </thead>
+        <tbody>
+                @foreach (var meeting in Model.MeetingsViewModel)
+                {
+                    <tr>
+                    <td>@meeting.Title</td>
+                    <td>@meeting.Description</td>
+                    <td>@meeting.MeetingType.Type</td>
+                    <td>@meeting.MeetingTime</td>
+                    <td>@meeting.AddressLocation</td>
+                        <td>
+                        <a asp-page="./Get" asp-route-id="@meeting.Id">Vis</a> |
+                            <!-- <snippet_Edit> -->
+                        <a asp-page="./Edit" asp-route-id="@meeting.Id">Rediger</a> |
+                            <!-- </snippet_Edit> -->
+                            <!-- <snippet_Delete> -->
+                        <a asp-page="./Delete" asp-route-id="@meeting.Id">Slet</a>
+                            <!-- </snippet_Delete> -->
+                        </td>
+                    </tr>
+                }
+        </tbody>
+    </table>
+    <a asp-page="Create">Opret møde</a>
+</form>
