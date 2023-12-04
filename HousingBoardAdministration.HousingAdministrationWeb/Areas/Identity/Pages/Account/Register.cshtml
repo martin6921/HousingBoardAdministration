@@ -25,7 +25,7 @@
             </div>
             <div class="form-floating mb-3">
                 <input type="text" id="address" class="form-control" aria-required="true" placeholder="Adresse" autocomplete="off" role="presentation"   />
-               <p>Valgt adresse: <span asp-for="Input.ResidentAddress" type="text" id="chosenAddress" class="form-control" aria-required="true" placeholder="Adresse" /> </p>
+               <p>Valgt adresse: <input asp-for="Input.ResidentAddress" readonly type="text" id="chosenAddress" class="form-control" aria-required="true" placeholder="Adresse" /> </p>
                 <label asp-for="Input.ResidentAddress">Adresse</label>
                 <span asp-validation-for="Input.ResidentAddress" class="text-danger"></span>
             </div>

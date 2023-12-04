@@ -1,7 +1,7 @@
 "use strict"
 dawaAutocomplete.dawaAutocomplete(document.getElementById("address"), {
     select: function (selected) {
-        document.getElementById("chosenAddress").innerHTML = selected.tekst;
-        document.getElementById("address").innerHTML = "";
+        document.getElementById("chosenAddress").value = document.getElementById("address").value;
+        document.getElementById("address").value = "";
     }
 });
