@@ -1,7 +1,5 @@
-﻿using HousingBoardApi.Application.Queries.Meeting.Dto;
-using HousingBoardApi.Application.Queries.Role.Dto;
+﻿using HousingBoardApi.Application.Queries.Role.Dto;
 using HousingBoardApi.Application.Queries.Role.Interface;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HousingBoardAdministration.HousingBoardApi.Controllers

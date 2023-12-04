@@ -12,8 +12,6 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.Meeting
         {
             this._bffClient = bffClient;
         }
-        [BindProperty]
-        public List<DocumentViewModel> Documents { get; set; }
 
         [BindProperty]
         public GetMeetingViewModel MeetingModel { get; set; } = new();

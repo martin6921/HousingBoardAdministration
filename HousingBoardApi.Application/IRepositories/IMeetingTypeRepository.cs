@@ -1,10 +1,5 @@
-﻿using HousingBoardApi.Application.Queries.Meeting.Dto;
-using HousingBoardApi.Application.Queries.MeetingType.Dto;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using HousingBoardApi.Application.Queries.MeetingType.Dto;
+
 
 namespace HousingBoardApi.Application.IRepositories;
 

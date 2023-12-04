@@ -1,5 +1,7 @@
+using HousingBoardAdministration.HousingAdministrationWeb.Areas.Identity.Pages.Account.ListViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.Meeting.Document
 {
@@ -20,17 +22,26 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.Meeting.Docu
 
         public static Guid MeetingId { get; set; }
 
-        public Task OnGet(Guid id)
+
+        [BindProperty]
+        public List<DocumentTypeViewModel> ListOfAllDocumentTypes { get; set; } = new();
+        public SelectList DocumentTypeSelectList { get; set; }
+        [BindProperty]
+        public Guid SelectedDocumentTypeId { get; set; }
+
+        public async Task OnGet(Guid id)
         {
+            ListOfAllDocumentTypes = await _bffClient.GetAllDocumentTypesAsync();
+            DocumentTypeSelectList = new SelectList(ListOfAllDocumentTypes, "Id","Type");
             MeetingId = id;
-            return Task.CompletedTask;
         }
 
-        public async Task OnPostAsync()
+        public async Task<IActionResult> OnPostAsync()
         {
             long length = Upload.Length;
 
             DocumentModel.MeetingId = MeetingId;
+            DocumentModel.DocumentTypeId = SelectedDocumentTypeId;
             //add length check mayb
 
             using var fileStream = Upload.OpenReadStream();
@@ -42,6 +53,7 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.Meeting.Docu
             //byte[] newByte = Convert.FromBase64String(base64text);
 
             await _bffClient.CreateDocumentAsync(DocumentModel);
+            return RedirectToPage("/Meeting/Get", new { id = MeetingId });
 
             // System.IO.File.WriteAllBytes("C:\\Users\\Martin\\Desktop\\dbabay\\hjælp.pdf", newByte);
         }

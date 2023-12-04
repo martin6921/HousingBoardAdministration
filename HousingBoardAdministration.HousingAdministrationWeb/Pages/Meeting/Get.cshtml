@@ -32,35 +32,30 @@
                     <input type="text" readonly class="form-control-plaintext" value="@Model.MeetingModel.AddressLocation">
                 </div>
             </div>
-
             <table class="table">
                 <thead>
                     <tr>
                         <th>Titel</th>
                         <th>Type</th>
-                        <th>Dokument</th>
                         <th>Upload dato</th>
-                        <th>Ejer</th>
                     </tr>
                 </thead>
                 <tbody>
-@*                     @foreach (var meeting in Model.MeetingsViewModel)
+                    @foreach (var document in Model.MeetingModel.Documents)
                     {
                         <tr>
-                            <td>@meeting.Title</td>
-                            <td>@meeting.Description</td>
-                            <td>@meeting.MeetingType.Type</td>
-                            <td>@meeting.MeetingTime</td>
-                            <td>@meeting.AddressLocation</td>
+                            <td>@document.Title</td>
+                            <td>@document.DocumentType.Type</td>
+                            <td>@document.UploadDate</td>
                             <td>
-                                <a asp-page="./Download" asp-route-id="@meeting.Id">Download</a> |
+                                <a asp-page="./Document/Download" asp-route-id="@document.Id">Download</a> |
                                 <!-- <snippet_Edit> -->
-                                <a asp-page="./Delete" asp-route-id="@meeting.Id">Slet</a> |
+                                <a asp-page="./Delete" asp-route-id="@document.Id">Slet</a> |
                                 <!-- </snippet_Edit> -->
     
                             </td>
                         </tr>
-                    } *@
+                    }
                 </tbody>
             </table>
             <a asp-page="./Document/create" asp-route-id="@Model.MeetingModel.Id">Upload dokument</a>
