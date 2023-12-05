@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MediatR;
-using BookingSystemApi.Application.Queris.Booking.Interface;
-using BookingSystemApi.Application.Queris.Booking.Dto;
 using BookingSystemApi.Application.Commands.Booking.Delete;
 using BookingSystemApi.Application.Commands.Booking.Create;
 using BookingSystemApi.Application.Commands.Booking.Update;
+using BookingSystemApi.Application.Queris.Booking.GetBooking;
+using BookingSystemApi.Application.Queris.Booking.GetAllBooking;
 
 namespace HousingBoardAdministration.BookingSystemApi.Controllers
 {
@@ -12,13 +12,13 @@ namespace HousingBoardAdministration.BookingSystemApi.Controllers
     [ApiController]
     public class BookingController : ControllerBase
     {
-        private readonly IBookingGetQuery _bookingGetQuery;
-        private readonly IBookingGetAllQuery _bookingGetAllQuery;
+        //private readonly IBookingGetQuery _bookingGetQuery;
+        //private readonly GetAllBookingsQuery _bookingGetAllQuery;
         private readonly IMediator _mediator;
-        public BookingController(IBookingGetQuery bookingGetQuery, IBookingGetAllQuery bookingGetAllQuery, IMediator mediator)
+        public BookingController(/*IBookingGetQuery bookingGetQuery, GetAllBookingsQuery bookingGetAllQuery,*/ IMediator mediator)
         {
-            _bookingGetQuery = bookingGetQuery;
-            _bookingGetAllQuery = bookingGetAllQuery;
+            //_bookingGetQuery = bookingGetQuery;
+            //_bookingGetAllQuery = bookingGetAllQuery;
             _mediator = mediator;
         }
 
@@ -65,20 +65,18 @@ namespace HousingBoardAdministration.BookingSystemApi.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<BookingGetAllQueryResultDto>> GetAll()
+        public async Task<ActionResult<IEnumerable<GetAllBookingsQueryResult>>> GetAll()
         {
-            var result = _bookingGetAllQuery.GetAll();
-           
-
+            var result = await _mediator.Send(new  GetAllBookingsQuery());
             return result.ToList();
 
         }
-            [HttpGet("{id}")]
-        public ActionResult<BookingGetQueryResultDto> Get(Guid id) 
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<GetBookingQueryResult>> Get(Guid id) 
         { 
-         var result = _bookingGetQuery.Get(id);
+         var result = await _mediator.Send(new GetBookingQuery { Id = id });
             return result;
-        
         }
 
     }

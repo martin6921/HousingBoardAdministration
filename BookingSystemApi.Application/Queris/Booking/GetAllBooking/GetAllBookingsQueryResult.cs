@@ -5,15 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BookingSystemApi.Application.Queris.Booking.Dto
+namespace BookingSystemApi.Application.Queris.Booking.GetAllBooking
 {
-    public class BookingGetAllQueryResultDto
+    public class GetAllBookingsQueryResult
     {
         public Guid Id { get; set; }
 
-        [Timestamp]
-        public byte[] RowVersion { get; set; }
-        
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
     }

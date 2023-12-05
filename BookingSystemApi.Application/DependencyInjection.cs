@@ -1,6 +1,5 @@
 ﻿using BookingSystemApi.Application.IRepositories;
-using BookingSystemApi.Application.Queris.Booking.Implementation;
-using BookingSystemApi.Application.Queris.Booking.Interface;
+using BookingSystemApi.Application.Queris.Booking.GetAllBooking;
 using BookingSystemApi.Application.Transaction.Behaviors;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
@@ -16,11 +15,9 @@ public static class DependencyInjection
             cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly());
             cfg.AddOpenBehavior(typeof(UnitOfWorkBehavior<,>));
         });
-
-        services.AddScoped<IBookingGetAllQuery, BookingGetAllQuery>();
-        services.AddScoped<IBookingGetQuery, BookingGetQuery>();
         
-        
+        //services.AddScoped<GetAllBookingsQuery, GetAllBookingsQueryHandler>();
+        //services.AddScoped<IBookingGetQuery, BookingGetQuery>();
         //services.AddScoped<IResourceGetAllQuery, ResourceGetAllQuery>();
         //services.AddScoped<IResourceGetQuery, ResourceGetQuery>();
 
