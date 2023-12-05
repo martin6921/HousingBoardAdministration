@@ -1,6 +1,9 @@
 ﻿using HousingBoardApi.Application.Commands.BoardMember.Create;
 using HousingBoardApi.Application.Commands.Meeting.Create;
 using HousingBoardApi.Application.IRepositories;
+using HousingBoardApi.Application.Queries.BoardMember.GetAllBoardMembersWithRoles;
+using HousingBoardApi.Application.Queries.BoardMember.GetBoardMemberWithRole;
+using HousingBoardApi.Application.Queries.Meeting.GetAllMeetings;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -30,5 +33,21 @@ public class BoardMemberController : ControllerBase
         {
             return BadRequest(e.Message);
         }
+    }
+    [HttpGet]
+    public async Task<ActionResult<List<GetAllBoardMembersWithRolesQueryResult>>> GetAll()
+    {
+        var result = await _mediator.Send(new GetAllBoardMembersWithRolesQuery());
+        //if (!result.Any())
+        // return NotFound();
+
+        return result.ToList();
+    }
+
+    [HttpGet("{id}")]
+    public async Task<ActionResult<GetBoardMemberWithRoleQueryResult>> Get(Guid id, [FromQuery]bool includeOldRoles)
+    {
+        var result = await _mediator.Send(new GetBoardMemberWithRoleQuery { Id = id, IncludeOldRoles = includeOldRoles });
+        return result;
     }
 }

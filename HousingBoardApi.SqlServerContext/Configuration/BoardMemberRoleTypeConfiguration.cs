@@ -17,6 +17,7 @@ namespace HousingBoardApi.SqlServerContext.Configuration
             //ResourceEntity bliver mappet til tabellen Resource med skemeaet resource
             builder.ToTable("BoardMemberRole");
 
+
             //erklære primærnøglen
             builder.HasKey(x => new { x.BoardMemberId, x.RoleId });
         }

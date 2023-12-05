@@ -1,6 +1,9 @@
 ﻿using HousingBoardAdministration.HousingAdministrationWeb.Areas.Identity.Pages.Account.ListViewModels;
+using HousingBoardAdministration.HousingAdministrationWeb.Pages.HousingBoard;
+using HousingBoardAdministration.HousingAdministrationWeb.Pages.HousingBoard.BoardMember;
 using HousingBoardAdministration.HousingAdministrationWeb.Pages.Meeting;
 using HousingBoardAdministration.HousingAdministrationWeb.Pages.Meeting.Document;
+using Microsoft.AspNetCore.Mvc;
 using RestEase;
 
 namespace HousingBoardAdministration.HousingAdministrationWeb
@@ -42,5 +45,11 @@ namespace HousingBoardAdministration.HousingAdministrationWeb
         Task DeleteDocumentAsync([Body]DocumentDeleteViewModel documentModel);
         [Delete("/Meeting")]
         Task DeleteMeetingAsync([Body]MeetingDeleteViewModel meetingModel);
+
+        [Get("/boardmember")]
+        Task<List<BoardMembersWithRolesViewModel>> GetAllBoardMembersWithRolesAsync();
+
+        [Get("/boardmember/{id}")]
+        Task<BoardMemberWithAllRolesViewModel> GetBoardMemberWithAllRolesAsync([Path]Guid id, [FromQuery]bool includeOldRoles);
     }
 }

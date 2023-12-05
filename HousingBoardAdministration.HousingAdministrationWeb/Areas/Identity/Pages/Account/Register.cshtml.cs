@@ -138,7 +138,8 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Areas.Identity.Pag
                 UserName = inputModel.Email,
                 FirstName = inputModel.FirstName,
                 LastName = inputModel.LastName,
-                ResidentAddress = inputModel.ResidentAddress
+                ResidentAddress = inputModel.ResidentAddress,
+                RoleId = inputModel.SelectedRoleId
 
             });
         }

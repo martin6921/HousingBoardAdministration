@@ -7,6 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Queries\BoardMember\Dto\**" />
+    <Compile Remove="Queries\BoardMember\Implementation\**" />
+    <Compile Remove="Queries\BoardMember\Interface\**" />
+    <EmbeddedResource Remove="Queries\BoardMember\Dto\**" />
+    <EmbeddedResource Remove="Queries\BoardMember\Implementation\**" />
+    <EmbeddedResource Remove="Queries\BoardMember\Interface\**" />
+    <None Remove="Queries\BoardMember\Dto\**" />
+    <None Remove="Queries\BoardMember\Implementation\**" />
+    <None Remove="Queries\BoardMember\Interface\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MediatR" Version="12.2.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
   </ItemGroup>
@@ -20,9 +32,6 @@
     <Folder Include="Queries\BoardMemberRole\Dto\" />
     <Folder Include="Queries\BoardMemberRole\Implementation\" />
     <Folder Include="Queries\BoardMemberRole\Interface\" />
-    <Folder Include="Queries\BoardMember\Dto\" />
-    <Folder Include="Queries\BoardMember\Implementation\" />
-    <Folder Include="Queries\BoardMember\Interface\" />
   </ItemGroup>
 
 </Project>

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HousingBoardApi.SqlServerContextMigrations.Migrations
 {
     [DbContext(typeof(HousingBoardDbContext))]
-    [Migration("20231203200437_init")]
-    partial class init
+    [Migration("20231205154655_init2")]
+    partial class init2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -85,9 +85,6 @@ namespace HousingBoardApi.SqlServerContextMigrations.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("BoardMemberId", "RoleId");
-
-                    b.HasIndex("BoardMemberId")
-                        .IsUnique();
 
                     b.HasIndex("RoleId");
 
@@ -278,8 +275,8 @@ namespace HousingBoardApi.SqlServerContextMigrations.Migrations
             modelBuilder.Entity("HousingBoardApi.Domain.Entities.BoardMemberRoleEntity", b =>
                 {
                     b.HasOne("HousingBoardApi.Domain.Entities.BoardMemberEntity", "BoardMember")
-                        .WithOne("Role")
-                        .HasForeignKey("HousingBoardApi.Domain.Entities.BoardMemberRoleEntity", "BoardMemberId")
+                        .WithMany("Roles")
+                        .HasForeignKey("BoardMemberId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -346,8 +343,7 @@ namespace HousingBoardApi.SqlServerContextMigrations.Migrations
 
                     b.Navigation("Meetings");
 
-                    b.Navigation("Role")
-                        .IsRequired();
+                    b.Navigation("Roles");
                 });
 
             modelBuilder.Entity("HousingBoardApi.Domain.Entities.MeetingEntity", b =>

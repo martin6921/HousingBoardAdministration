@@ -4,6 +4,7 @@ using HousingBoardApi.SqlServerContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HousingBoardApi.SqlServerContextMigrations.Migrations
 {
     [DbContext(typeof(HousingBoardDbContext))]
-    partial class HousingBoardDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231204163601_init")]
+    partial class init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -82,6 +85,9 @@ namespace HousingBoardApi.SqlServerContextMigrations.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("BoardMemberId", "RoleId");
+
+                    b.HasIndex("BoardMemberId")
+                        .IsUnique();
 
                     b.HasIndex("RoleId");
 
@@ -272,8 +278,8 @@ namespace HousingBoardApi.SqlServerContextMigrations.Migrations
             modelBuilder.Entity("HousingBoardApi.Domain.Entities.BoardMemberRoleEntity", b =>
                 {
                     b.HasOne("HousingBoardApi.Domain.Entities.BoardMemberEntity", "BoardMember")
-                        .WithMany("Roles")
-                        .HasForeignKey("BoardMemberId")
+                        .WithOne("Role")
+                        .HasForeignKey("HousingBoardApi.Domain.Entities.BoardMemberRoleEntity", "BoardMemberId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -340,7 +346,8 @@ namespace HousingBoardApi.SqlServerContextMigrations.Migrations
 
                     b.Navigation("Meetings");
 
-                    b.Navigation("Roles");
+                    b.Navigation("Role")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("HousingBoardApi.Domain.Entities.MeetingEntity", b =>
