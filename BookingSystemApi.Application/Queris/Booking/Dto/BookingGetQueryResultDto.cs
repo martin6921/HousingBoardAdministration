@@ -16,5 +16,7 @@ namespace BookingSystemApi.Application.Queris.Booking.Dto
         
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
+
+        public List<ResourceDto> Resources { get; set; }
     }
 }

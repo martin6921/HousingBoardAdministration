@@ -33,7 +33,7 @@ public class BookingRepository : IBookingRepository
 
     public BookingGetQueryResultDto Get(Guid id)
     {
-        var model = _db.BookingEntities.AsNoTracking().FirstOrDefault(x => x.Id == id);
+        var model = _db.BookingEntities.Include(type => type.Resources).FirstOrDefault(x => x.Id == id);
 
 
         if (model == null) throw new Exception("Ingen meeting fundet i databasen");
@@ -43,7 +43,14 @@ public class BookingRepository : IBookingRepository
             Id = model.Id,
             RowVersion = model.RowVersion,
             StartDate = model.StartDate,
-            EndDate = model.EndDate
+            EndDate = model.EndDate,
+            Resources = model.Resources.Select(resource => new ResourceDto
+            {
+                Id = resource.Id,
+                Description = resource.Description,
+                Specification = resource.Specification,
+                Price = resource.Price,
+            }).ToList(),
         };
     }
 
