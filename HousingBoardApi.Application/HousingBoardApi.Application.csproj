@@ -7,12 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Queries\BoardMemberRole\**" />
     <Compile Remove="Queries\BoardMember\Dto\**" />
     <Compile Remove="Queries\BoardMember\Implementation\**" />
     <Compile Remove="Queries\BoardMember\Interface\**" />
+    <EmbeddedResource Remove="Queries\BoardMemberRole\**" />
     <EmbeddedResource Remove="Queries\BoardMember\Dto\**" />
     <EmbeddedResource Remove="Queries\BoardMember\Implementation\**" />
     <EmbeddedResource Remove="Queries\BoardMember\Interface\**" />
+    <None Remove="Queries\BoardMemberRole\**" />
     <None Remove="Queries\BoardMember\Dto\**" />
     <None Remove="Queries\BoardMember\Implementation\**" />
     <None Remove="Queries\BoardMember\Interface\**" />
@@ -29,9 +32,6 @@
 
   <ItemGroup>
     <Folder Include="Commands\BoardMemberRole\Edit\" />
-    <Folder Include="Queries\BoardMemberRole\Dto\" />
-    <Folder Include="Queries\BoardMemberRole\Implementation\" />
-    <Folder Include="Queries\BoardMemberRole\Interface\" />
   </ItemGroup>
 
 </Project>

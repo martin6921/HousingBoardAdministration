@@ -21,11 +21,11 @@ public class BoardMemberEntity : BaseEntity
     public ICollection<DocumentEntity>? Documents { get; set; }
     public ICollection<MeetingEntity>? Meetings { get; set; }
 
-    public void Edit(string userName, string firstName, string lastName, string residentaddress, byte[] RowVersion)
+    public void Edit(string firstName, string lastName, string residentaddress, byte[] RowVersion)
     {
         this.FirstName = firstName;
         this.LastName = lastName;
-        this.UserName = userName;
+        //this.UserName = userName;
         this.ResidentAddress = residentaddress;
         this.RowVersion = RowVersion;
     }

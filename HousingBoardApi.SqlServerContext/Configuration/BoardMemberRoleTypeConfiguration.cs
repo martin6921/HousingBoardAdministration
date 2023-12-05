@@ -19,7 +19,7 @@ namespace HousingBoardApi.SqlServerContext.Configuration
 
 
             //erklære primærnøglen
-            builder.HasKey(x => new { x.BoardMemberId, x.RoleId });
+            builder.HasKey(x => x.Id);
         }
     }
 }

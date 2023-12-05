@@ -17,7 +17,7 @@ public class EditBoardMemberCommandHandler : IRequestHandler<EditBoardMemberComm
         var model = _boardMemberRepository.Load(request.Id);
        
         //doit 
-        model.Edit(request.UserName, request.FirstName, request.LastName, request.ResidentAddress, request.RowVersion);
+        model.Edit(request.FirstName, request.LastName, request.ResidentAddress, request.RowVersion);
         //save
         _boardMemberRepository.Update(model);
 

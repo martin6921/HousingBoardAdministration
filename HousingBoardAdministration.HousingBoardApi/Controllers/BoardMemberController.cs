@@ -1,11 +1,8 @@
 ﻿using HousingBoardApi.Application.Commands.BoardMember.Create;
-using HousingBoardApi.Application.Commands.Meeting.Create;
-using HousingBoardApi.Application.IRepositories;
+using HousingBoardApi.Application.Commands.BoardMember.Edit;
 using HousingBoardApi.Application.Queries.BoardMember.GetAllBoardMembersWithRoles;
 using HousingBoardApi.Application.Queries.BoardMember.GetBoardMemberWithRole;
-using HousingBoardApi.Application.Queries.Meeting.GetAllMeetings;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HousingBoardAdministration.HousingBoardApi.Controllers;
@@ -49,5 +46,19 @@ public class BoardMemberController : ControllerBase
     {
         var result = await _mediator.Send(new GetBoardMemberWithRoleQuery { Id = id, IncludeOldRoles = includeOldRoles });
         return result;
+    }
+
+    [HttpPut]
+    public ActionResult Put([FromBody]EditBoardMemberCommand request)
+    {
+        try
+        {
+            _mediator.Send(request);
+            return Ok();
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
     }
 }

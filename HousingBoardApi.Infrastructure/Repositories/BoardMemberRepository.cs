@@ -57,6 +57,7 @@ namespace HousingBoardApi.Infrastructure.Repositories
                     FirstName = boardMemberModel.FirstName,
                     LastName = boardMemberModel.LastName,
                     ResidentAddress = boardMemberModel.ResidentAddress,
+                    RowVersion = boardMemberModel.RowVersion,
                     BoardMemberRoles = boardMemberModel.Roles.Select(x => new BoardMemberRoleDto
                     {
                         StartDate = x.StartDate,
@@ -73,7 +74,6 @@ namespace HousingBoardApi.Infrastructure.Repositories
             {
                 var role = boardMemberModel.Roles.Where(x => x.EndDate == null).FirstOrDefault();
 
-
                 return new GetBoardMemberWithRoleQueryResult
                 {
                     Id = boardMemberModel.Id,
@@ -81,6 +81,7 @@ namespace HousingBoardApi.Infrastructure.Repositories
                     FirstName = boardMemberModel.FirstName,
                     LastName = boardMemberModel.LastName,
                     ResidentAddress = boardMemberModel.ResidentAddress,
+                    RowVersion = boardMemberModel.RowVersion,
                     BoardMemberRoles = boardMemberModel.Roles.Where(y=>y.EndDate == null).Select(x => new BoardMemberRoleDto
                     {
                         StartDate = x.StartDate,
@@ -110,6 +111,7 @@ namespace HousingBoardApi.Infrastructure.Repositories
             foreach (var model in boardMemberModels)
             {
                 var currentRole = model.Roles.Where(x => x.EndDate == null).FirstOrDefault();
+
                 var role = new RoleDto
                 {
                     Id = currentRole.Role.Id,

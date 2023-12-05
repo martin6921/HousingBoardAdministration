@@ -1,4 +1,6 @@
 ﻿
+using System.ComponentModel.DataAnnotations;
+
 namespace HousingBoardApi.Application.Queries.BoardMember.GetBoardMemberWithRole;
 
 public class GetBoardMemberWithRoleQueryResult
@@ -9,6 +11,6 @@ public class GetBoardMemberWithRoleQueryResult
     public string LastName { get; set; }
     public string ResidentAddress { get; set; }
     public List<BoardMemberRoleDto> BoardMemberRoles { get; set; }
-
-
+    [Timestamp]
+    public byte[] RowVersion { get; set; }
 }

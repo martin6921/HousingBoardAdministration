@@ -12,7 +12,7 @@ using WebAppUserDbContext;
 namespace WebAppUserDbContextMigrations.Migrations
 {
     [DbContext(typeof(WebAppUserDbContext.WebAppUserDbContext))]
-    [Migration("20231127141921_init")]
+    [Migration("20231205212449_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -20,7 +20,7 @@ namespace WebAppUserDbContextMigrations.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.11")
+                .HasAnnotation("ProductVersion", "7.0.12")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);

@@ -26,8 +26,6 @@ namespace HousingBoardApi.Application.Commands.BoardMember.Create
             _boardMemberRoleRepository.Add(new CreateBoardMemberRoleCommand
             {
                 BoardMemberId = boardMemberCreatedGuid,
-                StartDate = DateTime.Now,
-                EndDate = null,
                 RoleId = request.RoleId
             }); ;
 

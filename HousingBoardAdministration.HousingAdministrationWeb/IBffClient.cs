@@ -23,6 +23,11 @@ namespace HousingBoardAdministration.HousingAdministrationWeb
 
         [Post("/boardmember")]
         Task CreateBoardMemberAsync([Body]CreateBoardMemberDto createBoardMemberDto);
+        [Post("/boardmemberrole")]
+        Task CreateBoardMemberRoleAsync([Body]CreateBoardMemberRoleDto createBoardMemberRoleDto);
+
+        [Put("/boardmember")]
+        Task EditBoardMemberAsync([Body]BoardMemberEditViewModel editBoardMemberDto);
 
         [Get("/meeting")]
         Task<List<MeetingIndexViewModel>> GetAllMeetingsAsync();
