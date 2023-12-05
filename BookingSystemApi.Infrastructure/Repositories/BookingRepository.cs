@@ -1,8 +1,7 @@
 ﻿using BookingSystemApi.Application.Commands.Booking.Create;
 using BookingSystemApi.Application.Commands.Booking.Delete;
 using BookingSystemApi.Application.IRepositories;
-using BookingSystemApi.Application.Queris.Booking.GetAllBooking;
-using BookingSystemApi.Application.Queris.Booking.GetBooking;
+using BookingSystemApi.Application.Queris.Booking.Dto;
 using BookingSystemApi.Domain.Entities;
 using BookingSystemApi.SqlServerContext;
 using Microsoft.EntityFrameworkCore;
@@ -32,21 +31,21 @@ public class BookingRepository : IBookingRepository
 
     }
 
-    //public GetBookingQueryResult Get(Guid id)
-    //{
-    //    var model = _db.BookingEntities.AsNoTracking().FirstOrDefault(x => x.Id == id);
+    public BookingGetQueryResultDto Get(Guid id)
+    {
+        var model = _db.BookingEntities.AsNoTracking().FirstOrDefault(x => x.Id == id);
 
 
-    //    if (model == null) throw new Exception("Ingen meeting fundet i databasen");
+        if (model == null) throw new Exception("Ingen meeting fundet i databasen");
 
-    //    return new GetBookingQueryResult
-    //    {
-    //        Id = model.Id,
-    //        RowVersion = model.RowVersion,
-    //        StartDate = model.StartDate,
-    //        EndDate = model.EndDate
-    //    };
-    //}
+        return new BookingGetQueryResultDto
+        {
+            Id = model.Id,
+            RowVersion = model.RowVersion,
+            StartDate = model.StartDate,
+            EndDate = model.EndDate
+        };
+    }
 
      BookingEntity IBookingRepository.Load(Guid id)
     {
@@ -82,39 +81,14 @@ public class BookingRepository : IBookingRepository
         _db.SaveChanges();
     }
 
-    //IEnumerable<GetAllBookingsQueryResult> IBookingRepository.GetAll()
-    //{
-    //    foreach (var model in _db.BookingEntities.AsNoTracking().ToList())
-    //    {
-    //        yield return new GetAllBookingsQueryResult
-    //        {
-    //            Id = model.Id,
-    //            StartDate = model.StartDate,
-    //            EndDate = model.EndDate
-    //        };
-    //    }
-    //}
-
-    GetBookingQueryResult IBookingRepository.Get(GetBookingQuery request)
-    {
-        var model = _db.BookingEntities.AsNoTracking().FirstOrDefault(x => x.Id == request.Id);
-        if (model == null) throw new Exception("Ingen meeting fundet i databasen");
-        return new GetBookingQueryResult
-        {
-            Id = model.Id,
-            RowVersion = model.RowVersion,
-            StartDate = model.StartDate,
-            EndDate = model.EndDate
-        };
-    }
-
-    IEnumerable<GetAllBookingsQueryResult> IBookingRepository.GetAll(GetAllBookingsQuery request)
+    IEnumerable<BookingGetAllQueryResultDto> IBookingRepository.GetAll()
     {
         foreach (var model in _db.BookingEntities.AsNoTracking().ToList())
         {
-            yield return new GetAllBookingsQueryResult
+            yield return new BookingGetAllQueryResultDto
             {
                 Id = model.Id,
+                RowVersion = model.RowVersion,
                 StartDate = model.StartDate,
                 EndDate = model.EndDate
             };
