@@ -68,9 +68,6 @@ namespace HousingBoardAdministration.HousingBoardApi.Controllers
         public async Task<ActionResult<IEnumerable<GetAllMeetingsQueryResult>>> GetAll()
         {
             var result = await _mediator.Send(new GetAllMeetingsQuery());
-            //if (!result.Any())
-            // return NotFound();
-
             return result.ToList();
         }
 
