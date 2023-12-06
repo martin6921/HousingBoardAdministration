@@ -1,18 +1,23 @@
 using HousingBoardAdministration.HousingAdministrationWeb.Areas.Identity.Pages.Account.ListViewModels;
 using HousingBoardAdministration.HousingAdministrationWeb.Pages.Meeting;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.HousingBoard.BoardMember
 {
+    [Authorize(Policy = "IsAdminPolicy")]
     public class EditModel : PageModel
     {
         private IBffClient _bffClient;
+        private readonly IAuthorizationService _authorizationService;
 
-        public EditModel(IBffClient bffClient)
+
+        public EditModel(IBffClient bffClient, IAuthorizationService authorizationService)
         {
             this._bffClient = bffClient;
+            _authorizationService = authorizationService;
         }
 
 
@@ -28,26 +33,43 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.HousingBoard
 
         public async Task<ActionResult> OnGet(Guid id)
         {
-            var boardmember = await _bffClient.GetBoardMemberWithAllRolesAsync(id, false);
+            var authorizationResult = await _authorizationService
+                .AuthorizeAsync(User, BoardMemberViewModel, "IsAdminPolicy");
 
-            BoardMemberViewModel = new BoardMemberWithCurrentRoleViewModel
+            if (authorizationResult.Succeeded)
             {
-                Id = boardmember.Id,
-                FirstName = boardmember.FirstName,
-                LastName = boardmember.LastName,
-                BoardMemberRoleId = boardmember.BoardMemberRoles.FirstOrDefault().Role.Id,
-                ResidentAddress = boardmember.ResidentAddress,
-                RowVersion = boardmember.RowVersion
 
-            };
+                var boardmember = await _bffClient.GetBoardMemberWithAllRolesAsync(id, false);
 
-            ListOfAllRoles = await _bffClient.GetAllRolesAsync();
+                BoardMemberViewModel = new BoardMemberWithCurrentRoleViewModel
+                {
+                    Id = boardmember.Id,
+                    FirstName = boardmember.FirstName,
+                    LastName = boardmember.LastName,
+                    BoardMemberRoleId = boardmember.BoardMemberRoles.FirstOrDefault().Role.Id,
+                    ResidentAddress = boardmember.ResidentAddress,
+                    RowVersion = boardmember.RowVersion
 
-            RoleSelectList = new SelectList(ListOfAllRoles, "Id", "RoleName");
+                };
 
-            SelectedRoleType = BoardMemberViewModel.BoardMemberRoleId;
+                ListOfAllRoles = await _bffClient.GetAllRolesAsync();
 
-            return Page();
+                RoleSelectList = new SelectList(ListOfAllRoles, "Id", "RoleName");
+
+                SelectedRoleType = BoardMemberViewModel.BoardMemberRoleId;
+
+                return Page();
+
+            }
+
+            else if (User.Identity is { IsAuthenticated: true })
+            {
+                return new ForbidResult();
+            }
+            else
+            {
+                return new ChallengeResult();
+            }
         }
 
         public async Task<IActionResult> OnPost()

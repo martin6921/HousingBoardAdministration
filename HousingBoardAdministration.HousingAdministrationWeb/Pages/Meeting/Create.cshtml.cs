@@ -1,9 +1,11 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.Meeting
 {
+    [Authorize(Policy = "IsAdminPolicy")]
     public class CreateModel : PageModel
     {
         private IBffClient _bffClient;

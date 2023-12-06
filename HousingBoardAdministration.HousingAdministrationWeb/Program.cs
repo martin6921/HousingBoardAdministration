@@ -1,4 +1,8 @@
 using HousingBoardAdministration.HousingAdministrationWeb;
+using HousingBoardAdministration.HousingAdministrationWeb.UserManagement;
+using HousingBoardAdministration.HousingAdministrationWeb.UserManagement.Handler;
+using HousingBoardAdministration.HousingAdministrationWeb.UserManagement.Requirement;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using RestEase.HttpClientFactory;
@@ -27,6 +31,34 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 })
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<WebAppUserDbContext.WebAppUserDbContext>();
+
+builder.Services.AddSingleton<IAuthorizationHandler, IsAdminOrBoardMemberHandler>();
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy(
+        "IsAdminPolicy",
+        policyBuilder => policyBuilder
+            .RequireClaim(ClaimsTypes.Admin));
+
+    options.AddPolicy(
+        "IsBoardMemberPolicy",
+        policyBuilder => policyBuilder
+            .RequireClaim(ClaimsTypes.BoardMember));
+
+    options.AddPolicy(
+        "IsResidentPolicy",
+        policyBuilder => policyBuilder
+            .RequireClaim(ClaimsTypes.Resident));
+
+    options.AddPolicy(
+        "IsAdminOrBoardMemberPolicy",
+        policyBuilder => policyBuilder.AddRequirements(
+            new IsAdminOrBoardMemberRequirement()
+        ));
+
+});
+
 builder.Services.AddScoped<RoleManager<IdentityRole>>();
 builder.Services.AddRazorPages();
 builder.Services.AddRestEaseClient<IBffClient>("https://localhost:7194/api/");

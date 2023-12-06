@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.Meeting
 {
+    [Authorize(Policy = "IsAdminPolicy")]
     public class EditModel : PageModel
     {
         private IBffClient _bffClient;

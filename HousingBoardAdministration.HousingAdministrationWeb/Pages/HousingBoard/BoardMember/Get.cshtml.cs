@@ -1,8 +1,10 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.HousingBoard.BoardMember
 {
+    [Authorize(Policy = "IsAdminOrBoardMemberPolicy")]
     public class GetModel : PageModel
     {
         //interface backend for frontend client

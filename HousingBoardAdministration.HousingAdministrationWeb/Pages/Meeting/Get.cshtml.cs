@@ -1,9 +1,11 @@
 using HousingBoardAdministration.HousingAdministrationWeb.Pages.Meeting.Document;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.Meeting
 {
+    [Authorize(Policy = "IsAdminOrBoardMemberPolicy")]
     public class GetModel : PageModel
     {
         private IBffClient _bffClient;

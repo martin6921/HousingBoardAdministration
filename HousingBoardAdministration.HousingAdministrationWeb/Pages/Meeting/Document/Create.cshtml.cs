@@ -1,10 +1,12 @@
 using HousingBoardAdministration.HousingAdministrationWeb.Areas.Identity.Pages.Account.ListViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.Meeting.Document
 {
+    [Authorize(Policy = "IsAdminOrBoardMemberPolicy")]
     public class CreateModel : PageModel
     {
         private readonly IBffClient _bffClient;

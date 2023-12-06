@@ -1,8 +1,10 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.Meeting.Document
 {
+    [Authorize(Policy = "IsAdminOrBoardMemberPolicy")]
     public class DeleteModel : PageModel
     {
         private readonly IBffClient _bffClient;
