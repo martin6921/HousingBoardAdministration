@@ -13,6 +13,7 @@ namespace HousingBoardApi.Application.Commands.BoardMember.Create
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string ResidentAddress { get; set; }
+        public Guid RoleId { get; set; }
 
         //public Guid RoleTypeId { get; set; }
     }

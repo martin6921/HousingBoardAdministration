@@ -9,15 +9,8 @@ public record EditMeetingCommand : IRequest
 
     [Timestamp]
     public byte[] RowVersion { get; set; }
-    public bool IsDeleted { get; set; }
     public string Title { get; set; }
     public string Description { get; set; }
-
     public DateTime MeetingTime { get; set; }
     public string AddressLocation { get; set; }
-    //public MeetingTypeEntity MeetingType { get; set; }
-    //public ICollection<DocumentEntity>? Documents { get; set; }
-    //public BoardMemberEntity MeetingOwner { get; set; }
-
-    //public DateTime CreatedMeetingDate { get; set; }
 }

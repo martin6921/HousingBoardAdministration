@@ -44,15 +44,18 @@ public class MeetingRepository : IMeetingRepository
     void IMeetingRepository.Add(CreateMeetingCommand request)
     {
 
-        var meetingType = _db.MeetingTypeEntities.FirstOrDefault(x => x.Id == request.MeetingTypeId);
-        var boardmember = _db.BoardMemberEntities.FirstOrDefault(x => x.Id == request.MeetingOwnerId);
+        MeetingTypeEntity meetingType = new MeetingTypeEntity { Id = request.MeetingTypeId };
+        BoardMemberEntity meetingOwner = new BoardMemberEntity { Id = request.MeetingOwnerId };
+
+        _db.Attach(meetingType);
+        _db.Attach(meetingOwner);
 
         var model = new MeetingEntity
         {
             Title = request.Title,
             Description = request.Description,
             AddressLocation = request.AddressLocation,
-            MeetingOwner = boardmember,
+            MeetingOwner = meetingOwner,
             MeetingType = meetingType,
             CreatedMeetingDate = DateTime.Now,
             MeetingTime = request.MeetingTime,

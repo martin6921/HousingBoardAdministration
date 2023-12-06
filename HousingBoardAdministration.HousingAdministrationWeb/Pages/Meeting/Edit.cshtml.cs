@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.Meeting
 {
+    [Authorize(Policy = "IsAdminPolicy")]
     public class EditModel : PageModel
     {
         private IBffClient _bffClient;
@@ -14,10 +15,19 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.Meeting
         }
 
         [BindProperty]
-        public GetMeetingViewModel MeetingModel { get; set; } = new();
+        public MeetingEditViewModel MeetingModel { get; set; } = new();
         public async Task<IActionResult> OnGet(Guid id)
         {
-            MeetingModel = await _bffClient.GetMeetingAsync(id);
+            var result = await _bffClient.GetMeetingAsync(id);
+            MeetingModel = new MeetingEditViewModel 
+            {
+                Id = result.Id, 
+                Title = result.Title, 
+                Description = result.Description,
+                AddressLocation = result.AddressLocation,
+                MeetingTime = result.MeetingTime,
+                RowVersion = result.RowVersion
+            };
             return Page();
         }
 
@@ -25,7 +35,7 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.Meeting
         {
             if (!ModelState.IsValid) return Page();
 
-            //await _bffClient.EditResourceAsync(ResourceModel);
+            await _bffClient.EditMeetingAsync(MeetingModel);
 
             return RedirectToPage("./Index");
         }

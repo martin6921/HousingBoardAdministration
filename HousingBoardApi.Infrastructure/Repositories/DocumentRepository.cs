@@ -89,27 +89,6 @@ public class DocumentRepository : IDocumentRepository
             };
         }
 
-        //foreach (DocumentEntity document in _dbContext.DocumentEntities
-        //    .Include(type => type.DocumentType)
-        //    //.Include(meeting => meeting.Meeting)
-        //    .Include(owner => owner.DocumentOwner)
-
-        //    .AsNoTracking()
-        //    .ToList())
-        //{
-        //    document.UploadDate = DateTime.Now;
-        //    yield return new DocumentGetAllQueryResultDto
-        //    {
-        //        Id = document.Id,
-        //        Title = document.Title,
-        //        DocumentTypeId = document.DocumentType.Id,
-        //        DocumentFile = document.DocumentFile,
-        //        //MeetingId = document.Meeting.Id,
-        //        DocumentOwnerId = document.DocumentOwner.Id,
-        //        UploadDate = document.UploadDate,
-        //        RowVersion = document.RowVersion,
-        //    };
-        //}
     }
 
     DocumentEntity IDocumentRepository.Load(Guid id)

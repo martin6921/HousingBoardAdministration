@@ -9,11 +9,9 @@ public record GetMeetingViewModel
 
     [Timestamp]
     public byte[] RowVersion { get; set; }
-    public bool IsDeleted { get; set; }
     public string Title { get; set; }
     public string Description { get; set; }
-    public List<DocumentViewModel> Documents { get; set; }
-    public MeetingTypeViewModel MeetingType { get; set; }
+    public List<DocumentViewModel>? Documents { get; set; }
 
     public DateTime MeetingTime { get; set; }
     public string AddressLocation { get; set; }

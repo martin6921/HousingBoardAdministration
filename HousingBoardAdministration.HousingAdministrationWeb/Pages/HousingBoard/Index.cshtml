@@ -1,0 +1,39 @@
+﻿@page
+@model HousingBoardAdministration.HousingAdministrationWeb.Pages.HousingBoard.IndexModel
+@{
+}
+<form method="post">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Brugernavn</th>
+                <th>Fornavn</th>
+                <th>Efternavn</th>
+                <th>Adresse</th>
+                <th>Bestyrelsesrolle</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var boardmember in Model.BoardMembersViewModel)
+            {
+                <tr>
+                    <td>@boardmember.UserName</td>
+                    <td>@boardmember.FirstName</td>
+                    <td>@boardmember.LastName</td>
+                    <td>@boardmember.ResidentAddress</td>
+                    <td>@boardmember.BoardMemberCurrentRole.Role.RoleName</td>
+                    <td>
+                        <a asp-page="./BoardMember/Get" asp-route-id="@boardmember.Id">Vis</a> |
+                        <!-- <snippet_Edit> -->
+                        <a asp-page="./BoardMember/Edit" asp-route-id="@boardmember.Id">Rediger</a> |
+                        <!-- </snippet_Edit> -->
+                        <!-- <snippet_Delete> -->
+                        <a asp-page="./BoardMember/Delete" asp-route-id="@boardmember.Id">Slet</a>
+                        <!-- </snippet_Delete> -->
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a asp-page="Create">Registrer nyt medlem</a>
+</form>

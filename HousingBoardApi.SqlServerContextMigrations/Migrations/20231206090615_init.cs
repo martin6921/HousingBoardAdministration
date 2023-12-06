@@ -111,15 +111,16 @@ namespace HousingBoardApi.SqlServerContextMigrations.Migrations
                 name: "BoardMemberRole",
                 columns: table => new
                 {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     RoleId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    BoardMemberId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EndDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    RowVersion = table.Column<byte[]>(type: "rowversion", rowVersion: true, nullable: false)
+                    RowVersion = table.Column<byte[]>(type: "rowversion", rowVersion: true, nullable: false),
+                    BoardMemberId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_BoardMemberRole", x => new { x.BoardMemberId, x.RoleId });
+                    table.PrimaryKey("PK_BoardMemberRole", x => x.Id);
                     table.ForeignKey(
                         name: "FK_BoardMemberRole_BoardMember_BoardMemberId",
                         column: x => x.BoardMemberId,
@@ -175,8 +176,7 @@ namespace HousingBoardApi.SqlServerContextMigrations.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_BoardMemberRole_BoardMemberId",
                 table: "BoardMemberRole",
-                column: "BoardMemberId",
-                unique: true);
+                column: "BoardMemberId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_BoardMemberRole_RoleId",

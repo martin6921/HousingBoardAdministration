@@ -11,6 +11,7 @@ using System.Text.Encodings.Web;
 using System.Threading;
 using System.Threading.Tasks;
 using HousingBoardAdministration.HousingAdministrationWeb.Areas.Identity.Pages.Account.ListViewModels;
+using HousingBoardAdministration.HousingAdministrationWeb.UserManagement.Extension;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -138,9 +139,11 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Areas.Identity.Pag
                 UserName = inputModel.Email,
                 FirstName = inputModel.FirstName,
                 LastName = inputModel.LastName,
-                ResidentAddress = inputModel.ResidentAddress
+                ResidentAddress = inputModel.ResidentAddress,
+                RoleId = inputModel.SelectedRoleId
 
             });
+
         }
 
 

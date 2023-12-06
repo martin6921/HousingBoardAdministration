@@ -2,6 +2,7 @@ using HousingBoardApi.SqlServerContext;
 using Microsoft.EntityFrameworkCore;
 using HousingBoardApi.Infrastructure;
 using HousingBoardApi.Application;
+using Microsoft.AspNetCore.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddInfrastructureServices();
 builder.Services.AddApplicationServices();
+
 
 //builder.Services.AddControllersWithViews()
 //    .AddNewtonsoftJson(options =>

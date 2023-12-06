@@ -1,4 +1,5 @@
-﻿using HousingBoardApi.Application.IRepositories;
+﻿using HousingBoardApi.Application.Commands.BoardMemberRole.Create;
+using HousingBoardApi.Application.IRepositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,15 +11,24 @@ namespace HousingBoardApi.Application.Commands.BoardMember.Create
     public class CreateBoardMemberCommandHandler : IRequestHandler<CreateBoardMemberCommand>
     {
         private readonly IBoardMemberRepository _boardMemberRepository;
+        private readonly IBoardMemberRoleRepository _boardMemberRoleRepository;
 
-        public CreateBoardMemberCommandHandler(IBoardMemberRepository boardMemberRepository)
+        public CreateBoardMemberCommandHandler(IBoardMemberRepository boardMemberRepository, IBoardMemberRoleRepository boardMemberRoleRepository)
         {
             _boardMemberRepository = boardMemberRepository;
+            _boardMemberRoleRepository = boardMemberRoleRepository;
         }
 
         Task IRequestHandler<CreateBoardMemberCommand>.Handle(CreateBoardMemberCommand request, CancellationToken cancellationToken)
         {
-            _boardMemberRepository.Create(request);
+            Guid boardMemberCreatedGuid = _boardMemberRepository.Create(request);
+
+            _boardMemberRoleRepository.Add(new CreateBoardMemberRoleCommand
+            {
+                BoardMemberId = boardMemberCreatedGuid,
+                RoleId = request.RoleId
+            }); ;
+
             return Task.CompletedTask;
         }
     }

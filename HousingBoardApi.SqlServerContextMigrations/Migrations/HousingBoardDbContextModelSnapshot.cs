@@ -63,14 +63,18 @@ namespace HousingBoardApi.SqlServerContextMigrations.Migrations
 
             modelBuilder.Entity("HousingBoardApi.Domain.Entities.BoardMemberRoleEntity", b =>
                 {
-                    b.Property<Guid>("BoardMemberId")
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("RoleId")
+                    b.Property<Guid>("BoardMemberId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<Guid>("RoleId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<byte[]>("RowVersion")
                         .IsConcurrencyToken()
@@ -81,10 +85,9 @@ namespace HousingBoardApi.SqlServerContextMigrations.Migrations
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("BoardMemberId", "RoleId");
+                    b.HasKey("Id");
 
-                    b.HasIndex("BoardMemberId")
-                        .IsUnique();
+                    b.HasIndex("BoardMemberId");
 
                     b.HasIndex("RoleId");
 
@@ -275,13 +278,13 @@ namespace HousingBoardApi.SqlServerContextMigrations.Migrations
             modelBuilder.Entity("HousingBoardApi.Domain.Entities.BoardMemberRoleEntity", b =>
                 {
                     b.HasOne("HousingBoardApi.Domain.Entities.BoardMemberEntity", "BoardMember")
-                        .WithOne("Role")
-                        .HasForeignKey("HousingBoardApi.Domain.Entities.BoardMemberRoleEntity", "BoardMemberId")
+                        .WithMany("Roles")
+                        .HasForeignKey("BoardMemberId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("HousingBoardApi.Domain.Entities.RoleEntity", "Role")
-                        .WithMany()
+                        .WithMany("BoardMemberRoles")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -343,13 +346,17 @@ namespace HousingBoardApi.SqlServerContextMigrations.Migrations
 
                     b.Navigation("Meetings");
 
-                    b.Navigation("Role")
-                        .IsRequired();
+                    b.Navigation("Roles");
                 });
 
             modelBuilder.Entity("HousingBoardApi.Domain.Entities.MeetingEntity", b =>
                 {
                     b.Navigation("Documents");
+                });
+
+            modelBuilder.Entity("HousingBoardApi.Domain.Entities.RoleEntity", b =>
+                {
+                    b.Navigation("BoardMemberRoles");
                 });
 #pragma warning restore 612, 618
         }
