@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HousingBoardApi.SqlServerContextMigrations.Migrations
 {
     [DbContext(typeof(HousingBoardDbContext))]
-    [Migration("20231205212622_init")]
+    [Migration("20231206090615_init")]
     partial class init
     {
         /// <inheritdoc />
