@@ -76,7 +76,7 @@ public class BookingRepository : IBookingRepository
         BookingEntity model = new BookingEntity
         {
             
-            IsDeleted = false,
+            
             StartDate = request.StartDate,
             EndDate = request.EndDate,
             BookingOwner = resident,

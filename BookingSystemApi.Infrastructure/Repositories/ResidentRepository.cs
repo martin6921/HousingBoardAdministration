@@ -3,6 +3,7 @@ using BookingSystemApi.Application.Commands.Booking.Delete;
 using BookingSystemApi.Application.Commands.Resident.Create;
 using BookingSystemApi.Application.Commands.Resident.Delete;
 using BookingSystemApi.Application.IRepositories;
+using BookingSystemApi.Application.Queris.Booking.Dto;
 using BookingSystemApi.Application.Queris.Resident.GetAllResident;
 using BookingSystemApi.Application.Queris.Resident.GetResident;
 using BookingSystemApi.Domain.Entities;
@@ -38,11 +39,13 @@ namespace BookingSystemApi.Infrastructure.Repositories
 
         void IResidentRepository.Create(CreateResidentCommand request)
         {
+            
+
             var resident = _db.ResidentEntities.FirstOrDefault(x => x.Id == request.Id);
-            var booking = _db.BookingEntities.FirstOrDefault(x => x.Id == request.Id);
+            
             var model = new ResidentEntity
             {
-                Id = request.Id,
+                
                 UserName = request.UserName,
                 FirstName = request.FirstName,
                 LastName = request.LastName,
@@ -68,8 +71,10 @@ namespace BookingSystemApi.Infrastructure.Repositories
         }
 
         GetResidentQueryResult IResidentRepository.Get(GetResidentQuery request)
+   
         {
-            var model = _db.ResidentEntities.AsNoTracking().FirstOrDefault(x => x.Id == request.Id);
+            var model = _db.ResidentEntities.Include(type => type.Booking).FirstOrDefault(x => x.Id == request.Id);
+          
 
             if (model == null) throw new Exception("No Resident found");
             return new GetResidentQueryResult
@@ -79,7 +84,13 @@ namespace BookingSystemApi.Infrastructure.Repositories
                 FirstName=model.FirstName,
                 LastName=model.LastName,
                 ResidentAddress=model.ResidentAddress,
-
+                Booking = model.Booking.Select(Booking => new BookingDto
+                {
+                    Id = Booking.Id,
+                    StartDate = DateTime.Now,
+                    EndDate = DateTime.Now,
+                   
+                }).ToList(),
             };
         }
 

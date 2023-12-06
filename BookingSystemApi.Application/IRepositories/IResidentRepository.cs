@@ -19,5 +19,6 @@ namespace BookingSystemApi.Application.IRepositories
         void Delete(DeleteResidentCommand request);
         GetResidentQueryResult Get(GetResidentQuery request);
         IEnumerable<GetAllResidentQueryResult> GetAll(Guid id);
+       
     }
 }
