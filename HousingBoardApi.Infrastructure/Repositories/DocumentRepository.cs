@@ -30,7 +30,7 @@ public class DocumentRepository : IDocumentRepository
             Title = request.Title,
             DocumentType = documentType,
             DocumentFile = Convert.FromBase64String(request.DocumentFile),
-            UploadDate = request.UploadDate,
+            UploadDate = DateTime.Now,
             Meeting = meeting,
             DocumentOwner = documentOwner
         };
@@ -85,7 +85,7 @@ public class DocumentRepository : IDocumentRepository
                 Title = model.Title,
                 DocumentType = new DocumentTypeDto { Id = model.DocumentType.Id, Type = model.DocumentType.Type },
                 DocumentFile = model.DocumentFile,
-                UploadDate = model.UploadDate,
+                UploadDate = model.UploadDate
             };
         }
 

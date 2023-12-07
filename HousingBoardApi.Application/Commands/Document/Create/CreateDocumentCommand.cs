@@ -12,7 +12,6 @@ public record CreateDocumentCommand : IRequest
     public string Title { get; set; }
     public Guid DocumentTypeId { get; set; }
     public required string DocumentFile { get; set; } 
-    public DateTime UploadDate { get; set; }
     [Required]
     public Guid MeetingId { get; set; }
     [Required]

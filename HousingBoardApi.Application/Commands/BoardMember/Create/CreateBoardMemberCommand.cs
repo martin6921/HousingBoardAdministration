@@ -14,7 +14,7 @@ namespace HousingBoardApi.Application.Commands.BoardMember.Create
         public string LastName { get; set; }
         public string ResidentAddress { get; set; }
         public Guid RoleId { get; set; }
+        public Guid UserId { get; set; }
 
-        //public Guid RoleTypeId { get; set; }
     }
 }
