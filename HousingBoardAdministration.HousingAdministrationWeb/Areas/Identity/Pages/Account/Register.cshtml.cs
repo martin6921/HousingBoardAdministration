@@ -112,6 +112,7 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Areas.Identity.Pag
             [BindProperty]
             public Guid SelectedRoleId { get; set; }
 
+            public string? UserId { get; set; }
 
 
         }
@@ -140,10 +141,23 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Areas.Identity.Pag
                 FirstName = inputModel.FirstName,
                 LastName = inputModel.LastName,
                 ResidentAddress = inputModel.ResidentAddress,
-                RoleId = inputModel.SelectedRoleId
-
+                RoleId = inputModel.SelectedRoleId,
+                UserId = Guid.Parse(inputModel.UserId)
             });
+        }
 
+        public async Task CreateResident(InputModel inputModel)
+        {
+            await _bffClient.CreateBoardMemberAsync(new CreateBoardMemberDto
+            {
+
+                UserName = inputModel.Email,
+                FirstName = inputModel.FirstName,
+                LastName = inputModel.LastName,
+                ResidentAddress = inputModel.ResidentAddress,
+                RoleId = inputModel.SelectedRoleId,
+                UserId = Guid.Parse(inputModel.UserId)
+            });
         }
 
 
@@ -162,11 +176,14 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Areas.Identity.Pag
                 if (result.Succeeded)
                 {
                     //execute CreateBoardMember method
-                    await CreateBoardMember(Input);
-
                     _logger.LogInformation("User created a new account with password.");
 
                     var userId = await _userManager.GetUserIdAsync(user);
+                    Input.UserId = userId;
+                    await CreateBoardMember(Input);
+
+
+
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
                     var callbackUrl = Url.Page(

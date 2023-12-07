@@ -88,10 +88,12 @@ public class MeetingRepository : IMeetingRepository
             MeetingTime = model.MeetingTime,
             Description = model.Description,
             RowVersion = model.RowVersion,
+            
             Documents = model.Documents.Select(doc => new DocumentDto
             {
                 Id = doc.Id,
                 Title = doc.Title,
+                UploadDate = doc.UploadDate,
                 DocumentType = new DocumentTypeDto
                 {
                     Id = doc.DocumentType.Id,

@@ -19,6 +19,7 @@ namespace HousingBoardApi.Infrastructure.Repositories
         {
             var model = new BoardMemberEntity
             {
+                Id = request.UserId,
                 UserName = request.UserName,
                 FirstName = request.FirstName,
                 LastName = request.LastName,

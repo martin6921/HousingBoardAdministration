@@ -1,5 +1,6 @@
 using HousingBoardAdministration.HousingAdministrationWeb.Areas.Identity.Pages.Account.ListViewModels;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -10,10 +11,12 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.Meeting.Docu
     public class CreateModel : PageModel
     {
         private readonly IBffClient _bffClient;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public CreateModel(IBffClient bffClient)
+        public CreateModel(IBffClient bffClient, UserManager<IdentityUser> userManager)
         {
             _bffClient = bffClient;
+            _userManager = userManager;
         }
 
         [BindProperty]
@@ -53,6 +56,8 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.Meeting.Docu
             string base64text = Convert.ToBase64String(bytes);
 
             //byte[] newByte = Convert.FromBase64String(base64text);
+
+            DocumentModel.DocumentOwnerId = Guid.Parse(_userManager.GetUserId(User));
 
             await _bffClient.CreateDocumentAsync(DocumentModel);
             return RedirectToPage("/Meeting/Get", new { id = MeetingId });

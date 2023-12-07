@@ -7,4 +7,5 @@ public record CreateBoardMemberDto
     public string LastName { get; set; }
     public string ResidentAddress { get; set; }
     public Guid RoleId { get; set; }
+    public Guid UserId { get; internal set; }
 }

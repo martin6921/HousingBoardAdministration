@@ -18,11 +18,6 @@
                 <label for="DocumentType">Dokument type</label>
                 <select asp-for="SelectedDocumentTypeId" asp-items="Model.DocumentTypeSelectList" class="form-control"></select>
             </div>
-            <div class="form-group">
-                <label asp-for="DocumentModel.DocumentOwnerId"></label>
-                <input asp-for="DocumentModel.DocumentOwnerId" class="form-control" />
-                <span asp-validation-for="DocumentModel.DocumentOwnerId" class="text-danger"></span>
-            </div>
             <button type="submit">Tilføj dokument</button>
         </form>
     </div>
