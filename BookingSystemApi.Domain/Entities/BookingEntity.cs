@@ -6,13 +6,22 @@ public class BookingEntity : BaseEntity
     public BookingEntity()
     {
     }
+    public void Edit(DateTime startdate, DateTime endtime)
+    {
+       
+        StartDate = startdate;
+        EndDate = endtime;
+
+    }
 
     public BookingEntity(List<ResourceEntity> resources, DateTime startDate, DateTime endDate)
     {
+       
         Resources = resources;
         StartDate = startDate;
         EndDate = endDate;
     }
+
     public ResidentEntity BookingOwner { get; set; }
     public List<ResourceEntity> Resources { get; set; }
     public DateTime StartDate { get; set; }

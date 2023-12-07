@@ -14,8 +14,10 @@ namespace BookingSystemApi.Application.Commands.Booking.Delete;
         _bookingRepository = resourceRepository;
     }
 
-    public async Task Handle(DeleteBookingCommand request, CancellationToken cancellationToken)
+    public  Task Handle(DeleteBookingCommand request, CancellationToken cancellationToken)
     {
+        _bookingRepository.Delete(request);
+        return Task.CompletedTask;
 
 
     }

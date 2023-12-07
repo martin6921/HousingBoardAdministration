@@ -1,18 +1,104 @@
 ﻿using BookingSystemApi.Application.Commands.Booking.Create;
+using BookingSystemApi.Application.Commands.Booking.Delete;
 using BookingSystemApi.Application.IRepositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using BookingSystemApi.Application.Queris.Booking.Dto;
+using BookingSystemApi.Domain.Entities;
+using BookingSystemApi.SqlServerContext;
+using Microsoft.EntityFrameworkCore;
 
-namespace BookingSystemApi.Infrastructure.Repositories
+
+namespace BookingSystemApi.Infrastructure.Repositories;
+
+public class BookingRepository : IBookingRepository
 {
-    public class BookingRepository : IBookingRepository
+    private readonly BookingSystemDbContext _db;
+
+    public BookingRepository(BookingSystemDbContext db) 
     {
-        void IBookingRepository.Create(CreateBookingCommand request)
+        _db = db;
+    }
+
+    void IBookingRepository.Delete(DeleteBookingCommand request)
+    {
+        _db.Remove(_db.BookingEntities.AsNoTracking().FirstOrDefault(x => x.Id == request.Id));
+        _db.SaveChanges();
+    }
+
+     void IBookingRepository.Edit(BookingEntity model)
+    {
+        _db.Update(model);
+        _db.SaveChanges();
+
+    }
+
+    public BookingGetQueryResultDto Get(Guid id)
+    {
+        var model = _db.BookingEntities.Include(type => type.Resources).FirstOrDefault(x => x.Id == id);
+
+
+        if (model == null) throw new Exception("Ingen meeting fundet i databasen");
+
+        return new BookingGetQueryResultDto
         {
-            throw new NotImplementedException();
+            Id = model.Id,
+            RowVersion = model.RowVersion,
+            StartDate = model.StartDate,
+            EndDate = model.EndDate,
+            Resources = model.Resources.Select(resource => new ResourceDto
+            {
+                Id = resource.Id,
+                Description = resource.Description,
+                Specification = resource.Specification,
+                Price = resource.Price,
+            }).ToList(),
+        };
+    }
+
+     BookingEntity IBookingRepository.Load(Guid id)
+    {
+        var model = _db.BookingEntities.FirstOrDefault(x => x.Id == id);
+        return model == null ? throw new Exception("Ingen Booking fundet i databasen") : model;
+    }
+
+    void IBookingRepository.Create(CreateBookingCommand request)
+    {
+        //var resident = _db.ResidentEntities.FirstOrDefault(x => x.Id == request.Id);
+        //var resource = _db.ResourceEntities.FirstOrDefault(x => x.Id == request.Id);
+
+        ResidentEntity resident = new ResidentEntity { Id = request.BookingOwnerId };
+        List<ResourceEntity> resourceList = request.ResourceIdsList.Select(id => new ResourceEntity { Id = id }).ToList();
+
+        _db.Attach(resident);
+        foreach (ResourceEntity resource in resourceList ) 
+        {
+            _db.Attach(resource);
+        }
+        BookingEntity model = new BookingEntity
+        {
+            
+            
+            StartDate = request.StartDate,
+            EndDate = request.EndDate,
+            BookingOwner = resident,
+            Resources = resourceList
+
+        };
+
+        _db.Add(model);
+        _db.SaveChanges();
+    }
+
+    IEnumerable<BookingGetAllQueryResultDto> IBookingRepository.GetAll()
+    {
+        foreach (var model in _db.BookingEntities.AsNoTracking().ToList())
+        {
+            yield return new BookingGetAllQueryResultDto
+            {
+                Id = model.Id,
+                RowVersion = model.RowVersion,
+                StartDate = model.StartDate,
+                EndDate = model.EndDate
+            };
         }
     }
 }
