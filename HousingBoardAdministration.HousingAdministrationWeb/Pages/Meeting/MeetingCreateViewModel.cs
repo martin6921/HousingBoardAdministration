@@ -13,6 +13,5 @@ public record MeetingCreateViewModel
     public string AddressLocation { get; set; }
 
     public Guid MeetingTypeId { get; set; }
-
     public Guid MeetingOwnerId { get; set; }
 }

@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using HousingBoardApi.Infrastructure;
 using HousingBoardApi.Application;
 using Microsoft.AspNetCore.Authorization;
+using HousingBoardApi.Domain.Mail;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,7 +16,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddInfrastructureServices();
 builder.Services.AddApplicationServices();
-
+builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));
 
 //builder.Services.AddControllersWithViews()
 //    .AddNewtonsoftJson(options =>

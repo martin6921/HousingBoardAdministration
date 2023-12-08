@@ -1,4 +1,6 @@
-﻿using HousingBoardApi.Application.Transaction;
+﻿using HousingBoardApi.Application.Messages;
+using HousingBoardApi.Application.Transaction;
+using HousingBoardApi.Infrastructure.Messages;
 using HousingBoardApi.Infrastructure.Repositories;
 using HousingBoardApi.Infrastructure.TransactionHandling.Implementation;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,6 +20,8 @@ public static class DependencyInjection
         services.AddScoped<IRoleRepository, RoleRepository>();
 
         services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+        services.AddScoped<IMailService, MailService>();
 
         return services;
     }

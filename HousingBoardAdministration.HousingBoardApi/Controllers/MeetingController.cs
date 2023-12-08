@@ -41,6 +41,7 @@ namespace HousingBoardAdministration.HousingBoardApi.Controllers
             try
             {
                 _mediator.Send(request);
+
                 return Ok();
             }
             catch (Exception e)
