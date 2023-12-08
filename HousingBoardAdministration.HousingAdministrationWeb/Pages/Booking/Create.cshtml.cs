@@ -7,11 +7,11 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.Booking
 
     public class CreateModel : PageModel
     {
-        private IBffClient _bffClient;
+        private IBookingBffClient _bookingBffClient;
 
-        public CreateModel(IBffClient bffClient)
+        public CreateModel(IBookingBffClient bookingBffClient)
         {
-            _bffClient = bffClient;
+            _bookingBffClient = bookingBffClient;
         }
 
         [BindProperty]
@@ -24,7 +24,7 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.Booking
         public async Task OnGetAsync()
         {
             // Hent ressource-listen som ResourceViewModel og opret en SelectList til dropdown-menuen
-            AllResources = await _bffClient.GetAllResourcesAsync();
+            AllResources = await _bookingBffClient.GetAllResourcesAsync();
             ResourceSelectList = new SelectList(AllResources, "Id", "Description");
         }
 
@@ -38,7 +38,7 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.Booking
             try
             {
                 // Opret booking ved hjælp af _bffClient
-                await _bffClient.CreateBookingAsync(Booking);
+                await _bookingBffClient.CreateBookingAsync(Booking);
 
                 // Redirect til en bekræftelsesside eller en oversigtsside TODO
                 return RedirectToPage("/Booking/Confirmation");

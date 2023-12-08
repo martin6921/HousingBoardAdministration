@@ -58,10 +58,5 @@ namespace HousingBoardAdministration.HousingAdministrationWeb
         [Get("/boardmember/{id}")]
         Task<BoardMemberWithAllRolesViewModel> GetBoardMemberWithAllRolesAsync([Path]Guid id, [FromQuery]bool includeOldRoles);
        
-        [Post("/booking")] 
-        Task CreateBookingAsync([Body] CreateBookingViewModel booking);
-
-        [Get("/resources")] 
-        Task<List<ResourceViewModel>> GetAllResourcesAsync();
     }
 }

@@ -5,10 +5,10 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.Resource
 {
     public class GetModel : PageModel
     {
-        private readonly IBffClient _bffClient;
-        public GetModel(IBffClient bffClient)
+        private readonly IBookingBffClient _bookingBffClient;
+        public GetModel(IBookingBffClient bookingBffClient)
         {
-            _bffClient = bffClient;
+            _bookingBffClient = bookingBffClient;
         }
 
         [BindProperty]
@@ -16,7 +16,7 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.Resource
 
         public async Task OnGetAsync()
         {
-            var resources = await _bffClient.GetAllResourcesAsync();
+            var resources = await _bookingBffClient.GetAllResourcesAsync();
 
             ResourceModels = resources.Select(resource => new GetResourceViewModel
             {
