@@ -61,8 +61,8 @@ builder.Services.AddAuthorization(options =>
 
 builder.Services.AddScoped<RoleManager<IdentityRole>>();
 builder.Services.AddRazorPages();
-builder.Services.AddRestEaseClient<IBffClient>("https://localhost:7194/api/"); 
-builder.Services.AddRestEaseClient<IBookingBffClient>("https://localhost:7075/api/");
+builder.Services.AddRestEaseClient<IBffClient>("http://housing-board-api:80/api/");
+builder.Services.AddRestEaseClient<IBookingBffClient>("http://booking-system-api:80/api/");
 
 
 var app = builder.Build();

@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HousingBoardAdministration.HousingBoardApi", "HousingBoardAdministration.HousingBoardApi\HousingBoardAdministration.HousingBoardApi.csproj", "{C8F91CA1-6A22-4DD6-AFB4-13E4EF69E17F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7AFCB850-98F2-4D05-982C-CA2224E94CAA}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HousingBoard", "HousingBoard", "{A11EB461-2D38-415A-B6EB-D70690BF6DFC}"
 EndProject
