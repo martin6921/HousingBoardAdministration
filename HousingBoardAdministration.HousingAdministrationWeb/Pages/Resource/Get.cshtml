@@ -1,0 +1,26 @@
+﻿@page
+@model HousingBoardAdministration.HousingAdministrationWeb.Pages.Resource.GetModel
+@{
+}<h2>Resource List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Description</th>
+            <th>Specification</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var resource in Model.ResourceModels)
+        {
+            <tr>
+                <td>@resource.Id</td>
+                <td>@resource.Description</td>
+                <td>@resource.Specification</td>
+                <td>@resource.Price</td>
+            </tr>
+        }
+    </tbody>
+</table>

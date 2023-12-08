@@ -1,4 +1,5 @@
 ﻿using HousingBoardAdministration.HousingAdministrationWeb.Areas.Identity.Pages.Account.ListViewModels;
+using HousingBoardAdministration.HousingAdministrationWeb.Pages.Booking;
 using HousingBoardAdministration.HousingAdministrationWeb.Pages.HousingBoard;
 using HousingBoardAdministration.HousingAdministrationWeb.Pages.HousingBoard.BoardMember;
 using HousingBoardAdministration.HousingAdministrationWeb.Pages.Meeting;
@@ -56,5 +57,11 @@ namespace HousingBoardAdministration.HousingAdministrationWeb
 
         [Get("/boardmember/{id}")]
         Task<BoardMemberWithAllRolesViewModel> GetBoardMemberWithAllRolesAsync([Path]Guid id, [FromQuery]bool includeOldRoles);
+       
+        [Post("/booking")] 
+        Task CreateBookingAsync([Body] CreateBookingViewModel booking);
+
+        [Get("/resources")] 
+        Task<List<ResourceViewModel>> GetAllResourcesAsync();
     }
 }

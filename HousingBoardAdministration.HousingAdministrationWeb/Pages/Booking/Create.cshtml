@@ -2,30 +2,26 @@
 @model HousingBoardAdministration.HousingAdministrationWeb.Pages.Booking.CreateModel
 @{
 }
+<h2>Opret en booking</h2>
+
 <div class="row">
     <div class="col-md-6">
-        <form method="post" enctype="multipart/form-data">
+        <form method="post">
             <div class="form-group">
-                <label asp-for="NewBooking.BookingOwnerId"></label>
-                <input asp-for="NewBooking.BookingOwnerId" class="form-control" />
-                <span asp-validation-for="NewBooking.BookingOwnerId" class="text-danger"></span>
+                <label for="Resource">Vælg ressource:</label>
+                <select asp-for="Booking.ResourceId" asp-items="Model.ResourceSelectList" class="form-control"></select>
             </div>
             <div class="form-group">
-                <label asp-for="NewBooking.StartDate"></label>
-                <input asp-for="NewBooking.StartDate" class="form-control" />
-                <span asp-validation-for="NewBooking.StartDate" class="text-danger"></span>
+                <label for="StartDate">Start dato:</label>
+                <input asp-for="Booking.StartDate" type="datetime-local" class="form-control" />
+                <span asp-validation-for="Booking.StartDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="NewBooking.EndDate"></label>
-                <input asp-for="NewBooking.EndDate" class="form-control" />
-                <span asp-validation-for="NewBooking.EndDate" class="text-danger"></span>
+                <label for="EndDate">Slut dato:</label>
+                <input asp-for="Booking.EndDate" type="datetime-local" class="form-control" />
+                <span asp-validation-for="Booking.EndDate" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="NewBooking.ResourceIdsList"></label>
-                <input asp-for="NewBooking.ResourceIdsList" class="form-control" />
-                <span asp-validation-for="NewBooking.ResourceIdsList" class="text-danger"></span>
-            </div>
-            <button type="submit">Tilføj Booking</button>
+            <button type="submit" class="btn btn-default">Book ressource</button>
         </form>
     </div>
 </div>
