@@ -1,3 +1,4 @@
+using HousingBoardAdministration.HousingAdministrationWeb.Pages.HousingBoard.BoardMember;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;

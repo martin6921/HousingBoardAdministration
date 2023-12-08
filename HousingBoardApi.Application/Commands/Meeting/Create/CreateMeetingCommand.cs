@@ -9,6 +9,5 @@ public record class CreateMeetingCommand : IRequest
     public string AddressLocation { get; set; }
 
     public Guid MeetingTypeId { get; set; }
-
     public Guid MeetingOwnerId { get; set; }
 }
