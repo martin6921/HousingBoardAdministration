@@ -23,4 +23,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HousingBoardApi.Application\HousingBoardApi.Application.csproj" />
+  </ItemGroup>
+
 </Project>

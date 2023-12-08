@@ -14,5 +14,7 @@ public record GetDocumentQueryResult
     public byte[] DocumentFile {  get; set; }
     public DateTime UploadDate { get; set; }
     public MeetingDto Meeting { get; set; }
+    public Guid UserOwnerId { get; set; }
+
 
 }
