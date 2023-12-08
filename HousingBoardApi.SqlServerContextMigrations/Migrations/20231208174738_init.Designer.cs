@@ -12,7 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HousingBoardApi.SqlServerContextMigrations.Migrations
 {
     [DbContext(typeof(HousingBoardDbContext))]
+<<<<<<<< HEAD:HousingBoardApi.SqlServerContextMigrations/Migrations/20231207214242_init.Designer.cs
     [Migration("20231207214242_init")]
+========
+    [Migration("20231208174738_init")]
+>>>>>>>> 8b85569 (Added migration and connection for azure database, added mock data we can use during the development):HousingBoardApi.SqlServerContextMigrations/Migrations/20231208174738_init.Designer.cs
     partial class init
     {
         /// <inheritdoc />

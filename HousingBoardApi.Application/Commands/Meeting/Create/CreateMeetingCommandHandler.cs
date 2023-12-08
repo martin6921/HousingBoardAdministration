@@ -26,12 +26,12 @@ public class CreateMeetingCommandHandler : IRequestHandler<CreateMeetingCommand>
         _meetingRepository.Add(request);
 
         //Send email
-        _publisher.Publish(new CreateMeetingEmailEvent
-        {
-            Title = request.Title,
-            MeetingTime = request.MeetingTime,
-            AddressLocation = request.AddressLocation,
-        });
+        //_publisher.Publish(new CreateMeetingEmailEvent
+        //{
+        //    Title = request.Title,
+        //    MeetingTime = request.MeetingTime,
+        //    AddressLocation = request.AddressLocation,
+        //});
 
         return Task.CompletedTask;
 

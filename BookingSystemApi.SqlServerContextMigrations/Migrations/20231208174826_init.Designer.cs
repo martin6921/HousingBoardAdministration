@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookingSystemApi.SqlServerContextMigrations.Migrations
 {
     [DbContext(typeof(BookingSystemDbContext))]
-    [Migration("20231201092615_BookingMigration")]
-    partial class BookingMigration
+    [Migration("20231208174826_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -156,7 +156,7 @@ namespace BookingSystemApi.SqlServerContextMigrations.Migrations
             modelBuilder.Entity("BookingSystemApi.Domain.Entities.BookingEntity", b =>
                 {
                     b.HasOne("BookingSystemApi.Domain.Entities.ResidentEntity", "BookingOwner")
-                        .WithMany("Bookings")
+                        .WithMany("Booking")
                         .HasForeignKey("BookingOwnerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -166,7 +166,7 @@ namespace BookingSystemApi.SqlServerContextMigrations.Migrations
 
             modelBuilder.Entity("BookingSystemApi.Domain.Entities.ResidentEntity", b =>
                 {
-                    b.Navigation("Bookings");
+                    b.Navigation("Booking");
                 });
 #pragma warning restore 612, 618
         }
