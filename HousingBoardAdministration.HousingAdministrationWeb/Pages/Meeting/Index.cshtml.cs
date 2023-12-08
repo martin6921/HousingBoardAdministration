@@ -18,9 +18,15 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.Meeting
 
         [BindProperty]
         public List<MeetingIndexViewModel> MeetingsViewModel { get; set; }
+
+        [BindProperty]
+        public List<MeetingIndexViewModel> OldMeetingsViewModel { get; set; }
         public async Task<ActionResult> OnGet()
         {
-            MeetingsViewModel = await _bffClient.GetAllMeetingsAsync();
+            var meetings = await _bffClient.GetAllMeetingsAsync();
+            MeetingsViewModel = meetings.Where(x=>x.MeetingTime >= DateTime.Now).ToList();
+            OldMeetingsViewModel = meetings.Where(x => x.MeetingTime < DateTime.Now).ToList();
+
             return Page();
         }
     }

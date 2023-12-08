@@ -6,11 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading;
 using System.Threading.Tasks;
 using HousingBoardAdministration.HousingAdministrationWeb.Areas.Identity.Pages.Account.ListViewModels;
+using HousingBoardAdministration.HousingAdministrationWeb.UserManagement;
 using HousingBoardAdministration.HousingAdministrationWeb.UserManagement.Extension;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
@@ -34,6 +36,7 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Areas.Identity.Pag
         private readonly IEmailSender _emailSender;
 
         private readonly IBffClient _bffClient;
+        private readonly IBookingBffClient _bookingBffClient;
 
         public RegisterModel(
             UserManager<IdentityUser> userManager,
@@ -41,7 +44,8 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Areas.Identity.Pag
             SignInManager<IdentityUser> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender,
-            IBffClient bffClient)
+            IBffClient bffClient,
+            IBookingBffClient bookingBffClient)
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -50,6 +54,7 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Areas.Identity.Pag
             _logger = logger;
             _emailSender = emailSender;
             _bffClient = bffClient;
+            _bookingBffClient = bookingBffClient;
         }
 
 
@@ -105,8 +110,9 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Areas.Identity.Pag
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
-
+            [Required]
             public string FirstName { get; set; }
+            [Required]
             public string LastName { get; set; }
             public string ResidentAddress { get; set; }
             [BindProperty]
@@ -120,6 +126,12 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Areas.Identity.Pag
         [BindProperty]
         public List<RoleViewModel> ListOfAllRoles { get; set; } = new();
         public SelectList RoleSelectList { get; set; }
+        [BindProperty]
+        public bool AdminPermissionSelected { get; set; }
+        [BindProperty]
+        public bool BoardMemberPermissionSelected { get; set; }
+        [BindProperty]
+        public bool ResidentPermissionSelected { get; set; }
 
         public async Task OnGetAsync(string returnUrl = null)
         {
@@ -148,16 +160,35 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Areas.Identity.Pag
 
         public async Task CreateResident(InputModel inputModel)
         {
-            await _bffClient.CreateBoardMemberAsync(new CreateBoardMemberDto
+            await _bookingBffClient.CreateResidentAsync(new CreateResidentDto
             {
-
                 UserName = inputModel.Email,
                 FirstName = inputModel.FirstName,
                 LastName = inputModel.LastName,
                 ResidentAddress = inputModel.ResidentAddress,
-                RoleId = inputModel.SelectedRoleId,
                 UserId = Guid.Parse(inputModel.UserId)
             });
+        }
+
+        public async Task CreateResidentOrBoardMemberIncludingClaims(IdentityUser user)
+        {
+            if(AdminPermissionSelected || BoardMemberPermissionSelected)
+            {
+                if(AdminPermissionSelected)
+                {
+                    await _userManager.AddClaimAsync(user, new Claim(ClaimsTypes.Admin, "admin"));
+                }
+                if (BoardMemberPermissionSelected)
+                {
+                    await _userManager.AddClaimAsync(user, new Claim(ClaimsTypes.BoardMember, "boardmember"));
+                }
+                await CreateBoardMember(Input);
+            }
+            if (ResidentPermissionSelected)
+            {
+                await CreateResident(Input);
+                await _userManager.AddClaimAsync(user, new Claim(ClaimsTypes.Resident, "resident"));
+            }
         }
 
 
@@ -175,12 +206,13 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Areas.Identity.Pag
 
                 if (result.Succeeded)
                 {
-                    //execute CreateBoardMember method
                     _logger.LogInformation("User created a new account with password.");
 
                     var userId = await _userManager.GetUserIdAsync(user);
                     Input.UserId = userId;
-                    await CreateBoardMember(Input);
+
+                    //creating with claims
+                    await CreateResidentOrBoardMemberIncludingClaims(user);
 
 
 

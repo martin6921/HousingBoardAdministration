@@ -2,6 +2,8 @@
 @model HousingBoardAdministration.HousingAdministrationWeb.Pages.Meeting.CreateModel
 @{
 }
+<link rel="stylesheet" href="~/css/styles.css" />
+
 <h2>Opret møde</h2>
 
 <div class="row">
@@ -31,7 +33,7 @@
                 <label asp-for="MeetingModel.AddressLocation">Lokation</label>
                 <span asp-validation-for="MeetingModel.AddressLocation" class="text-danger"></span>
             </div>
-            <button type="submit">Opret møde</button>
+            <button type="submit" class="btn btn-primary">Opret møde</button>
         </form>
     </div>
 </div>
