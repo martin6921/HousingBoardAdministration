@@ -12,7 +12,11 @@ using WebAppUserDbContext;
 namespace WebAppUserDbContextMigrations.Migrations
 {
     [DbContext(typeof(WebAppUserDbContext.WebAppUserDbContext))]
+<<<<<<<< HEAD:WebAppUserDbContextMigrations/Migrations/20231208174621_init.Designer.cs
     [Migration("20231208174621_init")]
+========
+    [Migration("20231207203232_init")]
+>>>>>>>> e1460d4 (dbcontext til lokal pc):WebAppUserDbContextMigrations/Migrations/20231207203232_init.Designer.cs
     partial class init
     {
         /// <inheritdoc />
