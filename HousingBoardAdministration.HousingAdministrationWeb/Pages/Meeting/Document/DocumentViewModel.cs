@@ -7,7 +7,7 @@ public record DocumentViewModel
     public DocumentTypeViewModel DocumentType { get; set; }
     public required string DocumentFile { get; set; }
     public DateTime UploadDate { get; set; }
-
+    public Guid UserOwnerId { get; set; }
     public Guid MeetingId { get; set; }
     //public Guid DocumentOwnerId { get; set; }
 }

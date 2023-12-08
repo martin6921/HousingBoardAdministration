@@ -51,6 +51,7 @@ public class DocumentRepository : IDocumentRepository
         var model = _dbContext.DocumentEntities
             .Include(type => type.DocumentType)
             .Include(meeting => meeting.Meeting)
+            .Include(documentowner => documentowner.DocumentOwner)
             .AsNoTracking().FirstOrDefault(x => x.Id == request.Id);
 
 
@@ -63,6 +64,7 @@ public class DocumentRepository : IDocumentRepository
             DocumentType = new DocumentTypeDto { Id = model.DocumentType.Id, Type = model.DocumentType.Type },
             DocumentFile = model.DocumentFile,
             UploadDate = model.UploadDate,
+            UserOwnerId = model.DocumentOwner.Id,
             Meeting = new MeetingDto { Id = model.Meeting.Id, Description = model.Meeting.Description, Title = model.Meeting.Title }
         };
 
