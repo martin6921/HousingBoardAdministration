@@ -2,6 +2,8 @@
 @model HousingBoardAdministration.HousingAdministrationWeb.Pages.Meeting.Document.CreateModel
 @{
 }
+<link rel="stylesheet" href="~/css/styles.css" />
+
 <div class="row">
     <div class="col-md-6">
         <form method="post" enctype="multipart/form-data">
@@ -18,7 +20,7 @@
                 <label for="DocumentType">Dokument type</label>
                 <select asp-for="SelectedDocumentTypeId" asp-items="Model.DocumentTypeSelectList" class="form-control"></select>
             </div>
-            <button type="submit">Tilføj dokument</button>
+            <button type="submit" class="btn btn-primary">Tilføj dokument</button>
         </form>
     </div>
 </div>

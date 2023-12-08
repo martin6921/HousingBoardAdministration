@@ -39,19 +39,14 @@ namespace BookingSystemApi.Infrastructure.Repositories
 
         void IResidentRepository.Create(CreateResidentCommand request)
         {
-            
 
-            var resident = _db.ResidentEntities.FirstOrDefault(x => x.Id == request.Id);
-            
             var model = new ResidentEntity
             {
-                
+                Id = request.UserId,
                 UserName = request.UserName,
                 FirstName = request.FirstName,
                 LastName = request.LastName,
-                ResidentAddress = request.ResidentAddress,
-
-
+                ResidentAddress = request.ResidentAddress
 
             };
             _db.Add(model);

@@ -19,7 +19,7 @@ namespace HousingBoardApi.Application.Commands.BoardMember.Create
             _boardMemberRoleRepository = boardMemberRoleRepository;
         }
 
-        Task IRequestHandler<CreateBoardMemberCommand>.Handle(CreateBoardMemberCommand request, CancellationToken cancellationToken)
+        public Task Handle(CreateBoardMemberCommand request, CancellationToken cancellationToken)
         {
             Guid boardMemberCreatedGuid = _boardMemberRepository.Create(request);
 
