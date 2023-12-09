@@ -15,9 +15,9 @@ namespace BookingSystemApi.Application.Queris.Booking.Implementation
             _bookingRepository = bookingRepository;
         }
 
-        IEnumerable<BookingGetAllQueryResultDto> IBookingGetAllQuery.GetAll()
+        IEnumerable<BookingGetAllQueryResultDto> IBookingGetAllQuery.GetAll(Guid userId)
         {
-            return _bookingRepository.GetAll();
+            return _bookingRepository.GetAll(userId);
         }
     }
 }

@@ -64,22 +64,19 @@ namespace HousingBoardAdministration.BookingSystemApi.Controllers
             }
         }
 
-        [HttpGet]
-        public ActionResult<IEnumerable<BookingGetAllQueryResultDto>> GetAll()
+        [HttpGet("GetBookingsByUserId/{userId}")]
+        public ActionResult<IEnumerable<BookingGetAllQueryResultDto>> GetAll(Guid userId)
         {
-            var result = _bookingGetAllQuery.GetAll();
-           
-
+            var result = _bookingGetAllQuery.GetAll(userId);
             return result.ToList();
 
         }
-            [HttpGet("{id}")]
+        [HttpGet("{id}")]
         public ActionResult<BookingGetQueryResultDto> Get(Guid id) 
         { 
          var result = _bookingGetQuery.Get(id);
             return result;
         
         }
-
     }
 }

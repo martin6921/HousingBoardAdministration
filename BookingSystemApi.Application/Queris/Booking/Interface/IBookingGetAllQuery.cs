@@ -9,6 +9,6 @@ namespace BookingSystemApi.Application.Queris.Booking.Interface
 {
     public interface IBookingGetAllQuery
     {
-        IEnumerable<BookingGetAllQueryResultDto> GetAll();
+        IEnumerable<BookingGetAllQueryResultDto> GetAll(Guid userId);
     }
 }

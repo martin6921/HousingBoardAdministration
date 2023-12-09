@@ -14,7 +14,7 @@ namespace BookingSystemApi.Application.IRepositories
       
         void Delete(DeleteBookingCommand request);
         void Edit(BookingEntity request);
-        IEnumerable<BookingGetAllQueryResultDto> GetAll();
+        IEnumerable<BookingGetAllQueryResultDto> GetAll(Guid userId);
     }
 }
 

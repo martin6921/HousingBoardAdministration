@@ -16,11 +16,8 @@ namespace HousingBoardAdministration.HousingAdministrationWeb
         Task CreateDocumentAsync([Body]DocumentCreateViewModel documentCreateViewModel);
         [Get("/document/{id}")]
         Task<DocumentViewModel> GetDocumentAsync([Path] Guid id);
-
         [Get("/role")]
         Task<List<RoleViewModel>> GetAllRolesAsync();
-
-
         [Post("/boardmember")]
         Task CreateBoardMemberAsync([Body]CreateBoardMemberDto createBoardMemberDto);
         [Post("/boardmemberrole")]

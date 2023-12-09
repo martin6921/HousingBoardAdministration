@@ -36,7 +36,7 @@ public class BookingRepository : IBookingRepository
         var model = _db.BookingEntities.Include(type => type.Resources).FirstOrDefault(x => x.Id == id);
 
 
-        if (model == null) throw new Exception("Ingen meeting fundet i databasen");
+        if (model == null) throw new Exception("Ingen booking fundet i databasen");
 
         return new BookingGetQueryResultDto
         {
@@ -88,16 +88,17 @@ public class BookingRepository : IBookingRepository
         _db.SaveChanges();
     }
 
-    IEnumerable<BookingGetAllQueryResultDto> IBookingRepository.GetAll()
+    IEnumerable<BookingGetAllQueryResultDto> IBookingRepository.GetAll(Guid userId)
     {
-        foreach (var model in _db.BookingEntities.AsNoTracking().ToList())
+        foreach (var model in _db.BookingEntities.AsNoTracking().Include(x=>x.BookingOwner).Where(booking => booking.BookingOwner.Id == userId).ToList())
         {
             yield return new BookingGetAllQueryResultDto
             {
                 Id = model.Id,
                 RowVersion = model.RowVersion,
                 StartDate = model.StartDate,
-                EndDate = model.EndDate
+                EndDate = model.EndDate,
+                BookingOwnerId = model.BookingOwner.Id
             };
         }
     }
