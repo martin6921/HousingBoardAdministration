@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.Booking.Resource;
 
-namespace BookingSystemApi.Application.Queris.Resource.GetResourcesQuery;
-
-public class GetResourcesQueryResult
+public class GetResourceViewModel
 {
     public Guid Id { get; set; }
     public byte[] RowVersion { get; set; }
@@ -14,5 +8,4 @@ public class GetResourcesQueryResult
     public string Specification { get; set; }
     public decimal Price { get; set; }
     public List<BookingDto>? Bookings { get; set; }
-
 }

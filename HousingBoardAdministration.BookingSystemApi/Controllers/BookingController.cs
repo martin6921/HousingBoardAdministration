@@ -37,21 +37,21 @@ namespace HousingBoardAdministration.BookingSystemApi.Controllers
         }
 
         [HttpPost]
-        public ActionResult Post([FromBody] CreateBookingCommand request)
+        public Task<bool> Post([FromBody]CreateBookingCommand request)
         {
             try
             {
-                _mediator.Send(request);
-                return Ok();
+                var result = _mediator.Send(request);
+                return result;
             }
             catch (Exception e)
             {
-                return BadRequest(e.Message);
+                return Task.FromResult(false);
             }
         }
 
         [HttpPut]
-        public ActionResult Put([FromBody] EditBookingCommand request)
+        public ActionResult Put([FromBody]EditBookingCommand request)
         {
             try
             {

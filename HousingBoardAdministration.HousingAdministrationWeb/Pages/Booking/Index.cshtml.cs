@@ -1,9 +1,12 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal;
 
 namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.Booking
 {
+    [Authorize(Policy = "IsResidentPolicy")]
     public class IndexModel : PageModel
     {
         private readonly IBookingBffClient _bookingBffClient;
@@ -18,12 +21,19 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.Booking
         [BindProperty]
         public List<BookingViewModel> BookingViewModels { get; set; } = new();
 
-
+        [BindProperty]
+        public List<BookingViewModel> OldBookingViewModels { get; set; } = new();
 
         public async Task OnGet()
         {
             var userId = Guid.Parse(_userManager.GetUserId(User));
-            BookingViewModels = await _bookingBffClient.GetBookingsByuserId(userId);
+
+            var dateutc = DateTime.Now;
+
+            var result = await _bookingBffClient.GetBookingsByuserId(userId);
+
+            BookingViewModels = result.Where(x => (x.StartDate <= dateutc && x.EndDate >= dateutc) || (x.StartDate >= dateutc && x.EndDate >= dateutc)).ToList();
+            OldBookingViewModels = result.Where(x => x.StartDate < dateutc && x.EndDate < dateutc).ToList();
         }
     }
 }

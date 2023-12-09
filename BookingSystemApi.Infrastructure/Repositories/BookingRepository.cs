@@ -33,7 +33,7 @@ public class BookingRepository : IBookingRepository
 
     public BookingGetQueryResultDto Get(Guid id)
     {
-        var model = _db.BookingEntities.Include(type => type.Resources).FirstOrDefault(x => x.Id == id);
+        var model = _db.BookingEntities.Include(type => type.Resources).Include(x => x.BookingOwner).FirstOrDefault(x => x.Id == id);
 
 
         if (model == null) throw new Exception("Ingen booking fundet i databasen");
@@ -44,6 +44,7 @@ public class BookingRepository : IBookingRepository
             RowVersion = model.RowVersion,
             StartDate = model.StartDate,
             EndDate = model.EndDate,
+            BookingOwnerId = model.BookingOwner.Id,
             Resources = model.Resources.Select(resource => new ResourceDto
             {
                 Id = resource.Id,
@@ -60,32 +61,39 @@ public class BookingRepository : IBookingRepository
         return model == null ? throw new Exception("Ingen Booking fundet i databasen") : model;
     }
 
-    void IBookingRepository.Create(CreateBookingCommand request)
+    bool IBookingRepository.Create(CreateBookingCommand request)
     {
-        //var resident = _db.ResidentEntities.FirstOrDefault(x => x.Id == request.Id);
-        //var resource = _db.ResourceEntities.FirstOrDefault(x => x.Id == request.Id);
-
-        ResidentEntity resident = new ResidentEntity { Id = request.BookingOwnerId };
-        List<ResourceEntity> resourceList = request.ResourceIdsList.Select(id => new ResourceEntity { Id = id }).ToList();
-
-        _db.Attach(resident);
-        foreach (ResourceEntity resource in resourceList ) 
+        try
         {
-            _db.Attach(resource);
+
+            ResidentEntity resident = new ResidentEntity { Id = request.BookingOwnerId };
+            List<ResourceEntity> resourceList = request.ResourceIdsList.Select(id => new ResourceEntity { Id = id }).ToList();
+
+            _db.Attach(resident);
+            foreach (ResourceEntity resource in resourceList)
+            {
+                _db.Attach(resource);
+            }
+            BookingEntity model = new BookingEntity
+            {
+
+
+                StartDate = request.StartDate,
+                EndDate = request.EndDate,
+                BookingOwner = resident,
+                Resources = resourceList
+                 
+            };
+
+            _db.Add(model);
+            _db.SaveChanges();
+
+            return true;
         }
-        BookingEntity model = new BookingEntity
+        catch (Exception ex)
         {
-            
-            
-            StartDate = request.StartDate,
-            EndDate = request.EndDate,
-            BookingOwner = resident,
-            Resources = resourceList
-
-        };
-
-        _db.Add(model);
-        _db.SaveChanges();
+            return false;
+        }
     }
 
     IEnumerable<BookingGetAllQueryResultDto> IBookingRepository.GetAll(Guid userId)

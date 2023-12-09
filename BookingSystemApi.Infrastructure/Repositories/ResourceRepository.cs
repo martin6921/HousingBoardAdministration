@@ -49,36 +49,9 @@ public class ResourceRepository : IResourceRepository
         _context.SaveChanges();
     }
 
-    //ResourceGetQueryResultDto IResourceRepository.Get(Guid id)
-    //{
-    //    var model = _context.ResourceEntities.AsNoTracking().FirstOrDefault(x => x.Id == id);
-    //    if (model == null) throw new Exception("ingen resouce fundet");
-    //    return new ResourceGetQueryResultDto
-    //    {
-    //        Id = model.Id,
-    //        Description = model.Description,
-    //        Specification = model.Specification,
-    //        Price = model.Price
-    //    };
-    //}
-
-    //IEnumerable<ResourceGetAllQueryResultDto> IResourceRepository.GetAll()
-    //{
-    //    foreach(var model in _context.ResourceEntities.AsNoTracking().ToList())
-    //    {
-    //        yield return new ResourceGetAllQueryResultDto
-    //        {
-    //            Id = model.Id,
-    //            Description = model.Description,
-    //            Specification = model.Specification,
-    //            Price = model.Price
-    //        };
-    //    }
-    //}
-
     GetResourcesQueryResult IResourceRepository.Get(GetResourcesQuery request)
     {
-       var model = _context.ResourceEntities.AsNoTracking().FirstOrDefault(x => x.Id == request.Id);
+        var model = _context.ResourceEntities.AsNoTracking().Include(booking => booking.Bookings).ThenInclude(user => user.BookingOwner).FirstOrDefault(x => x.Id == request.Id);
         if (model == null) throw new Exception("Ingen resourcer fundet");
         return new GetResourcesQueryResult
         {
@@ -86,8 +59,17 @@ public class ResourceRepository : IResourceRepository
             Description = model.Description,
             Specification = model.Specification,
             Price = model.Price,
-            RowVersion = model.RowVersion
-        };
+            RowVersion = model.RowVersion,
+            Bookings = model.Bookings.Select(x => new BookingDto
+            {
+                Id = x.Id,
+                StartDate = x.StartDate,
+                EndDate = x.EndDate,
+                BookingOwnerId = x.BookingOwner.Id,
+                RowVersion = x.RowVersion
+
+            }).ToList()
+    };
     }
 
     IEnumerable<GetAllResourcesQueryResult> IResourceRepository.GetAll(GetAllResourcesQuery request)

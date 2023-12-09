@@ -1,4 +1,6 @@
 using HousingBoardAdministration.HousingAdministrationWeb.Pages.Meeting.Document;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -6,6 +8,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.Booking
 {
+    [Authorize(Policy = "IsResidentPolicy")]
+
     public class CreateModel : PageModel
     {
         private IBookingBffClient _bookingBffClient;
@@ -24,11 +28,33 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.Booking
         public async Task OnGetAsync()
         {
             AllResources = await _bookingBffClient.GetAllResourcesAsync();
+
+            BookingModel.StartDate = DateTime.Now.Date;
+            BookingModel.EndDate = DateTime.Now.Date;
+        }
+
+        public bool CheckIfDateIsValid()
+        {
+            if (BookingModel.StartDate < DateTime.Now)
+            {
+                TempData["ErrorMes"] = "Start datoen er ugyldig!";
+                return false;
+
+            }
+            if (BookingModel.EndDate < DateTime.Now)
+            {
+                TempData["ErrorMes"] = "Slut datoen er gyldig!";
+                return false;
+
+            }
+            return true;
+
         }
 
         public async Task<IActionResult> OnPostAsync()
         {
             BookingModel.BookingOwnerId = Guid.Parse(_userManager.GetUserId(User));
+
 
             if (!ModelState.IsValid)
             {
@@ -37,11 +63,24 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.Booking
 
             try
             {
+                if(!CheckIfDateIsValid())
+                {
+                    return Page();
+                }
                 // Opret booking ved hjælp af _bffClient
-                await _bookingBffClient.CreateBookingAsync(BookingModel);
+                var result = await _bookingBffClient.CreateBookingAsync(BookingModel);
+
+                if(result == false)
+                {
+                    TempData["ErrorMes"] = "En af resourserne er booket i den periode!";
+                }
+                else
+                {
+                    return RedirectToPage("./index");
+
+                }
 
                 // Redirect til en bekræftelsesside eller en oversigtsside TODO
-                return RedirectToPage("./index");
             }
             catch (Exception ex)
             {

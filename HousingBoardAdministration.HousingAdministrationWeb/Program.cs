@@ -61,10 +61,10 @@ builder.Services.AddAuthorization(options =>
 
 builder.Services.AddScoped<RoleManager<IdentityRole>>();
 builder.Services.AddRazorPages();
-//builder.Services.AddRestEaseClient<IBffClient>("http://housing-board-api:80/api/");
-//builder.Services.AddRestEaseClient<IBookingBffClient>("http://booking-system-api:80/api/");
-builder.Services.AddRestEaseClient<IBffClient>("http://localhost:5259/api/");
-builder.Services.AddRestEaseClient<IBookingBffClient>("http://localhost:5288/api/");
+builder.Services.AddRestEaseClient<IBffClient>("http://housing-board-api:80/api/");
+builder.Services.AddRestEaseClient<IBookingBffClient>("http://booking-system-api:80/api/");
+//builder.Services.AddRestEaseClient<IBffClient>("http://localhost:5259/api/");
+//builder.Services.AddRestEaseClient<IBookingBffClient>("http://localhost:5288/api/");
 
 var app = builder.Build();
 

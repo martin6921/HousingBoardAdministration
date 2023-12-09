@@ -2,17 +2,19 @@
 @model HousingBoardAdministration.HousingAdministrationWeb.Pages.Booking.CreateModel
 @{
 }
+<span class="text-danger">@TempData["ErrorMes"]</span>
+
 <div class="row">
     <div class="col-md-6">
         <form method="post" enctype="multipart/form-data">
             <div class="form-group">
-                <label asp-for="BookingModel.StartDate" class="control-label"></label>
-                <input asp-for="BookingModel.StartDate" id="datepicker" type="text" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                <label asp-for="BookingModel.StartDate"></label>
+                <input asp-for="BookingModel.StartDate" class="form-control" min="@DateTime.UtcNow.ToString("yyyy-MM-dd")" />
                 <span asp-validation-for="BookingModel.StartDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="BookingModel.EndDate" class="control-label"></label>
-                <input asp-for="BookingModel.EndDate" id="datepicker" type="text" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                <label asp-for="BookingModel.EndDate"></label>
+                <input asp-for="BookingModel.EndDate" class="form-control" min="@DateTime.UtcNow.ToString("yyyy-MM-dd")" />
                 <span asp-validation-for="BookingModel.EndDate" class="text-danger"></span>
             </div>
             <h2>Resourser:</h2>
@@ -43,7 +45,7 @@
                     }
                 </tbody>
             </table>
-            <button type="submit" class="btn btn-default">Opret booking</button>
+            <button type="submit" class="btn btn-primary">Opret booking</button>
         </form>
     </div>
 </div>

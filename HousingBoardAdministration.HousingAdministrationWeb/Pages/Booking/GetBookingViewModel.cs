@@ -11,7 +11,9 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.Booking
 
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
+        public List<ResourceViewModel> Resources { get; set; }
 
+        public Guid BookingOwnerId { get; set; }
 
     }
 }

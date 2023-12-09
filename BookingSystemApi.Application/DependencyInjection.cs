@@ -1,7 +1,9 @@
-﻿using BookingSystemApi.Application.IRepositories;
+﻿using BookingSystemApi.Application.DomainService.Implementering;
+using BookingSystemApi.Application.IRepositories;
 using BookingSystemApi.Application.Queris.Booking.Implementation;
 using BookingSystemApi.Application.Queris.Booking.Interface;
 using BookingSystemApi.Application.Transaction.Behaviors;
+using BookingSystemApi.Domain.DomainService;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
@@ -19,10 +21,8 @@ public static class DependencyInjection
 
         services.AddScoped<IBookingGetAllQuery, BookingGetAllQuery>();
         services.AddScoped<IBookingGetQuery, BookingGetQuery>();
-        
-        
-        //services.AddScoped<IResourceGetAllQuery, ResourceGetAllQuery>();
-        //services.AddScoped<IResourceGetQuery, ResourceGetQuery>();
+
+        services.AddScoped<IBookingDateValidationService, BookingDateValidationService>();
 
         return services;
     }

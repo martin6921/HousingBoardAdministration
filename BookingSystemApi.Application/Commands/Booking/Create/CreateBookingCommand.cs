@@ -1,6 +1,6 @@
 ﻿namespace BookingSystemApi.Application.Commands.Booking.Create
 {
-    public record CreateBookingCommand : IRequest
+    public record CreateBookingCommand : IRequest<bool>
     {
       
         public DateTime StartDate { get; set; }

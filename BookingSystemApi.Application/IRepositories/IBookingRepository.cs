@@ -9,7 +9,7 @@ namespace BookingSystemApi.Application.IRepositories
     public interface IBookingRepository
     {
         BookingEntity Load(Guid id);
-        void Create(CreateBookingCommand request);
+        bool Create(CreateBookingCommand request);
         BookingGetQueryResultDto Get(Guid id);
       
         void Delete(DeleteBookingCommand request);
