@@ -15,6 +15,6 @@ public interface IBookingBffClient
     [Post("/booking")]
     Task CreateBookingAsync([Body] CreateBookingViewModel booking);
 
-    [Get("/resources")]
+    [Get("/resource")]
     Task<List<ResourceViewModel>> GetAllResourcesAsync();
 }
