@@ -25,8 +25,9 @@ public class BookingDateValidationService : IBookingDateValidationService
         // Tjek om der er overlappende bookinger
         var isResourceAvailable = !existingBookings.Any(b =>
             (startDate >= b.StartDate && startDate <= b.EndDate) ||
-            (endDate >= b.StartDate && endDate <= b.EndDate));
+            (endDate <= b.EndDate && endDate >= b.StartDate) ||
+            startDate < b.StartDate && endDate > b.EndDate);
 
-        return isResourceAvailable;
+            return isResourceAvailable;
     }
 }
