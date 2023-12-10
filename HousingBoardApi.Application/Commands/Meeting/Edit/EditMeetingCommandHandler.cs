@@ -5,7 +5,6 @@ using HousingBoardApi.Domain.Mail;
 using MediatR;
 using System;
 
-
 namespace HousingBoardApi.Application.Commands.Meeting.Edit;
 
 public class EditMeetingCommandHandler : IRequestHandler<EditMeetingCommand>
@@ -19,9 +18,8 @@ public class EditMeetingCommandHandler : IRequestHandler<EditMeetingCommand>
         _publisher = publisher;
     }
 
-    Task IRequestHandler<EditMeetingCommand>.Handle(EditMeetingCommand request, CancellationToken cancellationToken)
+    public Task Handle(EditMeetingCommand request, CancellationToken cancellationToken)
     {
-
         //Read
         var model = _meetingRepository.Load(request.Id);
 
@@ -41,6 +39,5 @@ public class EditMeetingCommandHandler : IRequestHandler<EditMeetingCommand>
 
 
         return Task.CompletedTask;
-
     }
 }

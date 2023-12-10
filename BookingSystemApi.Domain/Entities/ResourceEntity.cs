@@ -32,4 +32,5 @@ public class ResourceEntity : BaseEntity
         this.Price = price;
         this.RowVersion = RowVersion;
     }
+    
 }

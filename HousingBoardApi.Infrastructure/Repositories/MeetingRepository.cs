@@ -37,8 +37,16 @@ public class MeetingRepository : IMeetingRepository
 
     void IMeetingRepository.Delete(DeleteMeetingCommand request)
     {
-        _db.Remove(_db.MeetingEntities.AsNoTracking().FirstOrDefault(x => x.Id == request.Id));
-        _db.SaveChanges();
+        try
+        {
+            _db.Remove(_db.MeetingEntities.AsNoTracking().FirstOrDefault(x => x.Id == request.Id));
+            _db.SaveChanges();
+        }
+        catch (Exception ex)
+        {
+            throw new Exception("Der var et dokument under mødet");
+        }
+        
     }
 
     void IMeetingRepository.Add(CreateMeetingCommand request)

@@ -21,7 +21,7 @@ public class CreateMeetingCommandHandler : IRequestHandler<CreateMeetingCommand>
         _publisher = publisher;
     }
 
-    Task IRequestHandler<CreateMeetingCommand>.Handle(CreateMeetingCommand request, CancellationToken cancellationToken)
+    public Task Handle(CreateMeetingCommand request, CancellationToken cancellationToken)
     {
         _meetingRepository.Add(request);
 
@@ -34,6 +34,5 @@ public class CreateMeetingCommandHandler : IRequestHandler<CreateMeetingCommand>
         //});
 
         return Task.CompletedTask;
-
     }
 }

@@ -16,10 +16,9 @@ public class DeleteMeetingCommandHandler : IRequestHandler<DeleteMeetingCommand>
         _meetingRepository = meetingRepository;
     }
 
-    Task IRequestHandler<DeleteMeetingCommand>.Handle(DeleteMeetingCommand request, CancellationToken cancellationToken)
+    public Task Handle(DeleteMeetingCommand request, CancellationToken cancellationToken)
     {
         _meetingRepository.Delete(request);
         return Task.CompletedTask;
-        
     }
 }

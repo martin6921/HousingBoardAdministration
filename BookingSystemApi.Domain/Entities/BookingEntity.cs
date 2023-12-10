@@ -1,4 +1,6 @@
-﻿namespace BookingSystemApi.Domain.Entities;
+﻿using System.Security.Cryptography.X509Certificates;
+
+namespace BookingSystemApi.Domain.Entities;
 
 public class BookingEntity : BaseEntity
 {
@@ -21,7 +23,6 @@ public class BookingEntity : BaseEntity
         StartDate = startDate;
         EndDate = endDate;
     }
-
     public ResidentEntity BookingOwner { get; set; }
     public List<ResourceEntity> Resources { get; set; }
     public DateTime StartDate { get; set; }

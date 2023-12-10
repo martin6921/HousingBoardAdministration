@@ -12,9 +12,16 @@ public sealed class UnitOfWorkBehavior<TRequest, TResponse> : IPipelineBehavior<
         _unitOfWork = unitOfWork;
     }
 
-    Task<TResponse> IPipelineBehavior<TRequest, TResponse>.Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
+    
+
+    private static bool IsNotCommand()
     {
-        if(IsNotCommand())
+        return !typeof(TRequest).Name.EndsWith("Command");
+    }
+
+    public Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
+    {
+        if (IsNotCommand())
         {
             return next();
         }
@@ -29,11 +36,5 @@ public sealed class UnitOfWorkBehavior<TRequest, TResponse> : IPipelineBehavior<
             transactionScope.Complete();
             return response;
         }
-
-    }
-
-    private static bool IsNotCommand()
-    {
-        return !typeof(TRequest).Name.EndsWith("Command");
     }
 }
