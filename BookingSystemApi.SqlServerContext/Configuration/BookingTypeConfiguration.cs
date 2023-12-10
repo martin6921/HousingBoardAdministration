@@ -1,6 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
+﻿using BookingSystemApi.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using BookingSystemApi.Domain.Entities;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace SqlServerContext.Configuration;
 

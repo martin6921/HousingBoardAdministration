@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using RestEase.HttpClientFactory;
-using WebAppUserDbContext;
 
 
 var builder = WebApplication.CreateBuilder(args);

@@ -1,7 +1,5 @@
-﻿using HousingBoardApi.Application.Queries.Document.GetAllDocuments;
-using HousingBoardApi.Application.Queries.DocumentType.GetAllDocumentTypes;
+﻿using HousingBoardApi.Application.Queries.DocumentType.GetAllDocumentTypes;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HousingBoardAdministration.HousingBoardApi.Controllers

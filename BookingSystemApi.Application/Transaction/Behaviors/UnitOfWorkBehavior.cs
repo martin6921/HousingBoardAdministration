@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Transactions;
+﻿using System.Transactions;
 
 namespace BookingSystemApi.Application.Transaction.Behaviors
 {
@@ -23,7 +18,7 @@ namespace BookingSystemApi.Application.Transaction.Behaviors
                 return next();
             }
 
-            using ( var transactionScope = new TransactionScope())
+            using (var transactionScope = new TransactionScope())
             {
                 var response = next();
                 _unitOfWork.SaveChanges(cancellationToken);

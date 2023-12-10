@@ -1,11 +1,8 @@
-﻿
-using HousingBoardApi.Application.Messages;
-using HousingBoardApi.Application.Queries.MeetingType.Implementation;
+﻿using HousingBoardApi.Application.Queries.MeetingType.Implementation;
 using HousingBoardApi.Application.Queries.MeetingType.Interface;
 using HousingBoardApi.Application.Queries.Role.Implementation;
 using HousingBoardApi.Application.Queries.Role.Interface;
 using HousingBoardApi.Application.Transaction.Behaviors;
-using HousingBoardApi.Domain.Mail;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
@@ -15,7 +12,8 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddApplicationServices(this IServiceCollection services)
     {
-        services.AddMediatR(cfg => {
+        services.AddMediatR(cfg =>
+        {
             cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
             cfg.AddOpenBehavior(typeof(UnitOfWorkBehavior<,>));
         });

@@ -1,5 +1,4 @@
 ﻿using BookingSystemApi.Application.DomainService.Implementering;
-using BookingSystemApi.Application.IRepositories;
 using BookingSystemApi.Application.Queris.Booking.Implementation;
 using BookingSystemApi.Application.Queris.Booking.Interface;
 using BookingSystemApi.Application.Transaction.Behaviors;

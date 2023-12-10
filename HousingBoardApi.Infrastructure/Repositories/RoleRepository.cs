@@ -27,7 +27,7 @@ public class RoleRepository : IRoleRepository
     {
         foreach (var model in _context.RoleEntities.AsNoTracking().ToList())
         {
-            yield return new RoleGetAllQueryResultDto { Id = model.Id, RoleName = model.RoleName};
+            yield return new RoleGetAllQueryResultDto { Id = model.Id, RoleName = model.RoleName };
         }
     }
 }

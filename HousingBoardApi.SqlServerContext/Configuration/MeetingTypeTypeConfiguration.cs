@@ -1,8 +1,8 @@
 ﻿
 
 using HousingBoardApi.Domain.Entities;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace HousingBoardApi.SqlServerContext.Configuration;
 

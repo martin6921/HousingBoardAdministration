@@ -1,13 +1,7 @@
 ﻿using HousingBoardApi.Application.Commands.BoardMember.Create;
 using HousingBoardApi.Application.Commands.BoardMember.Delete;
-using HousingBoardApi.Application.Commands.Meeting.Create;
 using HousingBoardApi.Application.Queries.BoardMember.GetAllBoardMembersWithRoles;
 using HousingBoardApi.Application.Queries.BoardMember.GetBoardMemberWithRole;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HousingBoardApi.Application.IRepositories
 {

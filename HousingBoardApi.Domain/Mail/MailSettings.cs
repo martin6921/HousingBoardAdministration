@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HousingBoardApi.Domain.Mail
+﻿namespace HousingBoardApi.Domain.Mail
 {
     public class MailSettings
     {

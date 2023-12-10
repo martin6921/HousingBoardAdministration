@@ -1,4 +1,3 @@
-using HousingBoardAdministration.HousingAdministrationWeb.Pages.Meeting.Document;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -23,7 +22,7 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.Meeting
         public async Task<IActionResult> OnGet(Guid id)
         {
             MeetingModel = await _bffClient.GetMeetingAsync(id);
-            
+
             return Page();
         }
 

@@ -1,13 +1,4 @@
 ﻿using HousingBoardApi.Application.IRepositories;
-using HousingBoardApi.Application.Messages;
-using HousingBoardApi.Application.Messages.Events;
-using HousingBoardApi.Application.Queries.Meeting;
-using HousingBoardApi.Domain.Mail;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HousingBoardApi.Application.Commands.Meeting.Create;
 

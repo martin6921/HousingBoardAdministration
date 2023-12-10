@@ -1,10 +1,4 @@
-﻿using HousingBoardApi.Application.Commands.Meeting.Create;
-using HousingBoardApi.Application.IRepositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using HousingBoardApi.Application.IRepositories;
 
 namespace HousingBoardApi.Application.Commands.Document.Create;
 

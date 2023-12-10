@@ -1,8 +1,6 @@
 ﻿
 using HousingBoardApi.Application.Queries.MeetingType.Dto;
 using HousingBoardApi.Application.Queries.MeetingType.Interface;
-using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HousingBoardAdministration.HousingBoardApi.Controllers

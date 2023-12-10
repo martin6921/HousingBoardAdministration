@@ -1,11 +1,6 @@
 ﻿using BookingSystemApi.Application.IRepositories;
 using BookingSystemApi.Application.Queris.Resource.GetResourcesQuery;
 using BookingSystemApi.Domain.DomainService;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BookingSystemApi.Application.DomainService.Implementering;
 
@@ -28,6 +23,6 @@ public class BookingDateValidationService : IBookingDateValidationService
             (endDate <= b.EndDate && endDate >= b.StartDate) ||
             startDate < b.StartDate && endDate > b.EndDate);
 
-            return isResourceAvailable;
+        return isResourceAvailable;
     }
 }

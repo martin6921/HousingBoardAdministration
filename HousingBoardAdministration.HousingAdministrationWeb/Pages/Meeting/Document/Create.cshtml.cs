@@ -1,4 +1,3 @@
-using HousingBoardAdministration.HousingAdministrationWeb.Areas.Identity.Pages.Account.ListViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -37,7 +36,7 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.Meeting.Docu
         public async Task OnGet(Guid id)
         {
             ListOfAllDocumentTypes = await _bffClient.GetAllDocumentTypesAsync();
-            DocumentTypeSelectList = new SelectList(ListOfAllDocumentTypes, "Id","Type");
+            DocumentTypeSelectList = new SelectList(ListOfAllDocumentTypes, "Id", "Type");
             MeetingId = id;
         }
 

@@ -1,5 +1,4 @@
-﻿using HousingBoardAdministration.HousingAdministrationWeb.Pages.Booking;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.Booking
 {

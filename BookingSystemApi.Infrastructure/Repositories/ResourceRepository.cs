@@ -1,5 +1,4 @@
-﻿using Azure.Core;
-using BookingSystemApi.Application.Commands.Resource.Create;
+﻿using BookingSystemApi.Application.Commands.Resource.Create;
 using BookingSystemApi.Application.Commands.Resource.Delete;
 using BookingSystemApi.Application.IRepositories;
 using BookingSystemApi.Application.Queris.Resource.GetAllResourcesQuery;
@@ -7,8 +6,6 @@ using BookingSystemApi.Application.Queris.Resource.GetResourcesQuery;
 using BookingSystemApi.Domain.Entities;
 using BookingSystemApi.SqlServerContext;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.VisualBasic;
-using System.Diagnostics;
 
 namespace BookingSystemApi.Infrastructure.Repositories;
 
@@ -20,7 +17,7 @@ public class ResourceRepository : IResourceRepository
     {
         this._context = context;
     }
-    
+
     ResourceEntity IResourceRepository.Load(Guid id)
     {
         var model = _context.ResourceEntities.FirstOrDefault(x => x.Id == id);
@@ -38,7 +35,7 @@ public class ResourceRepository : IResourceRepository
             Description = request.Description,
             Specification = request.Specification,
             Price = request.Price
-            
+
         };
         _context.ResourceEntities.Add(model);
         _context.SaveChanges();
@@ -69,7 +66,7 @@ public class ResourceRepository : IResourceRepository
                 RowVersion = x.RowVersion
 
             }).ToList()
-    };
+        };
     }
 
     IEnumerable<GetAllResourcesQueryResult> IResourceRepository.GetAll(GetAllResourcesQuery request)

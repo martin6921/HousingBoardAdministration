@@ -1,10 +1,7 @@
-using HousingBoardAdministration.HousingAdministrationWeb.Pages.Meeting.Document;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.Booking
 {
@@ -63,14 +60,14 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.Booking
 
             try
             {
-                if(!CheckIfDateIsValid())
+                if (!CheckIfDateIsValid())
                 {
                     return Page();
                 }
                 // Opret booking ved hjælp af _bffClient
                 var result = await _bookingBffClient.CreateBookingAsync(BookingModel);
 
-                if(result == false)
+                if (result == false)
                 {
                     TempData["ErrorMes"] = "En af resourserne er booket i den periode!";
                 }

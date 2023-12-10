@@ -28,7 +28,7 @@ public class DocumentController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<List<GetAllDocumentsByMeetingIdQueryResult>>> GetAll([FromQuery]GetAllDocumentsByMeetingIdQuery request)
+    public async Task<ActionResult<List<GetAllDocumentsByMeetingIdQueryResult>>> GetAll([FromQuery] GetAllDocumentsByMeetingIdQuery request)
     {
         var result = await _mediator.Send(request);
         return result;

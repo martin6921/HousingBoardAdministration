@@ -1,6 +1,6 @@
 ﻿using BookingSystemApi.Application.IRepositories;
-using BookingSystemApi.Application.Queris.Booking.Interface;
 using BookingSystemApi.Application.Queris.Booking.Dto;
+using BookingSystemApi.Application.Queris.Booking.Interface;
 
 
 namespace BookingSystemApi.Application.Queris.Booking.Implementation

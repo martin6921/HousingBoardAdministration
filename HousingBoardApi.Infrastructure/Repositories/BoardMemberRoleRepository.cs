@@ -1,12 +1,5 @@
 ﻿using HousingBoardApi.Application.Commands.BoardMemberRole.Create;
 using HousingBoardApi.Application.Commands.BoardMemberRole.Delete;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace HousingBoardApi.Infrastructure.Repositories
 {
@@ -22,7 +15,7 @@ namespace HousingBoardApi.Infrastructure.Repositories
         void IBoardMemberRoleRepository.Add(CreateBoardMemberRoleCommand request)
         {
             RoleEntity role = new RoleEntity { Id = request.RoleId };
-            BoardMemberEntity boardMember = _context.BoardMemberEntities.Where(x=>x.Id == request.BoardMemberId).FirstOrDefault();
+            BoardMemberEntity boardMember = _context.BoardMemberEntities.Where(x => x.Id == request.BoardMemberId).FirstOrDefault();
 
             _context.Attach(role);
 

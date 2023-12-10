@@ -19,7 +19,7 @@ public class BoardMemberController : ControllerBase
     }
 
     [HttpPost]
-    public ActionResult Post([FromBody]CreateBoardMemberCommand request)
+    public ActionResult Post([FromBody] CreateBoardMemberCommand request)
     {
         try
         {
@@ -42,14 +42,14 @@ public class BoardMemberController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<GetBoardMemberWithRoleQueryResult>> Get(Guid id, [FromQuery]bool includeOldRoles)
+    public async Task<ActionResult<GetBoardMemberWithRoleQueryResult>> Get(Guid id, [FromQuery] bool includeOldRoles)
     {
         var result = await _mediator.Send(new GetBoardMemberWithRoleQuery { Id = id, IncludeOldRoles = includeOldRoles });
         return result;
     }
 
     [HttpPut]
-    public ActionResult Put([FromBody]EditBoardMemberCommand request)
+    public ActionResult Put([FromBody] EditBoardMemberCommand request)
     {
         try
         {

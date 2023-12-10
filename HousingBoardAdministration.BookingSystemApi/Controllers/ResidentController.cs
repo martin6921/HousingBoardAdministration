@@ -1,9 +1,6 @@
-﻿using BookingSystemApi.Application.Commands.Booking.Delete;
-using BookingSystemApi.Application.Commands.Booking.Update;
-using BookingSystemApi.Application.Commands.Resident.Create;
+﻿using BookingSystemApi.Application.Commands.Resident.Create;
 using BookingSystemApi.Application.Commands.Resident.Delete;
 using BookingSystemApi.Application.Commands.Resident.Edit;
-using BookingSystemApi.Application.Commands.Resource.Create;
 using BookingSystemApi.Application.Queris.Resident.GetAllResident;
 using BookingSystemApi.Application.Queris.Resident.GetResident;
 using MediatR;
@@ -51,7 +48,7 @@ public class ResidentController : ControllerBase
         }
 
     }
-    
+
     [HttpDelete]
     public ActionResult Delete([FromBody] DeleteResidentCommand request)
     {

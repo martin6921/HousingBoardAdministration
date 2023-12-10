@@ -1,13 +1,6 @@
-﻿using HousingBoardApi.Application.Commands.Meeting.Create;
-using HousingBoardApi.Application.Commands.Meeting.Delete;
+﻿using HousingBoardApi.Application.Commands.Meeting.Delete;
 using HousingBoardApi.Application.IRepositories;
-using MediatR;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HousingBoardApi.Test.Meeting.Commands
 {
@@ -28,18 +21,18 @@ namespace HousingBoardApi.Test.Meeting.Commands
             {
                 Id = Guid.NewGuid(),
             };
-           
+
             _meetingRepositoryMock.Setup(repo => repo.Delete(It.IsAny<DeleteMeetingCommand>())).Throws(new Exception("Der var et dokument under mødet"));
-            
+
             var handler = new DeleteMeetingCommandHandler(_meetingRepositoryMock.Object);
 
             //act
-           
+
             //Assert
-           var exeption = await Assert.ThrowsAsync<Exception>(() => handler.Handle(command, default));
+            var exeption = await Assert.ThrowsAsync<Exception>(() => handler.Handle(command, default));
 
             _meetingRepositoryMock.Verify(repo => repo.Delete(It.IsAny<DeleteMeetingCommand>()), Times.Once());
-            
+
         }
     }
 }

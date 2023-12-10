@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace BookingSystemApi.Application.Queris.Booking.Dto
 {
@@ -13,7 +8,7 @@ namespace BookingSystemApi.Application.Queris.Booking.Dto
 
         [Timestamp]
         public byte[] RowVersion { get; set; }
-        
+
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public List<ResourceDto> Resources { get; set; }

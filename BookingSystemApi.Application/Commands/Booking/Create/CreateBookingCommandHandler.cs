@@ -3,7 +3,7 @@ using BookingSystemApi.Domain.DomainService;
 
 namespace BookingSystemApi.Application.Commands.Booking.Create;
 
-public class CreateBookingCommandHandler : IRequestHandler<CreateBookingCommand,bool>
+public class CreateBookingCommandHandler : IRequestHandler<CreateBookingCommand, bool>
 {
     private readonly IBookingRepository _bookingRepository;
     private readonly IBookingDateValidationService _bookingDateValidationService;
@@ -17,7 +17,7 @@ public class CreateBookingCommandHandler : IRequestHandler<CreateBookingCommand,
     Task<bool> IRequestHandler<CreateBookingCommand, bool>.Handle(CreateBookingCommand request, CancellationToken cancellationToken)
     {
 
-        foreach(var resourceid in request.ResourceIdsList)
+        foreach (var resourceid in request.ResourceIdsList)
         {
             var isResourceAvailable = _bookingDateValidationService.IsResourceAvailableAsync(resourceid, request.StartDate, request.EndDate);
 

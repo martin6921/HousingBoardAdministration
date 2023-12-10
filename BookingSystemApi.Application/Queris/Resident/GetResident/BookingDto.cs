@@ -1,12 +1,4 @@
-﻿using BookingSystemApi.Application.Queris.Booking.Dto;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BookingSystemApi.Application.Queris.Resident.GetResident
+﻿namespace BookingSystemApi.Application.Queris.Resident.GetResident
 {
     public class BookingDto
     {
@@ -14,6 +6,6 @@ namespace BookingSystemApi.Application.Queris.Resident.GetResident
 
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        
+
     }
 }

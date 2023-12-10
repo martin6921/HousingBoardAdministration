@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace HousingBoardApi.Application.Queries.Meeting.GetAllMeetings;
+﻿namespace HousingBoardApi.Application.Queries.Meeting.GetAllMeetings;
 
 public class GetAllMeetingsQueryResult
 {

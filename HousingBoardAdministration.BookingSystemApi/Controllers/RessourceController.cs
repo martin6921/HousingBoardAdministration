@@ -1,7 +1,6 @@
 ﻿using BookingSystemApi.Application.Commands.Resource.Create;
 using BookingSystemApi.Application.Commands.Resource.Delete;
 using BookingSystemApi.Application.Commands.Resource.Edit;
-using BookingSystemApi.Application.IRepositories;
 using BookingSystemApi.Application.Queris.Resource.GetAllResourcesQuery;
 using BookingSystemApi.Application.Queris.Resource.GetResourcesQuery;
 using MediatR;
@@ -23,7 +22,7 @@ namespace HousingBoardAdministration.BookingSystemApi.Controllers
 
 
         [HttpPost]
-        public ActionResult Post([FromBody]CreateResourceCommand request)
+        public ActionResult Post([FromBody] CreateResourceCommand request)
         {
             try
             {

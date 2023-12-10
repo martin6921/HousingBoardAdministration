@@ -1,9 +1,4 @@
 ﻿using BookingSystemApi.Application.IRepositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BookingSystemApi.Application.Commands.Resource.Edit
 {
@@ -22,10 +17,10 @@ namespace BookingSystemApi.Application.Commands.Resource.Edit
             //doit
             model.Edit(request.Specification, request.Description, request.Price, request.RowVersion);
             //save
-           _resourceRepository.Update(model);
+            _resourceRepository.Update(model);
 
             return Task.CompletedTask;
-           
+
         }
     }
 }

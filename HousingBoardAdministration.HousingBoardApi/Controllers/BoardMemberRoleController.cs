@@ -1,5 +1,4 @@
-﻿using HousingBoardApi.Application.Commands.BoardMember.Create;
-using HousingBoardApi.Application.Commands.BoardMemberRole.Create;
+﻿using HousingBoardApi.Application.Commands.BoardMemberRole.Create;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,7 +16,7 @@ namespace HousingBoardAdministration.HousingBoardApi.Controllers
         }
 
         [HttpPost]
-        public ActionResult Post([FromBody]CreateBoardMemberRoleCommand request)
+        public ActionResult Post([FromBody] CreateBoardMemberRoleCommand request)
         {
             try
             {

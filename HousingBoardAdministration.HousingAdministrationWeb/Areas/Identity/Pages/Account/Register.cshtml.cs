@@ -2,27 +2,19 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 #nullable disable
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Security.Claims;
-using System.Text;
-using System.Text.Encodings.Web;
-using System.Threading;
-using System.Threading.Tasks;
 using HousingBoardAdministration.HousingAdministrationWeb.Areas.Identity.Pages.Account.ListViewModels;
 using HousingBoardAdministration.HousingAdministrationWeb.UserManagement;
-using HousingBoardAdministration.HousingAdministrationWeb.UserManagement.Extension;
 using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.WebUtilities;
-using Microsoft.Extensions.Logging;
+using System.ComponentModel.DataAnnotations;
+using System.Security.Claims;
+using System.Text;
+using System.Text.Encodings.Web;
 
 namespace HousingBoardAdministration.HousingAdministrationWeb.Areas.Identity.Pages.Account
 {
@@ -147,8 +139,9 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Areas.Identity.Pag
         //Handles creation of BoardMember User using HousingBoardBack API
         public async Task CreateBoardMember(InputModel inputModel)
         {
-            await _bffClient.CreateBoardMemberAsync(new CreateBoardMemberDto { 
-            
+            await _bffClient.CreateBoardMemberAsync(new CreateBoardMemberDto
+            {
+
                 UserName = inputModel.Email,
                 FirstName = inputModel.FirstName,
                 LastName = inputModel.LastName,
@@ -172,9 +165,9 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Areas.Identity.Pag
 
         public async Task CreateResidentOrBoardMemberIncludingClaims(IdentityUser user)
         {
-            if(AdminPermissionSelected || BoardMemberPermissionSelected)
+            if (AdminPermissionSelected || BoardMemberPermissionSelected)
             {
-                if(AdminPermissionSelected)
+                if (AdminPermissionSelected)
                 {
                     await _userManager.AddClaimAsync(user, new Claim(ClaimsTypes.Admin, "admin"));
                 }

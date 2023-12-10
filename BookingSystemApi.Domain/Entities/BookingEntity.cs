@@ -1,6 +1,4 @@
-﻿using System.Security.Cryptography.X509Certificates;
-
-namespace BookingSystemApi.Domain.Entities;
+﻿namespace BookingSystemApi.Domain.Entities;
 
 public class BookingEntity : BaseEntity
 {
@@ -10,7 +8,7 @@ public class BookingEntity : BaseEntity
     }
     public void Edit(DateTime startdate, DateTime endtime)
     {
-       
+
         StartDate = startdate;
         EndDate = endtime;
 
@@ -18,7 +16,7 @@ public class BookingEntity : BaseEntity
 
     public BookingEntity(List<ResourceEntity> resources, DateTime startDate, DateTime endDate)
     {
-       
+
         Resources = resources;
         StartDate = startDate;
         EndDate = endDate;

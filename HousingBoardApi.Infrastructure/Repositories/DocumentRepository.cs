@@ -1,5 +1,4 @@
-﻿using Azure.Core;
-using HousingBoardApi.Application.Commands.Document.Create;
+﻿using HousingBoardApi.Application.Commands.Document.Create;
 using HousingBoardApi.Application.Commands.Document.Delete;
 using HousingBoardApi.Application.Queries.Document.GetAllDocuments;
 using HousingBoardApi.Application.Queries.Document.GetDocument;
@@ -23,7 +22,7 @@ public class DocumentRepository : IDocumentRepository
 
         _dbContext.Attach(documentType);
         _dbContext.Attach(meeting);
-        _dbContext.Attach(documentOwner); 
+        _dbContext.Attach(documentOwner);
 
         DocumentEntity newDocument = new DocumentEntity
         {

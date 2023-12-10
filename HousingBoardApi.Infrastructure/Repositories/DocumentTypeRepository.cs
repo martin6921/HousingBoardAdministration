@@ -1,7 +1,5 @@
 ﻿
 using HousingBoardApi.Application.Queries.DocumentType.GetAllDocumentTypes;
-using HousingBoardApi.Application.Queries.Meeting.GetAllMeetings;
-using HousingBoardApi.Application.Queries.Meeting;
 
 namespace HousingBoardApi.Infrastructure.Repositories;
 

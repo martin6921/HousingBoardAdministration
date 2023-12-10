@@ -13,7 +13,7 @@ public class BookingRepository : IBookingRepository
 {
     private readonly BookingSystemDbContext _db;
 
-    public BookingRepository(BookingSystemDbContext db) 
+    public BookingRepository(BookingSystemDbContext db)
     {
         _db = db;
     }
@@ -24,7 +24,7 @@ public class BookingRepository : IBookingRepository
         _db.SaveChanges();
     }
 
-     void IBookingRepository.Edit(BookingEntity model)
+    void IBookingRepository.Edit(BookingEntity model)
     {
         _db.Update(model);
         _db.SaveChanges();
@@ -55,7 +55,7 @@ public class BookingRepository : IBookingRepository
         };
     }
 
-     BookingEntity IBookingRepository.Load(Guid id)
+    BookingEntity IBookingRepository.Load(Guid id)
     {
         var model = _db.BookingEntities.FirstOrDefault(x => x.Id == id);
         return model == null ? throw new Exception("Ingen Booking fundet i databasen") : model;
@@ -82,7 +82,7 @@ public class BookingRepository : IBookingRepository
                 EndDate = request.EndDate,
                 BookingOwner = resident,
                 Resources = resourceList
-                 
+
             };
 
             _db.Add(model);
@@ -98,7 +98,7 @@ public class BookingRepository : IBookingRepository
 
     IEnumerable<BookingGetAllQueryResultDto> IBookingRepository.GetAll(Guid userId)
     {
-        foreach (var model in _db.BookingEntities.AsNoTracking().Include(x=>x.BookingOwner).Where(booking => booking.BookingOwner.Id == userId).ToList())
+        foreach (var model in _db.BookingEntities.AsNoTracking().Include(x => x.BookingOwner).Where(booking => booking.BookingOwner.Id == userId).ToList())
         {
             yield return new BookingGetAllQueryResultDto
             {

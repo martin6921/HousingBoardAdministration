@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace HousingBoardApi.Domain.Entities;
+﻿namespace HousingBoardApi.Domain.Entities;
 
 public class MeetingTypeEntity : BaseEntity
 {

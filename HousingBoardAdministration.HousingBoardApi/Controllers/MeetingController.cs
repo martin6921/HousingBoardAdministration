@@ -36,7 +36,7 @@ namespace HousingBoardAdministration.HousingBoardApi.Controllers
         }
 
         [HttpPost]
-        public ActionResult Post([FromBody]CreateMeetingCommand request)
+        public ActionResult Post([FromBody] CreateMeetingCommand request)
         {
             try
             {
@@ -52,7 +52,7 @@ namespace HousingBoardAdministration.HousingBoardApi.Controllers
 
 
         [HttpPut]
-        public ActionResult Put([FromBody]EditMeetingCommand request)
+        public ActionResult Put([FromBody] EditMeetingCommand request)
         {
             try
             {
@@ -76,7 +76,7 @@ namespace HousingBoardAdministration.HousingBoardApi.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<GetMeetingQueryResult>> Get(Guid id)
         {
-            var result = await _mediator.Send(new GetMeetingQuery { Id = id});
+            var result = await _mediator.Send(new GetMeetingQuery { Id = id });
             return result;
         }
     }

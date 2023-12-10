@@ -1,9 +1,4 @@
 ﻿using HousingBoardApi.Application.IRepositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HousingBoardApi.Application.Commands.Document.Edit
 {
@@ -18,16 +13,16 @@ namespace HousingBoardApi.Application.Commands.Document.Edit
 
         Task IRequestHandler<EditDocumentCommand>.Handle(EditDocumentCommand request, CancellationToken cancellationToken)
         {
-        //load
-        DocumentEntity document = _DocumentRepository.Load(request.Id);
+            //load
+            DocumentEntity document = _DocumentRepository.Load(request.Id);
 
-        //edit
-        document.Edit(request.Title, request.RowVersion);
+            //edit
+            document.Edit(request.Title, request.RowVersion);
 
-        //Save
-        _DocumentRepository.Edit(document);
+            //Save
+            _DocumentRepository.Edit(document);
 
-        return Task.CompletedTask;
+            return Task.CompletedTask;
         }
     }
 }

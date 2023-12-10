@@ -1,12 +1,4 @@
-﻿using BookingSystemApi.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BookingSystemApi.Application.Queris.Resource.GetAllResourcesQuery
+﻿namespace BookingSystemApi.Application.Queris.Resource.GetAllResourcesQuery
 {
     public class GetAllResourcesQueryResult
     {

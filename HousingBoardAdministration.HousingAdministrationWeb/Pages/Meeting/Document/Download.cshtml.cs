@@ -23,7 +23,7 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.Meeting.Docu
                 return NotFound(); // Filen blev ikke fundet eller er tom
             }
 
-            return File(newByte, "application/octet-stream", document.Title +".pdf");
+            return File(newByte, "application/octet-stream", document.Title + ".pdf");
         }
     }
 }

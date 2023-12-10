@@ -1,11 +1,9 @@
 ﻿using HousingBoardApi.Application.Commands.Meeting.Create;
 using HousingBoardApi.Application.Commands.Meeting.Delete;
-using HousingBoardApi.Application.Queries.Document.GetAllDocuments;
 using HousingBoardApi.Application.Queries.Document.GetDocument;
 using HousingBoardApi.Application.Queries.Meeting;
 using HousingBoardApi.Application.Queries.Meeting.GetAllMeetings;
 using HousingBoardApi.Application.Queries.Meeting.GetMeeting;
-using Microsoft.EntityFrameworkCore;
 
 
 namespace HousingBoardApi.Infrastructure.Repositories;
@@ -46,7 +44,7 @@ public class MeetingRepository : IMeetingRepository
         {
             throw new Exception("Der var et dokument under mødet");
         }
-        
+
     }
 
     void IMeetingRepository.Add(CreateMeetingCommand request)
@@ -96,7 +94,7 @@ public class MeetingRepository : IMeetingRepository
             MeetingTime = model.MeetingTime,
             Description = model.Description,
             RowVersion = model.RowVersion,
-            
+
             Documents = model.Documents.Select(doc => new DocumentDto
             {
                 Id = doc.Id,

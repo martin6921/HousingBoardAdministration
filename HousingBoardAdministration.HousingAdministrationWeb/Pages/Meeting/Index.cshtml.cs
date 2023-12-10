@@ -24,7 +24,7 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.Meeting
         public async Task<ActionResult> OnGet()
         {
             var meetings = await _bffClient.GetAllMeetingsAsync();
-            MeetingsViewModel = meetings.Where(x=>x.MeetingTime >= DateTime.Now).ToList();
+            MeetingsViewModel = meetings.Where(x => x.MeetingTime >= DateTime.Now).ToList();
             OldMeetingsViewModel = meetings.Where(x => x.MeetingTime < DateTime.Now).ToList();
 
             return Page();

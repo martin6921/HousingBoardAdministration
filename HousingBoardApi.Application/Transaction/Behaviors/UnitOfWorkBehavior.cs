@@ -12,7 +12,7 @@ public sealed class UnitOfWorkBehavior<TRequest, TResponse> : IPipelineBehavior<
         _unitOfWork = unitOfWork;
     }
 
-    
+
 
     private static bool IsNotCommand()
     {

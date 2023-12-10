@@ -1,16 +1,8 @@
-﻿using HousingBoardApi.Application.Commands.Meeting.Create;
-using HousingBoardApi.Application.Commands.Meeting.Edit;
+﻿using HousingBoardApi.Application.Commands.Meeting.Edit;
 using HousingBoardApi.Application.IRepositories;
-using HousingBoardApi.Application.Messages.Events;
-using HousingBoardApi.Application.Queries.Meeting.GetMeeting;
 using HousingBoardApi.Domain.Entities;
 using MediatR;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HousingBoardApi.Test.Meeting.Commands
 {

@@ -1,9 +1,5 @@
 ﻿using HousingBoardApi.Application.IRepositories;
-using HousingBoardApi.Application.Messages;
 using HousingBoardApi.Application.Messages.Events;
-using HousingBoardApi.Domain.Mail;
-using MediatR;
-using System;
 
 namespace HousingBoardApi.Application.Commands.Meeting.Edit;
 

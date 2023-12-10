@@ -2,7 +2,6 @@
 using HousingBoardApi.Application.Commands.Meeting.Delete;
 using HousingBoardApi.Application.Queries.Meeting.GetAllMeetings;
 using HousingBoardApi.Application.Queries.Meeting.GetMeeting;
-using HousingBoardApi.Domain.Entities;
 
 
 namespace HousingBoardApi.Application.IRepositories;

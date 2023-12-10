@@ -1,10 +1,4 @@
 ﻿using BookingSystemApi.Application.IRepositories;
-using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BookingSystemApi.Application.Commands.Resident.Create
 {
@@ -12,7 +6,7 @@ namespace BookingSystemApi.Application.Commands.Resident.Create
     {
         private readonly IResidentRepository _residentRepository;
 
-        public CreateResidentCommandHandler(IResidentRepository residentRepository) 
+        public CreateResidentCommandHandler(IResidentRepository residentRepository)
         {
             _residentRepository = residentRepository;
         }

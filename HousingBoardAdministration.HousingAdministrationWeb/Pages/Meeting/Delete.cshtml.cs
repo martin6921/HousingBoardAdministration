@@ -1,4 +1,3 @@
-using HousingBoardAdministration.HousingAdministrationWeb.Pages.Meeting.Document;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -15,7 +14,7 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.Meeting
             this._bffClient = bffClient;
         }
 
-        public static bool ContainsDocument {  get; set; }
+        public static bool ContainsDocument { get; set; }
 
         [BindProperty]
         public MeetingDeleteViewModel MeetingModel { get; set; } = new();

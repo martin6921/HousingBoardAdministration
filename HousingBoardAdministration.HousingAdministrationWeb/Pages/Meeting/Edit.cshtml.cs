@@ -19,10 +19,10 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.Meeting
         public async Task<IActionResult> OnGet(Guid id)
         {
             var result = await _bffClient.GetMeetingAsync(id);
-            MeetingModel = new MeetingEditViewModel 
+            MeetingModel = new MeetingEditViewModel
             {
-                Id = result.Id, 
-                Title = result.Title, 
+                Id = result.Id,
+                Title = result.Title,
                 Description = result.Description,
                 AddressLocation = result.AddressLocation,
                 MeetingTime = result.MeetingTime,

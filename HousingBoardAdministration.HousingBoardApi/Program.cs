@@ -1,9 +1,8 @@
+using HousingBoardApi.Application;
+using HousingBoardApi.Domain.Mail;
+using HousingBoardApi.Infrastructure;
 using HousingBoardApi.SqlServerContext;
 using Microsoft.EntityFrameworkCore;
-using HousingBoardApi.Infrastructure;
-using HousingBoardApi.Application;
-using Microsoft.AspNetCore.Authorization;
-using HousingBoardApi.Domain.Mail;
 
 var builder = WebApplication.CreateBuilder(args);
 

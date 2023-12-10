@@ -2,13 +2,7 @@
 using BookingSystemApi.Application.IRepositories;
 using BookingSystemApi.Application.Queris.Resource.GetResourcesQuery;
 using BookingSystemApi.Domain.DomainService;
-using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Resources;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BookingSystemApi.Test.BookingIsOverlapping;
 

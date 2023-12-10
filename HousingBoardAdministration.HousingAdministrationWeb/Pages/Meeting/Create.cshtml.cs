@@ -1,4 +1,3 @@
-using HousingBoardAdministration.HousingAdministrationWeb.Pages.HousingBoard.BoardMember;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -29,7 +28,7 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.Meeting
         public async Task OnGet()
         {
             ListOfAllMeetingTypes = await _bffClient.GetAllMeetingTypesAsync();
-            MeetingTypeSelectList = new SelectList(ListOfAllMeetingTypes, "Id","Type");
+            MeetingTypeSelectList = new SelectList(ListOfAllMeetingTypes, "Id", "Type");
         }
         public IActionResult OnPost()
         {

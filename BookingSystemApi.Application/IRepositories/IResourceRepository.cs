@@ -9,7 +9,7 @@ namespace BookingSystemApi.Application.IRepositories;
 public interface IResourceRepository
 {
     void Create(CreateResourceCommand request);
-       
+
     void Delete(DeleteResourceCommad request);
     GetResourcesQueryResult Get(GetResourcesQuery request);
     IEnumerable<GetAllResourcesQueryResult> GetAll(GetAllResourcesQuery request);

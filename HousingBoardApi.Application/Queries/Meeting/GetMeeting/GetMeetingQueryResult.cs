@@ -1,5 +1,4 @@
-﻿using HousingBoardApi.Application.Queries.Document.GetDocument;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace HousingBoardApi.Application.Queries.Meeting.GetMeeting;
 

@@ -75,7 +75,7 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.HousingBoard
         {
             if (!ModelState.IsValid) return Page();
 
-            await _bffClient.EditBoardMemberAsync(new BoardMemberEditViewModel 
+            await _bffClient.EditBoardMemberAsync(new BoardMemberEditViewModel
             {
                 Id = BoardMemberViewModel.Id,
                 FirstName = BoardMemberViewModel.FirstName,
@@ -89,7 +89,7 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.HousingBoard
                 return RedirectToPage("/Housingboard/index");
             }
 
-            await _bffClient.CreateBoardMemberRoleAsync(new CreateBoardMemberRoleDto 
+            await _bffClient.CreateBoardMemberRoleAsync(new CreateBoardMemberRoleDto
             {
                 RoleId = SelectedRoleType,
                 BoardMemberId = BoardMemberViewModel.Id

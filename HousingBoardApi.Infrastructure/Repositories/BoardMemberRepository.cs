@@ -1,8 +1,8 @@
 ﻿using HousingBoardApi.Application.Commands.BoardMember.Create;
 using HousingBoardApi.Application.Commands.BoardMember.Delete;
+using HousingBoardApi.Application.Queries.BoardMember;
 using HousingBoardApi.Application.Queries.BoardMember.GetAllBoardMembersWithRoles;
 using HousingBoardApi.Application.Queries.BoardMember.GetBoardMemberWithRole;
-using HousingBoardApi.Application.Queries.BoardMember;
 
 namespace HousingBoardApi.Infrastructure.Repositories
 {
@@ -83,7 +83,7 @@ namespace HousingBoardApi.Infrastructure.Repositories
                     LastName = boardMemberModel.LastName,
                     ResidentAddress = boardMemberModel.ResidentAddress,
                     RowVersion = boardMemberModel.RowVersion,
-                    BoardMemberRoles = boardMemberModel.Roles.Where(y=>y.EndDate == null).Select(x => new BoardMemberRoleDto
+                    BoardMemberRoles = boardMemberModel.Roles.Where(y => y.EndDate == null).Select(x => new BoardMemberRoleDto
                     {
                         StartDate = x.StartDate,
                         EndDate = x.EndDate,
@@ -99,7 +99,7 @@ namespace HousingBoardApi.Infrastructure.Repositories
         }
 
 
-        
+
 
         IEnumerable<GetAllBoardMembersWithRolesQueryResult> IBoardMemberRepository.GetAll()
         {
@@ -126,7 +126,7 @@ namespace HousingBoardApi.Infrastructure.Repositories
                     FirstName = model.FirstName,
                     LastName = model.LastName,
                     ResidentAddress = model.ResidentAddress,
-                    BoardMemberCurrentRole = new BoardMemberRoleDto { StartDate = currentRole.StartDate, EndDate = currentRole.EndDate, Role = role}
+                    BoardMemberCurrentRole = new BoardMemberRoleDto { StartDate = currentRole.StartDate, EndDate = currentRole.EndDate, Role = role }
                 };
             }
         }

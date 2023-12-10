@@ -41,7 +41,7 @@ namespace HousingBoardAdministration.HousingAdministrationWeb.Pages.Meeting.Docu
         {
             if (!ModelState.IsValid) return Page();
 
-            if(DocumentOwnerId == Guid.Parse(_userManager.GetUserId(User)))
+            if (DocumentOwnerId == Guid.Parse(_userManager.GetUserId(User)))
             {
                 await _bffClient.DeleteDocumentAsync(DocumentModel);
             }

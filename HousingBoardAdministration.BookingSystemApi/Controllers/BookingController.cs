@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using MediatR;
-using BookingSystemApi.Application.Queris.Booking.Interface;
-using BookingSystemApi.Application.Queris.Booking.Dto;
+﻿using BookingSystemApi.Application.Commands.Booking.Create;
 using BookingSystemApi.Application.Commands.Booking.Delete;
-using BookingSystemApi.Application.Commands.Booking.Create;
 using BookingSystemApi.Application.Commands.Booking.Update;
+using BookingSystemApi.Application.Queris.Booking.Dto;
+using BookingSystemApi.Application.Queris.Booking.Interface;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
 
 namespace HousingBoardAdministration.BookingSystemApi.Controllers
 {
@@ -37,7 +37,7 @@ namespace HousingBoardAdministration.BookingSystemApi.Controllers
         }
 
         [HttpPost]
-        public Task<bool> Post([FromBody]CreateBookingCommand request)
+        public Task<bool> Post([FromBody] CreateBookingCommand request)
         {
             try
             {
@@ -51,7 +51,7 @@ namespace HousingBoardAdministration.BookingSystemApi.Controllers
         }
 
         [HttpPut]
-        public ActionResult Put([FromBody]EditBookingCommand request)
+        public ActionResult Put([FromBody] EditBookingCommand request)
         {
             try
             {
@@ -72,11 +72,11 @@ namespace HousingBoardAdministration.BookingSystemApi.Controllers
 
         }
         [HttpGet("{id}")]
-        public ActionResult<BookingGetQueryResultDto> Get(Guid id) 
-        { 
-         var result = _bookingGetQuery.Get(id);
+        public ActionResult<BookingGetQueryResultDto> Get(Guid id)
+        {
+            var result = _bookingGetQuery.Get(id);
             return result;
-        
+
         }
     }
 }
